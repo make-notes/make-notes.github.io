@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>My Site Blog</title>
+        <link>https://make-notes.github.io/blog</link>
+        <description>My Site Blog</description>
+        <lastBuildDate>Thu, 26 Aug 2021 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>zh-Hans</language>
+        <item>
+            <title><![CDATA[title]]></title>
+            <link>https://make-notes.github.io/blog/welcome</link>
+            <guid>https://make-notes.github.io/blog/welcome</guid>
+            <pubDate>Thu, 26 Aug 2021 00:00:00 GMT</pubDate>
+            <category>facebook</category>
+            <category>hello</category>
+            <category>docusaurus</category>
+        </item>
+    </channel>
+</rss>

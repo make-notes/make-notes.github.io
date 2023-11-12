@@ -1,0 +1,797 @@
+<!doctype html>
+<html lang="zh-Hans" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-服务端/Linux核心技能与应用/index" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.0.0">
+<title data-rh="true">Linux 核心技能与应用 | My Site</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://make-notes.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://make-notes.github.io/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://make-notes.github.io/docs/服务端/Linux核心技能与应用/"><meta data-rh="true" property="og:locale" content="zh_Hans"><meta data-rh="true" name="docusaurus_locale" content="zh-Hans"><meta data-rh="true" name="docsearch:language" content="zh-Hans"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Linux 核心技能与应用 | My Site"><meta data-rh="true" name="description" content="主流桌面管理器"><meta data-rh="true" property="og:description" content="主流桌面管理器"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://make-notes.github.io/docs/服务端/Linux核心技能与应用/"><link data-rh="true" rel="alternate" href="https://make-notes.github.io/docs/服务端/Linux核心技能与应用/" hreflang="zh-Hans"><link data-rh="true" rel="alternate" href="https://make-notes.github.io/docs/服务端/Linux核心技能与应用/" hreflang="x-default"><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="My Site RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="My Site Atom Feed"><link rel="stylesheet" href="/assets/css/styles.4f4955ca.css">
+<script src="/assets/js/runtime~main.64f77331.js" defer="defer"></script>
+<script src="/assets/js/main.0cac474c.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return localStorage.getItem("theme")}catch(t){}}();t(null!==e?e:"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="跳到主要内容"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">跳到主要内容</a></div><nav aria-label="主导航" class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><button aria-label="切换导航栏" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/logo.svg" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">首页</b></a></div><div class="navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">英语</a><ul class="dropdown__menu"><li><a class="dropdown__link" href="/docs/英语/裕兴新概念/">裕兴新概念</a></li><li><a class="dropdown__link" href="/docs/英语/董必乐英语/">董必乐英语</a></li><li><a class="dropdown__link" href="/docs/英语/老司机刘彬/">老司机刘彬</a></li><li><a class="dropdown__link" href="/docs/英语/英语兔/">英语兔</a></li><li><a class="dropdown__link" href="/docs/英语/原力英语/">原力英语</a></li><li><a class="dropdown__link" href="/docs/英语/e学苑在线教育/">e学苑在线教育</a></li></ul></div><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link">服务器</a><ul class="dropdown__menu"><li><a class="dropdown__link" href="/docs/服务端/Docker系统性入门+进阶实践/">Docker 系统性入门+进阶实践</a></li><li><a aria-current="page" class="dropdown__link dropdown__link--active" href="/docs/服务端/Linux核心技能与应用/">Linux核心技能与应用</a></li></ul></div><a class="navbar__item navbar__link" href="/blog/">博客</a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="切换浅色/暗黑模式（当前为浅色模式）" aria-label="切换浅色/暗黑模式（当前为浅色模式）" aria-live="polite"><svg viewBox="0 0 24 24" width="24" height="24" class="lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" class="darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="回到顶部" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="文档侧边栏" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist menu__link--active" aria-expanded="true" href="/docs/服务端/">服务端</a><button aria-label="折叠侧边栏分类 &#x27;服务端&#x27;" type="button" class="clean-btn menu__caret"></button></div><ul style="display:block;overflow:visible;height:auto" class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/服务端/Docker系统性入门+进阶实践/">Docker系统性入门+进阶实践</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/服务端/Linux核心技能与应用/">Linux 核  心技能与应用</a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="menu__link menu__link--sublist" aria-expanded="false" href="/docs/英语/">英语</a><button aria-label="展开侧边栏分类 &#x27;英语&#x27;" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="页面路径"><ul class="breadcrumbs" itemscope="" itemtype="https://schema.org/BreadcrumbList"><li class="breadcrumbs__item"><a aria-label="主页面" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item"><a class="breadcrumbs__link" itemprop="item" href="/docs/服务端/"><span itemprop="name">服务端</span></a><meta itemprop="position" content="1"></li><li itemscope="" itemprop="itemListElement" itemtype="https://schema.org/ListItem" class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link" itemprop="name">Linux 核心技能与应用</span><meta itemprop="position" content="2"></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><h1>Linux 核心技能与应用</h1>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="主流桌面管理器">主流桌面管理器<a href="#主流桌面管理器" class="hash-link" aria-label="主流桌面管理器的直接链接" title="主流桌面管理器的直接链接">​</a></h3>
+<ul>
+<li>Gnome、KDE、XFCE</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="命令行每行都会有的前缀意思">命令行每行都会有的前缀意思<a href="#命令行每行都会有的前缀意思" class="hash-link" aria-label="命令行每行都会有的前缀意思的直接链接" title="命令行每行都会有的前缀意思的直接链接">​</a></h3>
+<p>[waldron@host220 ~]$</p>
+<ul>
+<li>waldron 当前用的名字(username)。Linux 是多用户的操作系统</li>
+<li>@ 前面是用户名，后面是所在的域。例如 xxx.gmail.com</li>
+<li>host220 电脑/主机的名字。也就是主机名(hostname)</li>
+<li>~ 当前所在目录的名字，会随着用户进入不同目录而改变<!-- -->
+<ul>
+<li>~ 表示当前用户的用户目录(home directory)</li>
+</ul>
+</li>
+<li>$ 指示所具有的权限<!-- -->
+<ul>
+<li>$ 表示普通用户，有权限的限制</li>
+</ul>
+</li>
+<li># 表示超级用户，也就是 root(英语“根”的意思)<!-- -->
+<ul>
+<li>root 拥有所有权限</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="常见命令">常见命令<a href="#常见命令" class="hash-link" aria-label="常见命令的直接链接" title="常见命令的直接链接">​</a></h3>
+<ul>
+<li>
+<p>sudo su 切换用户</p>
+</li>
+<li>
+<p>退出 root 身份回到普通用户 ctrl + d 或 exit 命令</p>
+</li>
+<li>
+<p>whoami 查看当前用户</p>
+</li>
+<li>
+<p>hostname 查看主机名称</p>
+</li>
+<li>
+<p>date</p>
+<ul>
+<li>date 是“日期”的意思，用于显示当前时间</li>
+<li>CST 是 Central Standard Time 的缩写，表示“中央标准时间”</li>
+</ul>
+</li>
+<li>
+<p>ls</p>
+<ul>
+<li>查看当前目录的文件或文件夹</li>
+<li>ls 是 list 的缩写。list 是“列举”，“列出”的意思</li>
+</ul>
+</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="命令参数">命令参数<a href="#命令参数" class="hash-link" aria-label="命令参数的直接链接" title="命令参数的直接链接">​</a></h5>
+<ul>
+<li>短参数通常用空格隔开，eg: command -p 10</li>
+<li>长参数通常用等号隔开，eg: command --parameter=10</li>
+<li>多个短参数可以连写，多个长参数只能用空格隔开</li>
+</ul>
+<h5 class="anchor anchorWithStickyNavbar_LWe7" id="命令的历史记录">命令的历史记录<a href="#命令的历史记录" class="hash-link" aria-label="命令的历史记录的直接链接" title="命令的历史记录的直接链接">​</a></h5>
+<ul>
+<li>向上键：按时间顺序向前查询用过的命令，每按一次就前进一个命令</li>
+<li>向下键：按时间顺序向后查询用过的命令，每按一次就前进一个命令</li>
+<li>ctrl + r：用于查询使用过的命令</li>
+<li>history：列出之前用过的所有命令，使用<code>!编号</code>重新运行该条命令</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="快捷键">快捷键<a href="#快捷键" class="hash-link" aria-label="快捷键的直接链接" title="快捷键的直接链接">​</a></h4>
+<ul>
+<li>Tab 补全命令、路径等</li>
+<li>Ctrl + L 用于清理终端内容，同 clear 命令</li>
+<li>Ctrl + D 给终端传递 EOF（End Of File，文件结束符），关闭终端</li>
+<li>Shift + PgUp 用于向上滚屏，与鼠标的滚轮向上滚屏是一个效果</li>
+<li>Ctrl + A 光标跳到一行命令的开头，按 Home 一样</li>
+<li>Ctrl + E 光标跳到一行命令的结尾，按 End 一样</li>
+<li>Ctrl + U 删除所有在光标左侧的命令字符</li>
+<li>Ctrl + K 删除所有在光标右侧的命令字符</li>
+<li>Ctrl + W 删除光标左侧的一个“单词”，“单词”指用空格隔开的一个字符串。例如-a 就是一个“单词”</li>
+<li>Ctrl + Y 粘贴用 Ctrl+U、Ctrl+K、Ctrl+W 删除的字符串，有点像 剪切-粘贴</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="linux-的目录组织参考地址">Linux 的目录组织，<a href="https://linuxtoy.org/archives/linux-file-structure.html" target="_blank" rel="noopener noreferrer">参考地址</a><a href="#linux-的目录组织参考地址" class="hash-link" aria-label="linux-的目录组织参考地址的直接链接" title="linux-的目录组织参考地址的直接链接">​</a></h4>
+<ul>
+<li>bin: 包含所有用户使用的可执行程序。英语 binary 的缩写，表示“二进制文件”</li>
+<li>boot：包含与 Linux 启动密切相关的文件。英语 boot 表示“启动”</li>
+<li>dev：英语 device 的缩写，表示“设备”，它里面的子目录每一个对应一个外设。比如代表我们的光盘启动器的文件就会出现在这个目录下面</li>
+<li>etc：包含系统配置文件。法语 et cetea 的缩写，翻译英语就是 and so on，表示“...等等”</li>
+<li>home：每个用户都在 home 目录下有个和用户名一个的目录，除了 root 用户</li>
+<li>lib：包含被程序所调用的库文件。英语 library 的缩写，表示“库”，例如.so 结尾的文件，Windows 下这样的库文件是以.dll 结尾。</li>
+<li>media：可移动的外设（USB 盘、SD 卡、DVD、光盘...）。英语 media 表示“媒体”，插入电脑时 Linux 可以让我们通过 media 子目录来访问这些外设中的内容。</li>
+<li>mnt：有点类似 media 目录，但一般用于临时挂载一些装置。英语 mount 的缩写，表示“挂载”</li>
+<li>opt：用于安装多数第三方软件和插件。英语 optional application software package 的缩写，表示“可选的应用软件包”</li>
+<li>root：超级用户 root 的用户目录。英语“跟”的意思，一般用户在 home 下面</li>
+<li>sbin：包含系统级的重要可执行程序。英语 system binary 的缩写，表示“系统二进制文件”，比 bin 目录多了一个前缀 system（系统）</li>
+<li>srv：包含一些网络服务启动之后所需要取用的数据。英语 service 的缩写，表 示“服务”</li>
+<li>tmp：普通用户和程序存放临时文件的地方。英语 temporary 的缩写，表示“临时的”</li>
+<li>usr 安装了大部分用户要调用的程序。类似于 window 中的 C:\Windows 与 C:\Program Files 目录的集合，是最庞大的目录之一。表示“Unix 操作系统软件资源”（类似 etc，也是历史遗留命名）。是英语 Unix Software Resource 的缩写</li>
+<li>var：通常包括程序的数据，比如 log 文件，英语 variable 的缩写，表示“动态的，可变的”</li>
+<li>...</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="文件相关命令">文件相关命令<a href="#文件相关命令" class="hash-link" aria-label="文件相关命令的直接链接" title="文件相关命令的直接链接">​</a></h4>
+<ul>
+<li>pwd 用于显示当前所在目录</li>
+<li>which 用于获取命令的可执行文件的位置</li>
+<li>ls 列出文件和目录<!-- -->
+<ul>
+<li>-a 查看隐藏文件</li>
+<li>-l 查看详细列表</li>
+<li>-t 文件最后修改的时间</li>
+<li>-i 查看文件 inode，用于判断文件是否链接</li>
+</ul>
+</li>
+<li>cd 切换目录<!-- -->
+<ul>
+<li>相对路径：相对于当前目录</li>
+<li>绝对路径：相对于根目录</li>
+</ul>
+</li>
+<li>du 显示目录包含的文件大小，深入遍历每个目录的子目录，统计所有文件的大小。相对 ls -l 命令，du 命令统计的才是真正的文件大小<!-- -->
+<ul>
+<li>-h 以 K、M、G 的形式显示文件大小</li>
+<li>-a 显示文件和目录的大小</li>
+<li>-s 只显示文件和目录总大小</li>
+</ul>
+</li>
+<li>cat 一次性显示文件的所有内容。是 concatenate 的缩写，表示“链接/串联”，后跟文件名路径可以同时输出多个文件空格分割<!-- -->
+<ul>
+<li>-n 显示行数</li>
+</ul>
+</li>
+<li>less 分页显示文件内容。和 cat 最大区别是分页显示<!-- -->
+<ul>
+<li>空格键：翻页，与键盘上的 PageDown 效果一样</li>
+<li>b 键：后退一页，与 PageUp 效果一样</li>
+<li>回车键：前进一行，与方向下键效果一样</li>
+<li>y 键：后退一行，与方向上键效果一样</li>
+<li>d 键：前进半页（半个屏幕）</li>
+<li>u 键：后退半页（半个屏幕）</li>
+<li>q 键：停止读取文件，中止 less 命令</li>
+<li>= 键：显示处于当前文件位置</li>
+<li>h 显示帮助文档</li>
+<li>/ 搜索模式，支持正则匹配</li>
+<li>n 跳转至下一个符合搜索条件的地方，shift n 跳转至上一个</li>
+</ul>
+</li>
+<li>more 和 less 类型，没有 less 强大。比如不能向后翻页，只能往前</li>
+<li>head 显示文件开头几行，默认显示前 10 行<!-- -->
+<ul>
+<li>-n 显示行数</li>
+</ul>
+</li>
+<li>tail 显示文件结尾几行，默认显示后 10 行<!-- -->
+<ul>
+<li>-f 实时显示追踪文件的更新，默认每秒检查文件是否更新显示在界面上。</li>
+<li>-s 指定间隔检查秒数</li>
+</ul>
+</li>
+<li>touch 创建空白文件</li>
+<li>mkdir 创建目录<!-- -->
+<ul>
+<li>-p 递归创建目录结构</li>
+</ul>
+</li>
+<li>cp 拷贝文件/目录，类似复制粘贴<!-- -->
+<ul>
+<li>-r 或-R 递归拷贝</li>
+</ul>
+</li>
+<li>mv 移动文件/目录，类似剪切粘贴</li>
+<li>rm 删除文件/目录
+<code>如果先进入根目录执行 rm -rf / 则没有保护机制</code>
+<ul>
+<li>-i 向用户确认是否删除</li>
+<li>-f 强制删除。终端不会询问用户是否确定删除文件</li>
+<li>-r 递归删除</li>
+</ul>
+</li>
+<li>rmdir 只删除空目录</li>
+<li>ln 创建链接，默认创建硬链接。软链接可以指向目录，硬链接不行<!-- -->
+<ul>
+<li>Physica link: 物理连接或硬链接<!-- -->
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">[root@DESKTOP-AB12B3F test]# ls -l</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">total 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-rw-r--r-- 2 root root 0 Sep 12 16:02 file1</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-rw-r--r-- 2 root root 0 Sep 12 16:02 file2</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>都指向同一个文件内容，inode 一样。</li>
+<li>删除其中一个并不会删除指向的文件内容，只有全部删除才会删除文件内容。</li>
+<li>2 表示有两个文件拥有相同的 inode。</li>
+</ul>
+</li>
+<li>Symbolic link：符号链接或软连接<!-- -->
+<ul>
+<li>-s 创建软连接，类似 Windows 快捷方式</li>
+<li>file2 文件内容指向 file1 文件名，如果删除 file1，file2 则成为死链接。</li>
+<li>lrwxrwxrwx 首字母 l 表示软链接，硬链接和普通文件类似。</li>
+<li>1 表示拥有相同 inode 号的文件数。</li>
+</ul>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">[root@DESKTOP-AB12B3F test]# ls -l</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">total 0</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-rw-r--r-- 1 root root 0 Sep 12 16:17 file1</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">lrwxrwxrwx 1 root root 5 Sep 12 16:17 file2 -&gt; file1</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="用户与权限">用户与权限<a href="#用户与权限" class="hash-link" aria-label="用户与权限的直接链接" title="用户与权限的直接链接">​</a></h3>
+<ul>
+<li>sudo 以 root 身份运行命令</li>
+<li>su 切换用户身份</li>
+<li>su - 切换用户身份并自动到用户文件夹下</li>
+<li>useradd 添加新用户</li>
+<li>passwd 修改/设置密码</li>
+<li>userdel 删除用户<!-- -->
+<ul>
+<li>-r 或--remove 删除用户的时候连通删除用户文件夹</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="群组管理与权限管理">群组管理与权限管理<a href="#群组管理与权限管理" class="hash-link" aria-label="群组管理与权限管理的直接链接" title="群组管理与权限管理的直接链接">​</a></h3>
+<ul>
+<li>groupadd 创建群组</li>
+<li>usermod 修改用户账户<!-- -->
+<ul>
+<li>-l 对用户重命名。/home 中的用户文件夹名不会改变，需要手动修改</li>
+<li>-g 修改用户所在群组</li>
+<li>-G 将用户添加到多个群组，用逗号分割没有空格<!-- -->
+<ul>
+<li>使用 -G 会把用户从原先的群组中删除，加入到新群组</li>
+<li>-a 在不改变原来群组的基础上加入到新群组 <code>usermod -aG root waldron</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>groups 查询用户属于那个群组</li>
+<li>groupdel 删除群组</li>
+<li>chown 改变文件的所有者 <code>chown username filename</code>
+<ul>
+<li><code>chown username:groupname filename</code> 改变文件群组</li>
+<li>-R 递归操作</li>
+</ul>
+</li>
+<li>chgrp 改变文件的群组 <code>chown username dirname</code></li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="文件权限">文件权限<a href="#文件权限" class="hash-link" aria-label="文件权限的直接链接" title="文件权限的直接链接">​</a></h3>
+<ul>
+<li>
+<p>drwxrwxrwx</p>
+<ul>
+<li>d 属性</li>
+<li>rwx 所有者对此文件的访问权限</li>
+<li>rwx 群组用户此文件的访问权限</li>
+<li>rwx 其他用户此文件的访问权限<!-- -->
+<ul>
+<li>如果在相应位置有字母，表示有相应权限。短横-，表示没有相应权限</li>
+<li>d 目录（属性），英语 directory 缩写</li>
+<li>l 链接（属性），英语 link 缩写</li>
+<li>- 普通文件（属性）</li>
+<li>r 读，英语 read 缩写</li>
+<li>w 写/修改/删除，英语 write 缩写</li>
+<li>x 执行/运行，英语 execute 缩写。如果 x 权限在目录上，表示目录可读。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>chmod 修改访问权限</p>
+<ul>
+<li>
+<p>不需要 root 用户才能运行，只要是此文件所有者就可以用 chmod 来修改文件的访问权限</p>
+</li>
+<li>
+<p>-R 递归修改文件访问权限</p>
+</li>
+<li>
+<p>用数字来分配权限：chmod 的绝对用法</p>
+<table><thead><tr><th style="text-align:center">权限</th><th style="text-align:center">数字</th></tr></thead><tbody><tr><td style="text-align:center">r</td><td style="text-align:center">4</td></tr><tr><td style="text-align:center">w</td><td style="text-align:center">2</td></tr><tr><td style="text-align:center">x</td><td style="text-align:center">1</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">权限</th><th style="text-align:center">数字</th><th style="text-align:center">计算</th></tr></thead><tbody><tr><td style="text-align:center">---</td><td style="text-align:center">0</td><td style="text-align:center">0+0+0</td></tr><tr><td style="text-align:center">r--</td><td style="text-align:center">4</td><td style="text-align:center">4+0+0</td></tr><tr><td style="text-align:center">-w-</td><td style="text-align:center">2</td><td style="text-align:center">0+2+0</td></tr><tr><td style="text-align:center">--x</td><td style="text-align:center">1</td><td style="text-align:center">0+0+0</td></tr><tr><td style="text-align:center">rw-</td><td style="text-align:center">6</td><td style="text-align:center">4+0+0</td></tr><tr><td style="text-align:center">-wx</td><td style="text-align:center">3</td><td style="text-align:center">0+2+0</td></tr><tr><td style="text-align:center">r-x</td><td style="text-align:center">5</td><td style="text-align:center">0+0+0</td></tr><tr><td style="text-align:center">rwx</td><td style="text-align:center">7</td><td style="text-align:center">4+0+0</td></tr></tbody></table>
+</li>
+<li>
+<p>用字母来分配权限：chmod 的相对用法</p>
+<ul>
+<li>u: 所有者，user 缩写</li>
+<li>g: 群组用户， group 缩写</li>
+<li>o: 其他用户，other 缩写</li>
+<li>a: 所有用户，all 缩写</li>
+</ul>
+</li>
+<li>
+<p>和字母配合使用的符号</p>
+<ul>
+<li>+：添加权限</li>
+<li>-：去除权限</li>
+<li>=：分配权限</li>
+</ul>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">chmod u+rx filename 文件file的所有者添加读和运行权限</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">chmod u+r filename 文件file群组其他用户增加读权限</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">chmod o-r filename 文件file的其他用户移除读权限</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">chmod g+r o-r filename 文件file的群组其他用户增加读权限，其他用户移除读权限</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">chmod go-r filename 文件file的群组其他用户和其他用户均移除读的权限</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">chmod +x filename 文件file的所有用户增加运行权限</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">chmod u=rwx,g=r,o=- filename 文件file所有者分配读、写、执行权限</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="文本编辑器">文本编辑器<a href="#文本编辑器" class="hash-link" aria-label="文本编辑器的直接链接" title="文本编辑器的直接链接">​</a></h3>
+<ul>
+<li>Linux 终端文本剪辑器 Nano、Vim、Emacs<!-- -->
+<ul>
+<li>Nano 参数<!-- -->
+<ul>
+<li>-m 激活鼠标</li>
+<li>-i 激活自动缩进功能</li>
+<li>-A 激活 home 键功能，通常按 home 键光标会自动跳到一行的最开始，智能判断会识别缩进</li>
+</ul>
+</li>
+<li>Nano 配置 .nanorc<!-- -->
+<ul>
+<li>set mouse 激活鼠标</li>
+<li>set autoindent: 激活缩进</li>
+<li>set smarthome：激活智能 home 键</li>
+</ul>
+</li>
+<li>可以在每个用户下配置 Nano，也可以全局配置。全局配置在/etc/nanorc 下只能被 root 权限修改</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="软件安装">软件安装<a href="#软件安装" class="hash-link" aria-label="软件安装的直接链接" title="软件安装的直接链接">​</a></h3>
+<ul>
+<li>yum<!-- -->
+<ul>
+<li><a href="https://www.centos.org/download/mirrors/" target="_blank" rel="noopener noreferrer">源列表</a></li>
+<li>/etc/yum.repos.d/CentOS-Base.repo 配置软件仓库地址 <a href="https://blog.csdn.net/inslow/article/details/54177191" target="_blank" rel="noopener noreferrer">修改方法</a></li>
+<li>命令<!-- -->
+<ul>
+<li>yum update/upgrade 更新软件包，update 不删除旧包，upgrade 删除旧包</li>
+<li>yum search 搜索包</li>
+<li>yum install 安装</li>
+<li>yum localinstall *.rpm 安装本地 rpm 文件包</li>
+<li>yum remove/autoremove 卸载</li>
+<li>rpm -i *.rpm 安装本地 rpm 文件包</li>
+<li>rpm -e 包名 卸载使用 rpm 方式安装的软件包</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="rtfm-阅读手册">RTFM 阅读手册<a href="#rtfm-阅读手册" class="hash-link" aria-label="RTFM 阅读手册的直接链接" title="RTFM 阅读手册的直接链接">​</a></h3>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">  cp [OPTION]... [-T] SOURCE DEST</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  cp [OPTION]... SOURCE... DIRECTORY</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  cp [OPTION]... -t DIRECTORY SOURCE...</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>
+<p>安装手册 <code>yum install -y man-pages</code></p>
+</li>
+<li>
+<p>更新手册文档 <code>mandb</code></p>
+</li>
+<li>
+<p>使用方法</p>
+<ul>
+<li>输入 man + 数字 + 命令/函数，可以查到相关命令和函数，若不加数字，man 默认从数字较小的手册中寻找相关命令和函数</li>
+<li>man -k 通过关键词搜索命令 eg：<code>man -k copy</code>搜索与复制相关命令</li>
+</ul>
+</li>
+<li>
+<p>快捷键与 less 一致</p>
+</li>
+<li>
+<p>SYNOPSIS 区域语法总结</p>
+<ul>
+<li>粗体：原封不动输入</li>
+<li>下划线部分：用实际内容替换（有些参数例外，比如-t，原封不动输入）</li>
+<li>[-hvc]: []表示 hvc 可选，非强制</li>
+<li>a|b：a、b 选一，不能同时输入</li>
+<li>option...：省略号表示前面的内容可以输入任意多个</li>
+</ul>
+</li>
+<li>
+<p>apropos 查找命令与 man -k 一样</p>
+<ul>
+<li>eg：查询使用终端控制  音量 apropos sound</li>
+</ul>
+</li>
+<li>
+<p>替代命令</p>
+<ul>
+<li>-h、--help，没有 man 命令显示详细</li>
+<li>whatis，相当于 man 命令精简版，只列出 man 命令显示手册的开头部门，就是概述命令的作用</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="查找文件">查找文件<a href="#查找文件" class="hash-link" aria-label="查找文件的直接链接" title="查找文件的直接链接">​</a></h3>
+<ul>
+<li>
+<p>locate 快速查找，搜索包含关键字的所有文件和目录</p>
+<ul>
+<li>缺点：新建不久的文件不会被查询到，因为还没有收录进文件数据库。Linux 一般每天更新文件数据库，因此间隔 24 小时及以上就能查询到创建的文件。也可以 updatedb 强制更新文件数据库，只能使用 root 用户执行</li>
+<li>优点：不会实际查询硬盘，而是在文件数据库中查找记录所以很快。</li>
+</ul>
+</li>
+<li>
+<p>find 查找文件利器，允许对找到的文件做后续操作</p>
+<ul>
+<li>-size 文件大小查询，大于用 +、 小于用 -、没有表示等于<!-- -->
+<ul>
+<li>查找大于 10M <code>find /var -size +10M</code></li>
+<li>查询小于 10k <code>find /var -size -10k</code></li>
+</ul>
+</li>
+<li>-name 文件名查询 <code>find /var -name &#x27;*.log&#x27;</code></li>
+<li>-atime 最近访问时间查询 <code>find -name &quot;-*.txt&quot; -atime -7</code></li>
+<li>-type 文件类型查询 <code>find -type d</code></li>
+<li>-delete 删除查询到的文件 <code>find -name &quot;.jpg&quot; -delete</code></li>
+<li>-exec 执行查询到的文件 <code>find on -name &quot;*.txt&quot; -exec chmod 600 {} \;</code>，将查询到的所有.txt 文件的权限改为 600，<!-- --> 用查询到的每个文件做替代 \; 固定写法</li>
+<li>-ok 与 -exec 功能一致，只是会对操作做确认提示。</li>
+</ul>
+</li>
+<li>
+<p>两者区别，find 不会在文件数据库中查找文件记录，而是遍历硬盘。</p>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="数据操作">数据操作<a href="#数据操作" class="hash-link" aria-label="数据操作的直接链接" title="数据操作的直接链接">​</a></h3>
+<ul>
+<li>grep 筛选数据<!-- -->
+<ul>
+<li>-I 排除二进制文件</li>
+<li>-i 忽略大小写，默认区分大小写</li>
+<li>-n 显示行号</li>
+<li>-v 倒置，只显示搜索的文本不在的行</li>
+<li>-r 递归，在所有子目录和子文件中查找 ，<code>grep -r &quot;Hello World&quot; folder/</code>在 folder 目录的所有子目录和子文件中查询 Hello World 字符</li>
+<li>-E 正则表达式 <code>grep -E ^path /etc/profile</code></li>
+</ul>
+</li>
+<li>rgrep 等同 grep -r</li>
+<li>egrep 等同 grep -E</li>
+<li>sort 对文件行进行排序 <code>sort name.txt</code>
+<ul>
+<li>-o 将排序后的内容写入新文件</li>
+<li>-r 排序倒置</li>
+<li>-R 随机排序</li>
+<li>-n 对数字排序，默认会当成字符串按照 1-9 排序。</li>
+</ul>
+</li>
+<li>wc 文件的统计，用来统计行数、字符数、字节数等 <code>wc name.txt</code>
+<ul>
+<li><code>9 9 30 name.txt</code> 第一个是行数，第二个是单词数，第三个是字节数，最后一个是文件名</li>
+<li>-l 统计行数 <code>wc -l name.txt</code></li>
+<li>-w 统计单词数（用空格隔开的字符串）<code>wc -w name.txt</code></li>
+<li>-m 统计字符数</li>
+</ul>
+</li>
+<li>uniq 删除文件中的重复内容，只能将连续的重复行变为一行<!-- -->
+<ul>
+<li>-c 统计重复行数</li>
+<li>-d 只显示重复行的值</li>
+</ul>
+</li>
+<li>cut 剪切文件的一部分内容，对文件的每一行进行剪切处理<!-- -->
+<ul>
+<li>-c 根据字符数来剪切 <code>cut -c 2-4 name.txt</code></li>
+<li>-d 分隔符，指定用什么分割（逗号、分号、双引号等）</li>
+<li>-f 区域，剪切分隔符的那些区域</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="流管道重定向">流、管道、重定向<a href="#流管道重定向" class="hash-link" aria-label="流、管道、重定向的直接链接" title="流、管道、重定向的直接链接">​</a></h3>
+<p>输出</p>
+<ul>
+<li>
+<p>&gt; 和 &gt;&gt; 重定向到文件 <code>ls &gt;&gt; test.txt</code></p>
+<ul>
+<li>&gt; 重定向到文件，覆盖文件</li>
+<li>&gt;&gt; 重定向到文件末尾，追加文件</li>
+<li>/dev/null 黑洞文件 <code>ls &gt;&gt; /dev/null</code>，是一个文件不是目录，此文件具有唯一属性总是空，发送到/dev/null 的任何数据作废</li>
+</ul>
+</li>
+<li>
+<p>stdin 标准输入，文件描述符 0</p>
+</li>
+<li>
+<p>stdout 标准输出（不包括错误信息），文件描述符 1</p>
+</li>
+<li>
+<p>stderr 标准错误输出，文件描述符 2</p>
+</li>
+<li>
+<p>2&gt; 将标准错误输出重定向到指定文件覆盖文件</p>
+</li>
+<li>
+<p>2&gt;&gt; 将标准错误输出重定向到指定文件追加到文件尾部</p>
+</li>
+<li>
+<p>2&gt;&amp;1 将标准错误输出重定向到与标准输出相同的地方</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cat test.csv &gt; results.txt 2&gt; errors.log 将标准输出和标准错误输出分别写入到不同文件。</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">如果test.cat存在则将文件内容写入到results.txt文件；否则，将错误信息写入errors.log文件</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cat test.csv &gt; results.txt 2&gt;&amp;1 将标准错误输出和标准输出统一输出到results.txt覆盖原文件</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">cat test.csv &gt;&gt; results.txt 2&gt;&amp;1将标准错误输出和标准输出统一输出到results.txt追加到原文件后面</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ul>
+<p>输入</p>
+<ul>
+<li>&lt; 将命令的输入重定向为文件内容</li>
+<li>&lt;&lt; 将命令的输入重定向为键盘的输入。已逐行输入的模式（回车键换行），所有输入的行都将在输入结束字符串之后发送给命令。结束符可以为任意字符不一定为 END 只是约定俗成。<!-- -->
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sort -n &lt;&lt; END</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>将键盘输入的内容存入到文件<br>
+<img loading="lazy" alt="将键盘输入的内容存入到文件" src="/assets/images/input-e292f0bed21f7ff03ab9f985e7792f55.jpg" width="911" height="372" class="img_ev3q"></li>
+</ul>
+<p>管道</p>
+<ul>
+<li>
+<p>| 将前一个命令的输出作为后一个命令的输入</p>
+<p><code>grep log -Ir /var/log | cut -d : -f 1 | sort | uniq</code></p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sudo grep log -Ir /var/log</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">遍历 /var/log 目录及子目录；列出所有包含 log 关键词的行；-I 排除二级制文件，-r 递归遍历</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="  复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cut -d : -f 1</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">从sudo grep log -Ir /var/log的输出结果中剪切出文件名那一列（由冒号分割的第一个区域）</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">sort 排序 uniq去重</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="进程和系统监测">进程和系统监测<a href="#进程和系统监测" class="hash-link" aria-label="进程和系统监测的直接链接" title="进程和系统监测的直接链接">​</a></h3>
+<ul>
+<li>
+<p>Linux 多任务多用户操作系统</p>
+<ul>
+<li>Linux 可以管理多个同时运行的程序，是多任务系统</li>
+<li>Linux 也是一个多用户的系统</li>
+<li>多个用户可以同时在不同地方通过网络链接到同一个 Linux 系统</li>
+</ul>
+</li>
+<li>
+<p>多用户多任务的隐患</p>
+<ul>
+<li>可能某个用户或者某个任务(其实就是运行着的程序)</li>
+<li>在某时让 Linux 系统过载</li>
+</ul>
+</li>
+<li>
+<p>w 命令都有谁在做什么</p>
+<ul>
+<li>查看系统中正在登录的用户</li>
+</ul>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">[root@VM-12-6-centos ~]# w</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">15:38:33 up 39 days,  1:42,  2 users,  load average: 0.06, 0.05, 0.05</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root     pts/0    113.89.32.127    10:34   41.00s  0.07s  0.05s -bash</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root     pts/1    113.89.32.127    15:38    1.00s  0.02s  0.00s w</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">- 11:02:33 up 38 days, 21:06, 1 user, load average: 0.00, 0.01, 0.05</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - 11:02:33 系统执行命令的时间</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - up 系统持续运行的时间，关机或重启时间会清零</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - user 同时在线  的用户数</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - load average 负载平均值，分别表示 1、5、15 分钟之内的平均负载</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- USER TTY FROM LOGIN@ IDLE JCPU PCPU WHAT</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - USER 登录用户</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - TTY 登录的终端名称</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - FROM 用户连接到的服务器 IP 地址（或者主机名）</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - LOGIN@ 用户连接系统的时间</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - IDLE 用户多久没活跃（没运行任何命令）</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - JCPU 该终端所有相关的进程使用的 CPU 时间。每当进程结束就停止计时，开始新的进程则会重新计时</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - PCPU CPU 执行当前程序所消耗的时间，当前进程表示 WHAT 列里显示的程序</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  - WHAT 当下用户正运行的程序</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>tload 绘制随时间变化的曲线图</p>
+</li>
+<li>
+<p>who 正在登录的用户列表</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">[root@VM-12-6-centos ~]# who</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root     pts/0        2022-10-10 10:34 (113.89.32.127)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root     pts/1        2022-10-10 15:38 (113.89.32.127)</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>
+<p>ps 显示当前系统中的进程</p>
+<ul>
+<li>是 Process Status 的缩写，进程的静态列表</li>
+<li>显示的进程列表不会随时间而更新，是静态的，只是运行 ps 命令当时的状态，是进程的快照<!-- -->
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">[root@VM-12-6-centos ~]# ps</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  PID TTY          TIME CMD</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">12797 pts/1    00:00:00 bash</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">19697 pts/1    00:00:00 ps</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>PID 进程号</li>
+<li>TTY 登录的终端名称</li>
+<li>TIME 进程运行了多久</li>
+<li>CMD 产生进程的程序名</li>
+</ul>
+</li>
+<li>-ef 列出所有用户在所有终端的所有进程<!-- -->
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">UID        PID  PPID  C STIME TTY          TIME CMD</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root         2     0  0 Sep01 ?        00:00:02 [kthreadd]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root         4     2  0 Sep01 ?        00:00:00 [kworker/0:0H]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root         6     2  0 Sep01 ?        00:00:52 [ksoftirqd/0]</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>UID 运行进程的用户。user identifier 的缩写</li>
+<li>PPID 程序的父进程号。parent process ID</li>
+<li>ps -ef | less 分页显示</li>
+<li>efH 按照乔木状列出进程</li>
+<li>-u username 列出此用户运行的进程</li>
+<li>-aux 通过 CPU 和内存是用来过滤进程<!-- -->
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">[root@VM-12-6-centos ~]# ps -aux</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root         2  0.0  0.0      0     0 ?        S    Sep01   0:02 [kthreadd]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root         4  0.0  0.0      0     0 ?        S&lt;   Sep01   0:00 [kworker/0:0H]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root         6  0.0  0.0      0     0 ?        S    Sep01   0:53 [ksoftirqd/0]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">root         7  0.0  0.0      0     0 ?        S    Sep01   0:12 [migration/0]</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>%CPU 处理器占用百分比</li>
+<li>%MEM 内存占用百分比</li>
+<li>STAT 进程状态</li>
+<li>START 启动时间</li>
+<li>COMMAND 进程名字</li>
+<li>ps -aux --sort -pcpu | less 根据 CPU 使用率来降序排列</li>
+<li>ps -aux --sort -pmem | less 根据 内存 使用率来降序排列</li>
+<li>ps -aux --sort -pcpu,+pmem | head 根据 CPU 和内存使用率来降序排列</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>pstree 以树形结构显示进程</p>
+<ul>
+<li>ps -axjf 和 pstree 效果类似</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="进程操作和系统重启">进程操作和系统重启<a href="#进程操作和系统重启" class="hash-link" aria-label="进程操作和系统重启的直接链接" title="进程操作和系统重启的直接链接">​</a></h3>
+<ul>
+<li>top 进程的动态列表<!-- -->
+<ul>
+<li>ps 很强大但是静态的，只能记录当下那一刻的进程列表。</li>
+<li>ps 不能实时监控系统进程</li>
+<li>q 退出 top</li>
+<li>h 帮助文档</li>
+<li>B 加粗某些信息</li>
+<li>f/F 在进程列表中添加或删除某些列；改变进程列表排序所参照的列<!-- -->
+<ul>
+<li>默认情况按照 %CPU 那一列来排序</li>
+<li>q 回到 top 主界面</li>
+</ul>
+</li>
+<li>u 按照 user 显示</li>
+<li>k 结束某个进程</li>
+<li>s 改变刷新页面时间，默认每 3s 刷新一次</li>
+</ul>
+</li>
+<li>其他与 top 功能类似的优秀软件 glances、htop</li>
+<li>Ctrl + C 和 kill 停止进程<!-- -->
+<ul>
+<li>Ctrl + C 停止终端中正在执行的程序</li>
+<li>kill + PID 结束一个进程，如果需要结束多个进程可用空格隔开<!-- -->
+<ul>
+<li>kill -9 PID 立即强制结束进程</li>
+</ul>
+</li>
+<li>killall + 程序名 结束多个进程，一个程序可能会启动多个进程</li>
+</ul>
+</li>
+<li>终端中复制 Ctrl + Shift + C，粘贴 Ctrl + Shift + V 快捷键</li>
+<li>halt 关闭系统</li>
+<li>reboot 重启系统</li>
+<li>shutdown 停止、关闭、重启系统</li>
+<li>poweroff 关闭系统不需要 root 权限</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="前后台进程灵活切换">前后台进程灵活切换<a href="#前后台进程灵活切换" class="hash-link" aria-label="前后台进程灵活切换的直接链接" title="前后台进程灵活切换的直接链接">​</a></h3>
+<ul>
+<li>
+<p>默认情况下，用户创建的进程都是前台进程。前台进程从键盘读取数据，并把处理结果输出到显示器</p>
+</li>
+<li>
+<p>&amp;符号和 nohup 命令：后台运行进程</p>
+<ul>
+<li>&amp; 命令后面加&amp;，后台进程与终端相关联，终端关闭或用户登出进程自动结束<!-- -->
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">find / -name &quot;*log&quot; &gt; output_find 2&gt;&amp;1 &amp;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>查询以 log 结尾的文件，将标准输出和标准错误输出写入到 output 文件，并在后台执行。</li>
+</ul>
+</li>
+<li>nohup 使进程与终端分离，终端关闭或用户登出进程不会结束<!-- -->
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">nohup find / -name &quot;*log&quot; &gt; output_find 2&gt;&amp;1</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+<li>nohup 和&amp;能同时使用<!-- -->
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">nohup find / -name &quot;*log&quot; &gt; output_find 2&gt;&amp;1 &amp;</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ul>
+</li>
+<li>
+<p>Ctrl + Z, jobs, bg 和 fg 控制进程的前后台切换</p>
+<ul>
+<li>
+<p>Ctrl + z 切换至后台，暂停运行并保存在后台。比如在 <code>grep -r &#x27;log&#x27; / &gt;grep_log 2&gt;&amp;1</code> 命令状态下按此组合切换到后台</p>
+</li>
+<li>
+<p>bg 使进程转到后台暂停。如果已经暂停在后台， bg 则将状态改为运行。</p>
+<ul>
+<li>不加任何参数 bg 默认用于最近一个后台进程</li>
+<li>bg %id 作用于编号为 id 的后台进程，也可以不用%</li>
+</ul>
+</li>
+<li>
+<p>通过 ps -aux 查看进程状态</p>
+<table><thead><tr><th style="text-align:center">状态码</th><th style="text-align:center">英文</th><th style="text-align:center">解释</th><th style="text-align:center">说明</th></tr></thead><tbody><tr><td style="text-align:center">R</td><td style="text-align:center">runnable</td><td style="text-align:center">运行</td><td style="text-align:center">正在运行或在运行队列中等待</td></tr><tr><td style="text-align:center">S</td><td style="text-align:center">sleeping</td><td style="text-align:center">中断</td><td style="text-align:center">休眠中，受阻。当某个条件形成后或接收到信号时，则脱离该状态</td></tr><tr><td style="text-align:center">D</td><td style="text-align:center">uninterruptible sleep</td><td style="text-align:center">不可中断</td><td style="text-align:center">进程不响应系统异步信号，即使 kill 也不能使其中断</td></tr><tr><td style="text-align:center">Z</td><td style="text-align:center">a defunct (&quot;zombie&quot;) process</td><td style="text-align:center">僵死</td><td style="text-align:center">进程已终止，但进程描述符依然存在，直到父进程调用 wait4()系统函数后将进程释放</td></tr><tr><td style="text-align:center">T</td><td style="text-align:center">traced or stopped</td><td style="text-align:center">停止</td><td style="text-align:center">进程收到 SIGSTOP, SIGSTP, SIGTIN, SIGTOU 等停止信号后停止运行</td></tr></tbody></table>
+</li>
+<li>
+<p>jobs 显示后台进程状态</p>
+</li>
+<li>
+<p>fg 将进程转为前台运行</p>
+<p><img loading="lazy" alt="任务流转流程图" src="/assets/images/transition-state-c4975c1aaf032bbada55089687885401.jpg" width="377" height="410" class="img_ev3q"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="任务的定时和延期">任务的定时和延期<a href="#任务的定时和延期" class="hash-link" aria-label="任务的定时和延期的直接链接" title="任务的定时和延期的直接链接">​</a></h3>
+<ul>
+<li>
+<p>date 调节时间</p>
+<ul>
+<li>date &quot;+%H&quot; 输出小时</li>
+<li>date &quot;+%H:%M:%S&quot; 输出当前时分秒用:隔开</li>
+<li>date 时间。 修改系统时间。比如<code>date 10121430</code>将系统时间修改为 10 月 12 日 14 点 30 分</li>
+</ul>
+</li>
+<li>
+<p>at 延时执行程序（类似于 setTimeout 只执行一次）</p>
+<ul>
+<li>at + 执行时间回车，在闪烁的光标中输入需要执行的程序回车，可以持续输入并回车设置多个程序，使用 Ctrl + D 退出。 at 会显示&lt;EOT&gt; 结束标识<!-- -->
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">[root@VM-12-6-centos ~]# at 12:00</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">at&gt; touch create_12</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">at&gt; touch create_12_1</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">at&gt; &lt;EOT&gt;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">job 1 at Wed Oct 12 12:00:00 2022</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ul>
+<li>时间默认为当天，如果需要指定日期，格式为美国日期格式“月/日/年” <code>at 13:50 10/12/22</code></li>
+<li>指定距离当前多久执行程序</li>
+<li>at now +10 minutes 从此刻开始十  分钟之后执行命令<!-- -->
+<table><thead><tr><th style="text-align:center">关键词</th><th style="text-align:center">意思</th></tr></thead><tbody><tr><td style="text-align:center">minutes</td><td style="text-align:center">分钟</td></tr><tr><td style="text-align:center">hours</td><td style="text-align:center">小时</td></tr><tr><td style="text-align:center">days</td><td style="text-align:center">天</td></tr><tr><td style="text-align:center">weeks</td><td style="text-align:center">星期</td></tr><tr><td style="text-align:center">months</td><td style="text-align:center">月</td></tr><tr><td style="text-align:center">years</td><td style="text-align:center">年</td></tr></tbody></table>
+</li>
+</ul>
+</li>
+<li>atq 列出正在等待执行的 at 任务</li>
+<li>atrm 删除正在等待执行的 at 任务</li>
+</ul>
+</li>
+<li>
+<p>sleep 休息一会暂停指定时间，默认单位为秒。在两句命令之间插入一定的暂停等待时间，用分号隔开多个命令，使之一个接一个执行</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">touch file.txt; sleep 10; rm file.txt</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<table><thead><tr><th style="text-align:center">关键词</th><th style="text-align:center">意思</th></tr></thead><tbody><tr><td style="text-align:center">m</td><td style="text-align:center">分钟</td></tr><tr><td style="text-align:center">h</td><td style="text-align:center">小时</td></tr><tr><td style="text-align:center">d</td><td style="text-align:center">天</td></tr><tr><td style="text-align:center">w</td><td style="text-align:center">星期</td></tr><tr><td style="text-align:center">m</td><td style="text-align:center">月</td></tr><tr><td style="text-align:center">y</td><td style="text-align:center">年</td></tr></tbody></table>
+<ul>
+<li>&amp;&amp;、||、;。用于分割两个命令，使其依次执行<!-- -->
+<ul>
+<li>&amp;&amp;。 &amp;&amp; 前执行成功才能执行后面的命令</li>
+<li>||。 || 前执行失败才会执行后面的命令</li>
+<li>;。无论; 前执行成功与否都会执行后面的命令</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>crontab 定时执行程序（类似于 setInterval 循环执行）</p>
+<ul>
+<li>
+<p>.bashrc 配置 crontab</p>
+<ul>
+<li>echo &quot;export EDITOR=nano&quot; &gt;&gt; ~/.bashrc 将文本编辑器设置为 nano（这个不是必须的操作）</li>
+<li>source ~/.bashrc 立即生效，不用重新登陆</li>
+</ul>
+</li>
+<li>
+<p>crontab 用于修改 crontab 文件，cron 用于实际执行定时的程序</p>
+</li>
+<li>
+<p>-i 显示 crontab 文件</p>
+</li>
+<li>
+<p>-e 修改 crontab 文件</p>
+<ul>
+<li>
+<p>编辑的格式 m h dom mon dow command，某项不设置可以用*表示</p>
+<ul>
+<li>
+<p>m: minute 分钟</p>
+</li>
+<li>
+<p>h: hour 小时</p>
+</li>
+<li>
+<p>dom: day of month 一个月的那一天</p>
+</li>
+<li>
+<p>mon: month 月份</p>
+</li>
+<li>
+<p>dow: day of week 星期几</p>
+</li>
+<li>
+<p>command: 需要执行的命令</p>
+<p><img loading="lazy" alt="任务流转流程图" src="/assets/images/crontab-2dac5ab97910af66ccf9cba54c3c2257.jpg" width="591" height="348" class="img_ev3q">
+<img loading="lazy" alt="crontab例子" src="/assets/images/crontab-example-6188231af098998f0b5ee5e3c7dcad0b.jpg" width="635" height="351" class="img_ev3q"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>-r 删除 crontab 文件</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="文件的解压和压缩">文件的解压和压缩<a href="#文件的解压和压缩" class="hash-link" aria-label="文件的解压和压缩的直接链接" title="文件的解压和压缩的直接链接">​</a></h3>
+<ul>
+<li>
+<p>打包: 将多个文件变成一个总的文件 archive</p>
+</li>
+<li>
+<p>压缩: 将一个大文件通过某些压缩算法变成一个小文件</p>
+</li>
+<li>
+<p>tar 与 gzip 和 zip2</p>
+<ul>
+<li>
+<p>使用 tar 将多个文件归档(archive)为一个总文件，然后用 gzip 或 bzip2 将 archive 压缩成更小的文件</p>
+<p><img loading="lazy" alt="归档压缩流程图" src="/assets/images/tar-zip-a06f57f8544e5b984162de6671bc088d.jpg" width="385" height="349" class="img_ev3q"></p>
+</li>
+<li>
+<p>-cvf: 创建一个 tar 归档</p>
+<div class="codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">tar -cvf test.tar test</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="复制代码到剪贴板" title="复制" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+</li>
+</ul>
+</li>
+</ul></div></article><nav class="pagination-nav docusaurus-mt-lg" aria-label="文件选项卡"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/服务端/Docker系统性入门+进阶实践/"><div class="pagination-nav__sublabel">上一页</div><div class="pagination-nav__label">Docker系统性入门+进阶实践</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/英语/"><div class="pagination-nav__sublabel">下一页</div><div class="pagination-nav__label">英语</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#主流桌面管理器" class="table-of-contents__link toc-highlight">主流桌面管理器</a></li><li><a href="#命令行每行都会有的前缀意思" class="table-of-contents__link toc-highlight">命令行每行都会有的前缀意思</a></li><li><a href="#常见命令" class="table-of-contents__link toc-highlight">常见命令</a><ul><li><a href="#命令参数" class="table-of-contents__link toc-highlight">命令参数</a></li><li><a href="#命令的历史记录" class="table-of-contents__link toc-highlight">命令的历史记录</a></li><li><a href="#快捷键" class="table-of-contents__link toc-highlight">快捷键</a></li><li><a href="#linux-的目录组织参考地址" class="table-of-contents__link toc-highlight">Linux 的目录组织，参考地址</a></li><li><a href="#文件相关命令" class="table-of-contents__link toc-highlight">文件相关命令</a></li></ul></li><li><a href="#用户与权限" class="table-of-contents__link toc-highlight">用户与权限</a></li><li><a href="#群组管理与权限管理" class="table-of-contents__link toc-highlight">群组管理与权限管理</a></li><li><a href="#文件权限" class="table-of-contents__link toc-highlight">文件权限</a></li><li><a href="#文本编辑器" class="table-of-contents__link toc-highlight">文 本编辑器</a></li><li><a href="#软件安装" class="table-of-contents__link toc-highlight">软件安装</a></li><li><a href="#rtfm-阅读手册" class="table-of-contents__link toc-highlight">RTFM 阅读手册</a></li><li><a href="#查找文件" class="table-of-contents__link toc-highlight">查找文件</a></li><li><a href="#数据操作" class="table-of-contents__link toc-highlight">数据操作</a></li><li><a href="#流管道重定向" class="table-of-contents__link toc-highlight">流、管道、重定向</a></li><li><a href="#进程和系统监测" class="table-of-contents__link toc-highlight">进程和系统监测</a></li><li><a href="#进程操作和系统重启" class="table-of-contents__link toc-highlight">进程操作和系统重启</a></li><li><a href="#前后台进程灵活切换" class="table-of-contents__link toc-highlight">前后台进程灵活切换</a></li><li><a href="#任务的定时和延期" class="table-of-contents__link toc-highlight">任务的定时和延期</a></li><li><a href="#文件的解压和压缩" class="table-of-contents__link toc-highlight">文件的解压和压缩</a></li></ul></div></div></div></div></main></div></div></div></div>
+</body>
+</html>
