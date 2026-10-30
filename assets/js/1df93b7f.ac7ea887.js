@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkmake_notes||=[]).push([[4583],{6866(i,t,e){e.r(t),e.d(t,{default:()=>o});var n=e(4586),a=e(1656),l=e(4848);function o(){const{siteConfig:i}=(0,n.A)();return(0,l.jsx)(a.A,{title:`Hello from ${i.title}`,description:"Description will go into a meta tag in <head />",children:(0,l.jsx)("main",{children:"main"})})}}}]);
