@@ -1,0 +1,1234 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>远桌 · 真实远程电脑</title>
+<meta name="description" content="租一台真实、独享、长期在线、有人维护的远程电脑，把它变成你的个人 Agent 工作站。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+:root{
+  --bg:#f3efe6; --bg-2:#ebe5d8; --surface:#faf8f2; --white:#fffdf8;
+  --ink:#1b1a16; --ink-2:#45433c; --muted:#77736a; --rule:#dcd5c6; --rule-2:#cfc7b5;
+  --green:#1d5c45; --green-2:#174a37; --green-tint:#e2eae0; --live:#2fae69;
+  --dark:#141613; --dark-2:#1d201b; --dark-3:#262a24; --dark-rule:#2f342d; --on-dark:#ece9df; --on-dark-2:#a2a497;
+  --serif:"Newsreader","Noto Serif SC","Songti SC",serif;
+  --sans:Inter,"Noto Sans SC",-apple-system,"PingFang SC",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Menlo,monospace;
+  --gutter:clamp(16px,4.5vw,56px); --max:1200px; --r:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.7 var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:4px}
+.wrap{max-width:var(--max);margin:0 auto;padding:0 var(--gutter)}
+.skip{position:absolute;left:-999px}.skip:focus{left:16px;top:12px;z-index:99;background:var(--ink);color:#fff;padding:8px 14px;border-radius:8px}
+
+/* ---------- type ---------- */
+.serif{font-family:var(--serif)} .nw{white-space:nowrap}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;margin:0;color:var(--ink)}
+h2{font-size:clamp(30px,3.7vw,48px);line-height:1.2}
+h2 em,h1 em{font-style:normal;color:var(--green)}
+h3{font-size:21px;line-height:1.35}
+p{margin:0}
+.kicker{font:500 12px/1 var(--mono);letter-spacing:.08em;color:var(--muted);text-transform:uppercase;display:flex;gap:12px;align-items:center}
+.kicker b{color:var(--ink);font-weight:500}
+.lede{font-size:17px;color:var(--ink-2);max-width:34em}
+.small{font-size:13px;color:var(--muted)}
+.live{width:7px;height:7px;border-radius:50%;background:var(--live);display:inline-block;flex:none;box-shadow:0 0 0 3px rgba(47,174,105,.16)}
+.live.amber{background:#d99a2b;box-shadow:0 0 0 3px rgba(217,154,43,.16)}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(47,174,105,.16)}50%{box-shadow:0 0 0 6px rgba(47,174,105,.05)}}
+.live.pulse{animation:pulse 2.4s ease-in-out infinite}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 22px;border-radius:12px;font:500 15px/1 var(--sans);border:1px solid transparent;cursor:pointer;transition:background .2s,transform .2s,border-color .2s}
+.btn:hover{transform:translateY(-1px)}
+.btn-green{background:var(--green);color:#fff}.btn-green:hover{background:var(--green-2)}
+.btn-ghost{border-color:var(--rule-2);background:transparent}.btn-ghost:hover{border-color:var(--ink)}
+.btn-light{background:var(--on-dark);color:var(--ink)}
+.btn-ghost-light{border-color:var(--dark-rule);color:var(--on-dark)}.btn-ghost-light:hover{border-color:var(--on-dark-2)}
+.link{display:inline-flex;gap:6px;align-items:center;font-weight:500;border-bottom:1px solid var(--rule-2);padding-bottom:2px}
+.link:hover{border-color:var(--ink)}
+.arrow{transition:transform .2s}.btn:hover .arrow,.link:hover .arrow{transform:translateX(3px)}
+
+/* ---------- nav ---------- */
+.nav{position:sticky;top:0;z-index:40;background:rgba(243,239,230,.86);backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);border-bottom:1px solid transparent;transition:border-color .2s}
+.nav.scrolled{border-color:var(--rule)}
+.nav-in{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font:600 20px/1 var(--serif)}
+.logo svg{flex:none}
+.nav-links{display:flex;gap:28px;font-size:14px;color:var(--ink-2)}
+.nav-links a:hover{color:var(--ink)}
+.nav-r{display:flex;gap:16px;align-items:center;font-size:14px}
+.nav-r .btn{height:38px;padding:0 16px;font-size:14px;border-radius:10px}
+.menu{display:none;width:40px;height:40px;border:1px solid var(--rule-2);border-radius:10px;background:none;cursor:pointer}
+.menu i{display:block;width:16px;height:1.5px;background:var(--ink);margin:4px auto}
+
+section{padding:clamp(80px,11vw,140px) 0}
+.head{display:grid;grid-template-columns:200px 1fr;gap:24px 48px;margin-bottom:clamp(40px,6vw,72px)}
+.head .kicker{padding-top:14px;align-self:start}
+.head .lede{margin-top:20px}
+.rule-top{border-top:1px solid var(--rule)}
+
+/* ---------- hero ---------- */
+.hero{padding:clamp(40px,6vw,72px) 0 clamp(64px,8vw,104px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,5vw,72px);align-items:center}
+.pill{display:inline-flex;align-items:center;gap:10px;height:34px;padding:0 14px;border:1px solid var(--rule-2);border-radius:999px;font-size:13px;color:var(--ink-2);background:var(--surface)}
+.hero h1{font-size:clamp(36px,4.2vw,60px);line-height:1.12;margin:26px 0 24px;letter-spacing:-.02em}
+.hero .lede{font-size:clamp(16px,1.4vw,18px)}
+.hero-cta{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:34px}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:22px 32px;margin-top:44px;padding-top:28px;border-top:1px solid var(--rule)}
+.specs dt{font-size:12px;color:var(--muted);margin-bottom:4px}
+.specs dd{margin:0;font:500 16px/1.4 var(--serif)}
+.brands{display:flex;flex-wrap:wrap;gap:6px 14px}
+.brands a{display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid transparent}
+.brands a:hover{border-color:var(--ink)}
+.brands img{width:18px;height:18px;border-radius:4px}
+.brand-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:28px;font-size:14px}
+.brand-id{display:flex;align-items:center;gap:12px;margin-right:8px}
+.brand-id img{width:40px;height:40px;border-radius:11px;box-shadow:0 4px 12px -6px rgba(0,0,0,.25)}
+.brand-id b{display:block;font:600 18px/1.2 var(--serif)}
+.brand-id small{font-size:12px;color:var(--muted)}
+.clock{font-variant-numeric:tabular-nums}
+
+.scene{position:relative}
+.scene-photo{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:4/4.1;background:var(--bg-2);box-shadow:0 40px 80px -40px rgba(60,45,20,.45)}
+.scene-photo img{width:100%;height:100%;object-fit:cover;object-position:58% 60%}
+.chip{position:absolute;display:flex;align-items:center;gap:8px;background:rgba(255,253,248,.92);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:999px;padding:7px 13px;font:500 12px/1 var(--mono);color:var(--ink-2);box-shadow:0 6px 20px -8px rgba(0,0,0,.25)}
+.chip-host{right:22px;bottom:22px}
+.run{position:absolute;right:22px;top:22px;width:min(272px,52%);background:rgba(20,22,19,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--on-dark);border-radius:16px;padding:14px 16px;font:12px/1.7 var(--mono);box-shadow:0 20px 40px -20px rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.12)}
+.run-top{display:flex;justify-content:space-between;color:var(--on-dark-2);margin-bottom:6px;font-size:11px}
+.run .ok{color:#7fd6a2}
+.run .wait{color:#f0c46b}
+.bar{height:3px;background:var(--dark-rule);border-radius:9px;margin-top:10px;overflow:hidden}
+.bar i{display:block;height:100%;width:72%;background:var(--live);border-radius:9px}
+.phone{position:absolute;left:-40px;bottom:-40px;width:258px;height:530px;display:flex;flex-direction:column;background:var(--white);border:7px solid #161714;border-radius:42px;overflow:hidden;box-shadow:0 34px 70px -26px rgba(30,25,15,.6),0 0 0 1px rgba(0,0,0,.06);font:11px/1.5 var(--sans);color:var(--ink)}
+.ph-status{position:relative;display:flex;justify-content:space-between;align-items:center;height:30px;padding:0 18px 0 22px;font:600 11.5px var(--sans)}
+.ph-island{position:absolute;left:50%;top:7px;transform:translateX(-50%);width:70px;height:20px;border-radius:12px;background:#161714}
+.ph-icons{display:flex;gap:5px;align-items:center}
+.ph-icons svg{fill:var(--ink);stroke:var(--ink)}
+.ph-batt{width:20px;height:10px;border:1px solid rgba(27,26,22,.45);border-radius:3px;padding:1px;position:relative}
+.ph-batt i{display:block;height:100%;width:72%;background:var(--ink);border-radius:1.5px}
+.ph-bar{display:flex;align-items:center;gap:8px;padding:6px 12px 9px;border-bottom:1px solid #ece6d9}
+.ph-back{font-size:20px;line-height:1;color:var(--green);margin-top:-2px}
+.ph-bar img{width:26px;height:26px;border-radius:8px;box-shadow:0 0 0 1px #ece6d9}
+.ph-title{display:grid;line-height:1.25}
+.ph-title b{font:600 13px var(--sans)}
+.ph-title small{display:flex;align-items:center;gap:5px;font-size:9.5px;color:var(--muted)}
+.ph-title .live{width:5px;height:5px;box-shadow:none}
+.ph-more{margin-left:auto;color:var(--muted);letter-spacing:1px}
+.ph-chat{flex:1;display:flex;flex-direction:column;justify-content:flex-end;gap:8px;padding:12px 12px;background:#fbf9f4;overflow:hidden}
+.ph-day{align-self:center;font-size:9.5px;color:var(--muted)}
+.msg{padding:7px 10px;border-radius:14px;max-width:86%}
+.msg.me{align-self:flex-end;background:var(--ink);color:#fff;border-bottom-right-radius:4px}
+.msg.ai{align-self:flex-start;background:#efeae0;border-bottom-left-radius:4px}
+.ph-tool{align-self:flex-start;display:flex;align-items:center;gap:6px;border:1px solid #e3ddcf;background:var(--white);border-radius:10px;padding:5px 9px;font-size:10px;color:var(--ink-2)}
+.ph-tool em{font-style:normal;color:var(--muted)}
+.ph-ic{font-size:11px}
+.approve{border:1px solid #e8cf9a;background:#fdf6e8;border-radius:14px;padding:9px 10px}
+.ap-h{display:flex;justify-content:space-between;align-items:center}
+.ap-h b{font-size:11.5px}
+.ap-risk{font-size:9px;color:#8a5a0b;background:#f6e7c8;border-radius:5px;padding:1px 6px}
+.ap-src{font-size:9.5px;color:var(--muted);margin-top:2px}
+.approve code{display:block;margin-top:6px;font:10px/1.5 var(--mono);background:#161714;color:#d9e6d6;border-radius:7px;padding:5px 8px}
+.approve .acts{display:flex;gap:6px;margin-top:8px}
+.approve .acts span{flex:1;text-align:center;border-radius:9px;padding:6px 0;font-size:11px;background:var(--white);border:1px solid #e3ddcf}
+.approve .acts span:last-child{background:var(--green);border-color:var(--green);color:#fff}
+.ap-more{text-align:center;font-size:9.5px;color:var(--green);margin-top:6px}
+.ph-input{display:flex;align-items:center;gap:7px;margin:0 10px;padding:8px 0 6px}
+.ph-plus{width:22px;height:22px;border-radius:50%;background:#efeae0;display:grid;place-items:center;font-size:14px;color:var(--ink-2)}
+.ph-field{flex:1;border:1px solid #e3ddcf;border-radius:14px;padding:4px 10px;font-size:10px;color:#a29d92;background:var(--white)}
+.ph-mic{width:22px;height:22px;border-radius:50%;background:var(--green);display:grid;place-items:center}
+.ph-mic svg{fill:#fff;stroke:#fff}
+.ph-ticket{background:var(--white);border:1px solid #e3ddcf;border-radius:12px;padding:9px 11px}
+.tk-route{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.tk-route div{display:grid;line-height:1.2}
+.tk-route div:last-child{text-align:right}
+.tk-route b{font:600 15px var(--sans)}
+.tk-route span{font-size:9.5px;color:var(--muted)}
+.tk-route i{flex:1;font-style:normal;font-size:9px;color:var(--muted);text-align:center;border-bottom:1px dashed #d9d2c3;padding-bottom:2px}
+.tk-meta{display:flex;justify-content:space-between;align-items:baseline;margin-top:7px;padding-top:6px;border-top:1px solid #eee8dc;font-size:10px;color:var(--ink-2)}
+.tk-meta b{font:600 13px var(--sans);color:var(--ink)}
+.pay-amt{margin-top:6px;font:600 20px/1.2 var(--sans);letter-spacing:-.01em}
+.approve.pay .ap-more{color:var(--muted)}
+.ph-home{display:block;width:84px;height:4px;border-radius:3px;background:#161714;margin:4px auto 7px}
+.scene-cap{margin-top:14px;text-align:right}
+
+/* ---------- 01 nanoMuse ---------- */
+.says{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--ink)}
+.say{padding:30px 28px 32px 0;border-bottom:1px solid var(--rule)}
+.say:not(:nth-child(3n+1)){padding-left:28px;border-left:1px solid var(--rule)}
+.say q{display:block;font:500 20px/1.5 var(--serif);quotes:"“" "”";color:var(--ink);min-height:60px}
+.say .tag{display:inline-block;margin:18px 0 8px;font:500 11px/1 var(--mono);letter-spacing:.05em;color:var(--green);background:var(--green-tint);padding:5px 8px;border-radius:6px}
+.say p{font-size:14.5px;color:var(--ink-2)}
+.why{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(32px,5vw,72px);margin-top:clamp(56px,7vw,88px);align-items:start}
+.caps{display:grid;gap:0;border-top:1px solid var(--rule)}
+.cap{display:grid;grid-template-columns:96px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.cap dt{font:600 17px/1.5 var(--serif)}
+.cap dd{margin:0;font-size:15px;color:var(--ink-2)}
+.cap dd span{color:var(--muted)}
+.always{background:var(--dark);color:var(--on-dark);border-radius:var(--r);padding:32px;position:sticky;top:96px}
+.always h3{color:var(--on-dark);font-size:26px;line-height:1.35;margin:16px 0 14px}
+.always p{color:var(--on-dark-2);font-size:15px}
+.always .kicker{color:var(--on-dark-2)}
+.timeline{margin-top:24px;border-top:1px solid var(--dark-rule)}
+.timeline div{display:grid;grid-template-columns:62px 1fr;gap:12px;padding:11px 0;border-bottom:1px solid var(--dark-rule);font-size:14px}
+.timeline time{font:500 13px var(--mono);color:var(--on-dark-2)}
+.timeline .off{color:#6f7369;text-decoration:line-through}
+.note{margin-top:28px;font-size:13px;color:var(--muted);max-width:60em}
+.note a{border-bottom:1px solid var(--rule-2)}
+
+/* ---------- 02 work (dark) ---------- */
+.dark{background:var(--dark);color:var(--on-dark)}
+.dark h2,.dark h3{color:var(--on-dark)}
+.dark h2 em{color:#8fd3a8}
+.dark .kicker{color:var(--on-dark-2)}.dark .kicker b{color:var(--on-dark)}
+.dark .lede{color:var(--on-dark-2)}
+.work{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(32px,5vw,72px);align-items:start}
+.job{background:var(--dark-2);border:1px solid var(--dark-rule);border-radius:var(--r);overflow:hidden}
+.job-h{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--dark-rule);font:12px var(--mono);color:var(--on-dark-2)}
+.job-h b{color:var(--on-dark);font-weight:500}
+.steps{list-style:none;margin:0;padding:8px 20px 12px}
+.steps li{display:grid;grid-template-columns:52px 18px 1fr;gap:10px;padding:12px 0;align-items:start;position:relative}
+.steps time{font:12px/1.6 var(--mono);color:var(--on-dark-2)}
+.steps .dot{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--on-dark-2);margin-top:6px}
+.steps li.done .dot{background:var(--live);border-color:var(--live)}
+.steps li:not(:last-child):after{content:"";position:absolute;left:66px;top:28px;bottom:-6px;width:1px;background:var(--dark-rule)}
+.steps b{font-weight:500;font-size:15px;display:block}
+.steps span{font-size:13px;color:var(--on-dark-2);font-family:var(--mono)}
+.agents{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--dark-rule);border-radius:16px;overflow:hidden;border:1px solid var(--dark-rule)}
+.agent{display:flex;flex-direction:column;background:var(--dark-2);padding:20px;transition:background .2s}
+.agent:hover{background:var(--dark-3)}
+.agent-h{display:flex;align-items:center;gap:12px}
+.agent-logo{width:38px;height:38px;border-radius:10px;background:var(--on-dark);display:grid;place-items:center;flex:none}
+.agent .ext{margin-left:auto;color:var(--on-dark-2);transition:transform .2s}
+.agent:hover .ext{transform:translate(2px,-2px);color:var(--on-dark)}
+.agent-url{margin-top:12px;font:12px var(--mono);color:var(--on-dark-2)}
+.agents h3{font-size:20px}
+.agents p{font-size:14px;color:var(--on-dark-2);margin-top:12px}
+.dlist{list-style:none;padding:0;margin:28px 0 0;border-top:1px solid var(--dark-rule)}
+.dlist li{display:flex;justify-content:space-between;gap:20px;padding:14px 0;border-bottom:1px solid var(--dark-rule);font-size:15px}
+.dlist li span:last-child{color:var(--on-dark-2);text-align:right;font-size:14px}
+.bridge{margin-top:28px;padding:18px 20px;border-radius:14px;background:var(--dark-3);font-size:14.5px;color:var(--on-dark-2)}
+.bridge b{color:var(--on-dark);font-weight:500}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.case{display:flex;flex-direction:column;background:var(--dark-2);border:1px solid var(--dark-rule);border-radius:var(--r);padding:26px}
+.case .when{font:12px var(--mono);color:#8fd3a8}
+.case h3{font-size:22px;margin:14px 0 10px}
+.case p{font-size:14.5px;color:var(--on-dark-2);margin-bottom:22px}
+.case dl{margin:auto 0 0;padding-top:4px;border-top:1px solid var(--dark-rule)}
+.case dl div{display:grid;grid-template-columns:72px 1fr;gap:12px;padding:10px 0;font-size:13.5px}
+.case dl div+div{border-top:1px solid var(--dark-rule)}
+.case dt{color:var(--on-dark-2)}
+.case dd{margin:0;color:var(--on-dark)}
+@media (max-width:960px){.cases{grid-template-columns:1fr}}
+
+/* ---------- 03 host ---------- */
+.host{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:20px}
+.photo{position:relative;border-radius:var(--r);overflow:hidden;background:var(--bg-2);margin:0}
+.photo img{width:100%;height:100%;object-fit:cover}
+.photo figcaption{position:absolute;left:16px;bottom:16px}
+.photo .chip{position:static}
+.sheet{background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:26px;display:flex;flex-direction:column}
+.sheet-h{display:flex;justify-content:space-between;align-items:flex-start}
+.sheet-h h3{font-size:24px}
+.sheet dl{margin:20px 0 0;display:grid;grid-template-columns:auto 1fr;font-size:14px}
+.sheet dt,.sheet dd{margin:0;padding:10px 0;border-bottom:1px solid var(--rule)}
+.sheet dt{color:var(--muted);padding-right:16px}
+.sheet dd{text-align:right}
+.sheet .small{margin-top:auto;padding-top:16px}
+.status{display:inline-flex;align-items:center;gap:7px;font-size:12px;border:1px solid var(--rule);border-radius:999px;padding:4px 10px;background:var(--white)}
+.points{display:grid;grid-template-columns:repeat(3,1fr);gap:0 48px;margin-top:clamp(48px,6vw,72px)}
+.point{padding:24px 0;border-top:1px solid var(--rule)}
+.point .n{font:500 13px var(--mono);color:var(--green)}
+.point h3{font-size:20px;margin:10px 0 8px}
+.point p{font-size:15px;color:var(--ink-2)}
+.tools{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.tools span{font:12px/1 var(--mono);padding:6px 9px;border:1px solid var(--rule);border-radius:7px;background:var(--white);color:var(--ink-2)}
+.ops{position:relative;margin:clamp(48px,6vw,72px) 0 0;border-radius:var(--r);overflow:hidden;aspect-ratio:21/8;background:var(--bg-2)}
+.ops img{width:100%;height:100%;object-fit:cover}
+.ops-card{position:absolute;left:24px;top:24px;bottom:24px;width:min(340px,48%);background:rgba(250,248,242,.94);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:16px;padding:24px;display:flex;flex-direction:column;justify-content:space-between}
+.ops-card h3{font-size:22px;margin-top:10px}
+.ops-card ul{list-style:none;margin:0;padding:0;font-size:14.5px}
+.ops-card li{display:flex;justify-content:space-between;padding:8px 0;border-top:1px solid var(--rule)}
+.ops-card li span:last-child{color:var(--muted);font-size:13px}
+
+/* ---------- 04 who ---------- */
+.feature{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,64px);align-items:center;margin-bottom:clamp(56px,7vw,88px)}
+.feature .photo{aspect-ratio:4/3}
+.feature h3{font-size:clamp(26px,2.6vw,34px);margin:14px 0 14px}
+.feature ul{list-style:none;padding:0;margin:24px 0 0;border-top:1px solid var(--rule)}
+.feature li{padding:14px 0;border-bottom:1px solid var(--rule);font-size:15px;color:var(--ink-2);display:grid;grid-template-columns:22px 1fr}
+.feature li:before{content:"—";color:var(--green)}
+.feature li b{color:var(--ink);font-weight:500}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:0 56px;border-top:1px solid var(--ink)}
+.person{display:grid;grid-template-columns:40px 1fr;gap:4px 16px;padding:24px 0;border-bottom:1px solid var(--rule)}
+.person .n{font:500 13px var(--mono);color:var(--muted);padding-top:5px}
+.person h3{font-size:20px}
+.person p{grid-column:2;font-size:15px;color:var(--ink-2);margin-top:4px}
+.person .pick{grid-column:2;font:12px var(--mono);color:var(--green);margin-top:8px}
+
+/* ---------- 05 tasks ---------- */
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:28px}
+.tabs button{border:1px solid var(--rule-2);background:transparent;border-radius:999px;height:38px;padding:0 16px;font-size:14px;cursor:pointer;color:var(--ink-2);transition:all .2s}
+.tabs button:hover{border-color:var(--ink)}
+.tabs button[aria-selected="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.panel{border-top:1px solid var(--ink)}
+.panel[hidden]{display:none}
+.task{display:grid;grid-template-columns:112px 120px minmax(0,1fr) 150px;gap:24px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+.task time{font:500 14px var(--mono)}
+.task .who{font:12px var(--mono);color:var(--green)}
+.task .who.w{color:var(--ink-2)}
+.task h3{font-size:19px}
+.task p{font-size:14.5px;color:var(--muted);margin-top:4px}
+.task .where{font-size:13px;color:var(--muted);text-align:right}
+.task .out{display:inline-block;margin-top:8px;font-size:13px;color:var(--green-2);background:var(--green-tint);border-radius:6px;padding:3px 8px}
+.psum{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px 40px;padding:22px 0;border-bottom:1px solid var(--rule);align-items:start}
+.psum p{font:500 17px/1.6 var(--serif);color:var(--ink)}
+.psum dl{margin:0;display:grid;gap:8px;font-size:13.5px}
+.psum dl div{display:grid;grid-template-columns:72px 1fr;gap:12px}
+.psum dt{color:var(--muted)}
+.psum dd{margin:0;color:var(--ink-2)}
+@media (max-width:960px){.psum{grid-template-columns:1fr}}
+
+/* ---------- 06 network ---------- */
+.net{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,72px);align-items:start}
+.ipcmp{border:1px solid var(--rule);border-radius:var(--r);background:var(--surface);overflow:hidden}
+.iprow{display:grid;grid-template-columns:1fr auto;gap:6px 16px;padding:22px 24px}
+.iprow+.iprow{border-top:1px solid var(--rule)}
+.iprow .k{font:500 12px var(--mono);color:var(--muted);letter-spacing:.04em}
+.iprow .v{font:500 22px/1.3 var(--serif)}
+.iprow .ip{font:13px var(--mono);color:var(--muted);grid-column:2;grid-row:1/3;align-self:center;text-align:right}
+.iprow ul{grid-column:1/-1;list-style:none;padding:0;margin:8px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+.iprow li{font-size:12.5px;padding:4px 9px;border-radius:7px;background:var(--bg-2);color:var(--ink-2)}
+.iprow.home{background:var(--white)}
+.iprow.home li{background:var(--green-tint);color:var(--green-2)}
+.reasons{margin-top:36px;border-top:1px solid var(--rule)}
+.reason{padding:20px 0;border-bottom:1px solid var(--rule)}
+.reason h3{font-size:19px}
+.reason p{font-size:15px;color:var(--ink-2);margin-top:6px}
+.honest{margin-top:24px;font-size:13.5px;color:var(--ink-2);padding:16px 18px;border-left:2px solid var(--green);background:var(--surface);border-radius:0 12px 12px 0}
+.lat{margin-top:20px;border:1px solid var(--rule);border-radius:var(--r);padding:24px;background:var(--surface)}
+.lat-h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}
+.lat-h h3{font-size:19px}
+.lrow{display:grid;grid-template-columns:48px 1fr 66px;gap:14px;align-items:center;padding:8px 0;font-size:14px}
+.track{height:6px;background:var(--bg-2);border-radius:9px;overflow:hidden}
+.track i{display:block;height:100%;background:var(--green);border-radius:9px}
+.lrow .ms{font:500 13px var(--mono);text-align:right}
+.tz{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-top:16px;padding-top:16px;border-top:1px solid var(--rule);font-size:14px}
+.tz b{font:500 20px var(--serif)}
+
+/* ---------- 07 mobile ---------- */
+.mobile{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:clamp(32px,6vw,88px);align-items:center}
+.mobile .photo{aspect-ratio:4/5}
+.ways{margin-top:36px;border-top:1px solid var(--ink)}
+.way{display:grid;grid-template-columns:130px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--rule)}
+.way .d{font:12px/1.9 var(--mono);color:var(--muted)}
+.way h3{font-size:20px}
+.way p{font-size:15px;color:var(--ink-2);margin-top:4px}
+
+/* ---------- remote login ---------- */
+.connect{margin-top:clamp(64px,8vw,104px);padding-top:clamp(40px,5vw,56px);border-top:1px solid var(--rule)}
+.connect-head{display:grid;grid-template-columns:200px minmax(0,1fr);gap:16px 48px;margin-bottom:40px}
+.connect-head .kicker{align-self:start;padding-top:10px}
+.connect-head h3{font-size:clamp(24px,2.4vw,32px)}
+.connect-head p:last-child{grid-column:2;font-size:16px;color:var(--ink-2);max-width:36em}
+.cx{display:grid;grid-template-columns:minmax(0,.8fr) 40px minmax(0,2fr) 40px minmax(0,.9fr);align-items:center;background:var(--surface);border:1px solid var(--rule);border-radius:var(--r);padding:clamp(20px,3vw,36px)}
+.cx-label{display:block;font:500 12px var(--mono);letter-spacing:.06em;color:var(--green);margin-bottom:12px;text-align:center}
+.cx-devs{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.cx-devs li{text-align:center;font-size:14.5px;padding:11px;border:1px solid var(--rule);border-radius:12px;background:var(--white)}
+.cx-link{display:flex;flex-direction:column;align-items:center;gap:6px}
+.cx-link i{width:6px;height:6px;border-radius:50%;background:var(--rule-2)}
+.cx-link i:last-child{background:var(--green)}
+.cx-ways{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.cx-ways li{padding:14px 16px;border:1px solid var(--rule);border-radius:12px;background:var(--white);display:grid;gap:2px;align-content:start}
+.cx-ways li.wide{grid-column:1/-1}
+.cx-ways li.rec{border:1.5px solid var(--green);background:var(--green-tint)}
+.cx-ways b{font-weight:600;font-size:15px;display:flex;align-items:center;gap:8px}
+.cx-ways em{font:500 11px var(--mono);font-style:normal;color:#fff;background:var(--green);padding:2px 7px;border-radius:6px}
+.cx-ways span{font-size:13px;color:var(--muted);line-height:1.55}
+.cx-host{border:1.5px solid var(--green);border-radius:14px;background:var(--white);padding:18px 16px;text-align:center;display:grid;gap:6px;justify-items:center}
+.cx-host b{font:600 18px var(--serif)}
+.cx-host small{font-size:12.5px;color:var(--muted)}
+@media (max-width:960px){
+  .connect-head{grid-template-columns:1fr}
+  .connect-head p:last-child{grid-column:1}
+  .cx{grid-template-columns:1fr;gap:14px}
+  .cx-link{flex-direction:row;justify-content:center}
+  .cx-devs{grid-template-columns:repeat(4,1fr)}
+}
+@media (max-width:640px){
+  .cx-devs{grid-template-columns:1fr 1fr}
+  .cx-ways{grid-template-columns:1fr}
+}
+
+/* ---------- 08 market ---------- */
+.mk-top{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:18px}
+.seg{display:inline-flex;padding:4px;border-radius:12px;background:var(--bg-2)}
+.seg button{border:0;background:transparent;height:34px;padding:0 14px;border-radius:9px;font-size:14px;cursor:pointer;color:var(--ink-2)}
+.seg button[aria-selected="true"]{background:var(--white);color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.listing{border-top:1px solid var(--ink)}
+.row{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr) minmax(0,1.3fr) minmax(0,.8fr) minmax(0,.9fr) minmax(0,1fr) 72px;gap:20px;align-items:center;padding:20px 0;border-bottom:1px solid var(--rule);font-size:14px}
+.row[hidden]{display:none}
+.row.th{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:14px 0}
+.row h3{font-size:19px}
+.row .cfg{font-size:13px;color:var(--muted);margin-top:2px}
+.src{display:inline-block;font:500 11px var(--mono);padding:3px 7px;border-radius:6px;background:var(--ink);color:#fff;margin-bottom:6px}
+.src.t{background:var(--bg-2);color:var(--ink-2)}
+.st{display:flex;align-items:center;gap:8px}
+.price{font:600 22px/1 var(--serif)}
+.price small{font:400 12px var(--sans);color:var(--muted)}
+.row .btn{height:38px;padding:0 16px;font-size:14px;border-radius:10px}
+.row .lbl{display:none}
+.supply{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.supply a{display:flex;flex-direction:column;gap:8px;padding:24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--rule);transition:border-color .2s,transform .2s}
+.supply a:hover{border-color:var(--ink);transform:translateY(-2px)}
+.supply h3{font-size:21px;display:flex;justify-content:space-between}
+.supply p{font-size:14.5px;color:var(--ink-2)}
+.flow{display:flex;flex-wrap:wrap;gap:10px 0;margin-top:28px;font-size:14px;color:var(--ink-2)}
+.flow span{display:flex;align-items:center}
+.flow span+span:before{content:"";width:32px;height:1px;background:var(--rule-2);margin:0 12px}
+.flow i{font:normal 12px var(--mono);color:var(--green);margin-right:8px}
+
+/* ---------- 09 vps ---------- */
+.cmp-wrap{overflow-x:auto}
+.cmp{width:100%;border-collapse:collapse;min-width:640px}
+.cmp th,.cmp td{text-align:left;padding:18px 20px 18px 0;border-bottom:1px solid var(--rule);vertical-align:top;font-size:15px}
+.cmp thead th{font:500 12px var(--mono);letter-spacing:.06em;color:var(--muted);border-bottom:1px solid var(--ink)}
+.cmp thead th:nth-child(2){color:var(--green)}
+.cmp tbody th{font:600 17px var(--serif);width:18%}
+.cmp td{width:41%;color:var(--muted)}
+.cmp td.us{color:var(--ink)}
+.cmp td.us b{font-weight:500}
+
+/* ---------- 10 faq ---------- */
+.faq{display:grid;grid-template-columns:200px minmax(0,1fr);gap:24px 48px;align-items:start}
+.faq-nav{display:grid;gap:4px;position:sticky;top:96px}
+.faq-nav button{display:flex;justify-content:space-between;align-items:center;gap:10px;text-align:left;border:0;background:transparent;padding:10px 12px;border-radius:10px;font-size:14.5px;color:var(--ink-2);cursor:pointer;transition:background .2s}
+.faq-nav button:hover{background:var(--bg-2)}
+.faq-nav button[aria-selected="true"]{background:var(--ink);color:#fff}
+.faq-nav span{font:12px var(--mono);opacity:.6}
+.faq-list{border-top:1px solid var(--ink)}
+.faq-group[hidden]{display:none}
+.faq details{border-bottom:1px solid var(--rule)}
+.faq summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;padding:22px 0;cursor:pointer;font:600 19px/1.45 var(--serif)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary:hover{color:var(--green)}
+.faq summary i{position:relative;width:14px;height:14px;flex:none}
+.faq summary i:before,.faq summary i:after{content:"";position:absolute;left:0;top:6px;width:14px;height:1.5px;background:currentColor;transition:transform .25s}
+.faq summary i:after{transform:rotate(90deg)}
+.faq details[open] summary i:after{transform:rotate(0)}
+.faq details p{padding:0 48px 24px 0;font-size:15.5px;color:var(--ink-2);max-width:46em}
+@media (max-width:960px){
+  .faq{grid-template-columns:1fr}
+  .faq-nav{position:static;display:flex;overflow-x:auto;gap:6px;padding-bottom:4px;scrollbar-width:none}
+  .faq-nav button{flex:none;border:1px solid var(--rule-2);border-radius:999px;padding:8px 14px}
+  .faq-nav button[aria-selected="true"]{border-color:var(--ink)}
+  .faq summary{font-size:17px}
+  .faq details p{padding-right:0}
+}
+
+/* review markers: unconfirmed business commitments, remove before launch */
+.tbc{background:transparent;color:inherit;border-bottom:1.5px dashed #c98a1e;padding-bottom:1px}
+.tbc-tag{display:inline-block;vertical-align:middle;margin-left:10px;font:500 11px/1 var(--sans);color:#8a5a0b;background:#f6e7c8;border:1px solid #e8cf9a;border-radius:6px;padding:4px 7px}
+.tbc-note{margin-top:16px;font-size:13.5px;color:var(--ink-2);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.tbc-note .tbc-tag{margin-left:0}
+
+/* ---------- 10 cta ---------- */
+.cta{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,88px);align-items:start}
+.cta h2{font-size:clamp(34px,4.4vw,56px)}
+.cta .hero-cta{margin-top:32px}
+.sum{margin-top:48px;border-top:1px solid var(--dark-rule)}
+.sum div{display:grid;grid-template-columns:170px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--dark-rule);font-size:15px}
+.sum b{font:500 17px var(--serif);color:var(--on-dark)}
+.sum span{color:var(--on-dark-2)}
+form{background:var(--dark-2);border:1px solid var(--dark-rule);border-radius:var(--r);padding:28px;display:grid;gap:16px}
+.ftabs{display:flex;gap:4px;padding:4px;background:var(--dark);border-radius:12px}
+.ftabs button{flex:1;border:0;background:transparent;color:var(--on-dark-2);height:36px;border-radius:9px;cursor:pointer;font-size:14px}
+.ftabs button[aria-selected="true"]{background:var(--dark-3);color:var(--on-dark)}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:grid;gap:6px;font-size:13px;color:var(--on-dark-2)}
+input,select,textarea{font:15px var(--sans);color:var(--on-dark);background:var(--dark);border:1px solid var(--dark-rule);border-radius:10px;padding:12px;width:100%}
+input:focus,select:focus,textarea:focus{outline:none;border-color:#8fd3a8}
+textarea{min-height:84px;resize:vertical}
+form .btn{justify-content:center;width:100%}
+.ok{font-size:14px;color:#8fd3a8;min-height:1em}
+footer{background:var(--dark);border-top:1px solid var(--dark-rule);color:var(--on-dark-2);font-size:13px;padding:32px 0}
+.foot{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.foot nav{display:flex;gap:24px;flex-wrap:wrap}
+.foot a:hover{color:var(--on-dark)}
+.tm{margin-top:6px;font-size:12px;color:#7d8076;max-width:52em}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(14px);transition:opacity .7s ease,transform .7s ease}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.rv{opacity:1;transform:none;transition:none}.live.pulse{animation:none}*{transition:none!important}}
+
+/* ---------- responsive ---------- */
+@media (max-width:1080px){
+  .nav-links{display:none}
+  .row{grid-template-columns:minmax(0,1.8fr) minmax(0,1fr) minmax(0,1fr) minmax(0,.9fr) 72px}
+  .row .c-net,.row .c-del{display:none}
+}
+@media (max-width:960px){
+  .hero-grid,.why,.work,.host,.feature,.net,.mobile,.cta{grid-template-columns:1fr}
+  .head{grid-template-columns:1fr;gap:16px}
+  .head .kicker{padding-top:0}
+  .scene{margin:0 0 40px 24px}
+  .always{position:static}
+  .says{grid-template-columns:1fr 1fr}
+  .say,.say:not(:nth-child(3n+1)){padding-left:0;border-left:0;padding-right:24px}
+  .points{grid-template-columns:1fr 1fr}
+  .people{grid-template-columns:1fr}
+  .task{grid-template-columns:96px 1fr;gap:4px 16px}
+  .task .who{grid-column:2}
+  .task>div,.task .where{grid-column:2;text-align:left}
+  .supply{grid-template-columns:1fr}
+  .mobile .photo{aspect-ratio:16/10}
+  .ops{aspect-ratio:auto;display:flex;flex-direction:column}
+  .ops img{aspect-ratio:16/9;height:auto}
+  .ops-card{position:static;width:auto;border-radius:0;gap:18px}
+}
+@media (max-width:640px){
+  .menu{display:block}
+  .nav-r .link{display:none}
+  .nav-links.open{display:flex;position:absolute;left:0;right:0;top:68px;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--rule);padding:4px var(--gutter) 12px}
+  .nav-links.open a{padding:14px 0;border-bottom:1px solid var(--rule)}
+  .hero h1{font-size:38px}
+  .specs{grid-template-columns:1fr 1fr;gap:18px}
+  .scene{margin:0}
+  .scene-photo{aspect-ratio:4/4.4;border-radius:22px}
+  .phone{position:relative;left:auto;bottom:auto;margin:-150px auto 0;width:250px}
+  .run{width:auto;left:14px;right:14px;top:58px}
+  .nw{white-space:normal}
+  .chip-host{right:auto;bottom:auto;left:14px;top:14px}
+  .scene-cap{text-align:left}
+  .says,.points{grid-template-columns:1fr}
+  .say{padding-right:0}
+  .cap{grid-template-columns:1fr;gap:4px}
+  .agents{grid-template-columns:1fr}
+  .way,.sum div{grid-template-columns:1fr;gap:4px}
+  .f2{grid-template-columns:1fr}
+  .row.th{display:none}
+  .row{grid-template-columns:1fr auto;gap:10px 16px;padding:22px 0}
+  .row>div:first-child{grid-column:1/-1}
+  .row .c-net,.row .c-del{display:block}
+  .row .c-city,.row .c-net,.row .c-lat,.row .c-del{font-size:13px}
+  .row .lbl{display:inline;color:var(--muted);margin-right:6px}
+  .row .c-st{grid-column:1/-1}
+  .ops-card{padding:20px}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="#top" aria-label="远桌 首页">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="5" width="24" height="15" rx="4" fill="none" stroke="#1b1a16" stroke-width="1.6"/><rect x="8" y="21.5" width="10" height="1.6" rx=".8" fill="#1b1a16"/><circle cx="19.5" cy="12.5" r="2.2" fill="#2fae69"/></svg>
+      远桌
+    </a>
+    <nav class="nav-links" id="navlinks" aria-label="主导航">
+      <a href="#nanomuse">nanoMuse</a>
+      <a href="#work">工作 Agent</a>
+      <a href="#mobile">移动办公</a>
+      <a href="#host">真实主机</a>
+      <a href="#who">适合谁</a>
+      <a href="#network">家庭 IP</a>
+      <a href="#market">设备市场</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+    <div class="nav-r">
+      <a class="link" href="#request">发布求租</a>
+      <a class="btn btn-green" href="#market">租一台</a>
+      <button class="menu" aria-label="打开菜单" aria-expanded="false" aria-controls="navlinks"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill"><span class="live pulse"></span>吉隆坡 · 家庭光纤 · 设备在线</span>
+      <h1><span class="nw">一台真实的电脑，</span><br><span class="nw">替你<em>一直在线</em>工作。</span></h1>
+      <p class="lede">nanoMuse 记住你、处理你的个人事务；Codex 与 Claude Code 在远程电脑上替你完成工作。我们提供它们运行的那台电脑：真实、独享、长期在线，有人维护。</p>
+      <div class="hero-cta">
+        <a class="btn btn-green" href="#market">查看可租设备 <span class="arrow">→</span></a>
+        <a class="link" href="#nanomuse">先看看它能做什么 <span class="arrow">↓</span></a>
+      </div>
+      <dl class="specs">
+        <div><dt>设备</dt><dd>Mac · Windows · Linux 实体机</dd></div>
+        <div><dt>网络</dt><dd>家庭宽带 · 固定住宅 IP</dd></div>
+        <div><dt>Agent</dt><dd class="brands"><a href="https://nanomuse.cn/" target="_blank" rel="noopener"><img src="assets/logos/nanomuse.svg" alt="" width="20" height="20" />nanoMuse</a><a href="https://developers.openai.com/codex" target="_blank" rel="noopener"><img class="mono-logo" src="assets/logos/openai.svg" alt="" width="18" height="18" />Codex</a><a href="https://claude.com/product/claude-code" target="_blank" rel="noopener"><img src="assets/logos/claude.svg" alt="" width="18" height="18" />Claude Code</a></dd></div>
+        <div><dt>时间</dt><dd class="clock">北京 <span data-tz="Asia/Shanghai">--:--</span> · 吉隆坡 <span data-tz="Asia/Kuala_Lumpur">--:--</span></dd></div>
+      </dl>
+    </div>
+
+    <div class="scene" aria-label="示意：吉隆坡窗边的 Mac mini，手机上的 nanoMuse，以及正在运行的 Claude Code 任务">
+      <div class="scene-photo"><img src="assets/hero-night.jpg" alt="夜里吉隆坡公寓窗边，台灯下的 Mac mini 和家用路由器亮着，窗外是城市夜景" /><span class="chip chip-host"><span class="live"></span>kl-mini-07 · 已在线 41 天</span></div>
+      <div class="run" aria-hidden="true">
+        <div class="run-top"><span>Claude Code · ~/shop-app</span><span>运行中</span></div>
+        <div>✓ 读取 38 个文件，修改 4 个</div>
+        <div><span class="ok">✓ 214 / 214 测试通过</span></div>
+        <div>▸ 正在构建 iOS 归档…</div>
+        <div class="bar"><i></i></div>
+      </div>
+      <div class="phone" aria-hidden="true">
+        <div class="ph-status">
+          <span class="ph-time">21:40</span><span class="ph-island"></span>
+          <span class="ph-icons"><svg width="15" height="10" viewBox="0 0 15 10"><rect x="0" y="6" width="2.6" height="4" rx=".6"/><rect x="4" y="4" width="2.6" height="6" rx=".6"/><rect x="8" y="2" width="2.6" height="8" rx=".6"/><rect x="12" y="0" width="2.6" height="10" rx=".6"/></svg><svg width="13" height="10" viewBox="0 0 13 10"><path d="M6.5 9.6 4.6 7.5a2.7 2.7 0 0 1 3.8 0zM2.9 5.8a5.1 5.1 0 0 1 7.2 0l-1 1.1a3.6 3.6 0 0 0-5.2 0zM1 3.9a7.8 7.8 0 0 1 11 0l-1 1a6.3 6.3 0 0 0-9 0z"/></svg><span class="ph-batt"><i></i></span></span>
+        </div>
+        <div class="ph-bar">
+          <span class="ph-back">‹</span>
+          <img src="assets/logos/nanomuse.svg" alt="" width="26" height="26" />
+          <span class="ph-title"><b>nanoMuse</b><small><span class="live"></span>kl-mini-07 在线</small></span>
+          <span class="ph-more">···</span>
+        </div>
+        <div class="ph-chat">
+          <span class="ph-day">今天 08:00</span>
+          <div class="msg ai">早上好，今天的 3 条 Feed 写好了，骑行那条你应该会感兴趣。</div>
+          <span class="ph-day">21:38</span>
+          <div class="msg me">帮我买周五晚上深圳回长沙的高铁，6 点以后，靠窗</div>
+          <div class="ph-tool"><span class="ph-ic">📱</span><span>打开 12306 · 查询余票</span></div>
+          <div class="msg ai">18:20 那班还有靠窗，按你常坐的二等座选好了。</div>
+          <div class="ph-ticket">
+            <div class="tk-route"><div><b>18:20</b><span>深圳北</span></div><i>3 小时 12 分</i><div><b>21:32</b><span>长沙南</span></div></div>
+            <div class="tk-meta"><span>周五 · 二等座 · 12F 靠窗</span><b>¥314</b></div>
+          </div>
+          <div class="approve pay">
+            <div class="ap-h"><b>确认付款</b><span class="ap-risk">付款</span></div>
+            <div class="ap-src">12306 · 需要解锁手机确认</div>
+            <div class="pay-amt">¥314.00</div>
+            <div class="acts"><span>取消</span><span>确认付款</span></div>
+            <div class="ap-more">付款每次都需要你单独确认</div>
+          </div>
+        </div>
+        <div class="ph-input"><span class="ph-plus">+</span><span class="ph-field">给 nanoMuse 发消息</span><span class="ph-mic"><svg width="9" height="12" viewBox="0 0 9 12"><rect x="2.2" y="0" width="4.6" height="7.6" rx="2.3"/><path d="M.8 5.6a3.7 3.7 0 0 0 7.4 0M4.5 9.4V12" fill="none" stroke-width="1.1"/></svg></span></div>
+        <span class="ph-home"></span>
+      </div>
+      <p class="scene-cap small">界面为示意</p>
+    </div>
+  </div>
+</section>
+
+<!-- 01 nanoMuse -->
+<section id="nanomuse" class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>01</b> 个人 / 生活 Agent</p>
+      <div>
+        <h2>nanoMuse 记住你，<br>把生活里的事<em>替你做完</em>。</h2>
+        <p class="lede">nanoMuse 是一个开源的个人 Agent。它记得你的目标，在后台一步步推进；事情发生时自动开工；还能跨手机和电脑操作应用，把结果做成文件交给你。同一个账号覆盖手机、电脑和网页，看到的是同样的对话。</p>
+        <div class="brand-row">
+          <span class="brand-id"><img src="assets/logos/nanomuse.svg" alt="nanoMuse 标志" width="40" height="40" /><span><b>nanoMuse</b><small>开源个人 Agent · GPL-3.0</small></span></span>
+          <a class="link" href="https://nanomuse.cn/" target="_blank" rel="noopener">官网 nanomuse.cn <span class="arrow">↗</span></a>
+          <a class="link" href="https://nanomuse.cn/docs/" target="_blank" rel="noopener">文档 <span class="arrow">↗</span></a>
+          <a class="link" href="https://github.com/nano-muse/nanoMuse" target="_blank" rel="noopener">GitHub <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </div>
+
+    <p class="kicker rv" style="margin-bottom:18px">你可以这样跟它说</p>
+    <div class="says rv">
+      <div class="say"><q>三个月后去日本，帮我一步步准备</q><span class="tag">长期目标 · 主动推进</span><p>它把目标拆成步骤，在后台隔一段时间推进一步：比价机票、列出签证材料。每周一跟你同步进度；计划不再合适时，它会提出修改，由你决定用不用。</p></div>
+      <div class="say"><q>找到手机上的外卖订单号，填进电脑上的报销表</q><span class="tag">跨设备 · 一句话</span><p>手机上的 nanoMuse 通过屏幕找到订单号，电脑上的 nanoMuse 把它写进表格。两台设备各做一半，过程都在你发消息的那段对话里。</p></div>
+      <div class="say"><q>标题带“评审”的会议，提前半小时给我一页简报</q><span class="tag">触发器</span><p>不是到点提醒，而是事情发生时自动开工：日程开始前、收到某封邮件、某台设备上线，或者你的部署脚本调用它的时候。</p></div>
+      <div class="say"><q>每天帮我盯着骑行和 Rust 的新动态，每周推荐一道菜</q><span class="tag">Feed · 为你写的内容</span><p>每天按你的要求、目标和它对你的了解写三条短帖。你不在的时候它做了什么，回来在“你不在时”里一眼就能看到。</p></div>
+      <div class="say"><q>这三家保险方案帮我比一下，做成表</q><span class="tag">技能 · 产出文件</span><p>查资料、整理对比，生成表格或网页存进文件库，在手机上直接打开。不只是回一段话，而是给你一个能用的结果。</p></div>
+      <div class="say"><q>记住：我对花生过敏，安排吃饭时避开</q><span class="tag">记忆 · 归你所有</span><p>之后帮你订餐、做行程都会考虑这一点。它记住的每一条你都能看到、修改和删除，删掉的它不会再用。</p></div>
+    </div>
+
+    <div class="why">
+      <dl class="caps rv">
+        <div class="cap"><dt>记住你</dt><dd>每条记忆都能查看、修改、删除；它会定期合并整理，每次改动都能撤销。关于你的设定写在可以直接阅读的 Markdown 文件里。</dd></div>
+        <div class="cap"><dt>安排</dt><dd>长期目标拆成步骤，在后台推进、按时跟进；提醒、定时任务和触发器；可以订阅你的日历 <span>（只读，它不会直接改你的日历）</span>；设置安静时段，夜里不打扰。</dd></div>
+        <div class="cap"><dt>动手</dt><dd>终端、浏览器、MCP 连接器（Notion、GitHub、Linear 等常用服务）和 Agent Skills，开启 Hands 后可以操作屏幕。</dd></div>
+        <div class="cap"><dt>守门</dt><dd>每一次工具调用都要经过 Sentinel 检查：删除、发送、付款这类敏感操作先问你，超时没回应就当作拒绝。</dd></div>
+        <div class="cap"><dt>模型</dt><dd>用你自己的 Key：DeepSeek、Kimi、通义百炼、智谱 GLM、豆包、OpenAI、OpenRouter、Ollama 等。也可以登录社区中继，用免费额度。中继可以自己部署。</dd></div>
+      </dl>
+      <aside class="always rv">
+        <p class="kicker">为什么放在一台常开的电脑上</p>
+        <h3>电脑睡着了，nanoMuse 也就停了。</h3>
+        <p>推进目标、触发器、定时任务和每天的 Feed，都由正在运行的 nanoMuse 发起。家里的笔记本一合盖，这些就都停了，错过的只会在开机后补跑一次。放在一台 24 小时在线的电脑上，它才真的一直在替你做事。</p>
+        <div class="timeline">
+          <div><time>08:00</time><span>写好今天的三条 Feed</span></div>
+          <div><time>09:30</time><span>推进“日本行程”：比完机票</span></div>
+          <div><time>13:30</time><span>评审会前半小时，简报已就绪</span></div>
+          <div><time>23:40</time><span class="off">笔记本合盖：后台工作全部暂停</span></div>
+        </div>
+      </aside>
+    </div>
+
+    <p class="note">nanoMuse 是独立的开源社区项目（GPL-3.0-or-later），不是本平台的产品。各客户端能力不完全相同，例如 iPhone 不支持操作屏幕，Linux 的屏幕操作只支持 X11，Windows 的屏幕操作仍在测试。一切以 <a href="https://nanomuse.cn/" target="_blank" rel="noopener">nanomuse.cn</a> 官方文档为准。</p>
+  </div>
+</section>
+
+<!-- 02 work agents -->
+<section id="work" class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>02</b> 工作 / 编程 Agent</p>
+      <div>
+        <h2>Codex 与 Claude Code，<br>在远程电脑上<em>替你干活</em>。</h2>
+        <p class="lede">在手机上交代任务，它们在一台不会合盖、不会断网的电脑上一直跑。做完后，结果、日志和状态都发回你的手机。</p>
+      </div>
+    </div>
+
+    <div class="work">
+      <div class="job rv" aria-label="示意：一个编程任务的执行过程">
+        <div class="job-h"><b>修复结算页税费计算</b><span>kl-mini-07 · Claude Code</span></div>
+        <ol class="steps">
+          <li class="done"><time>09:02</time><i class="dot"></i><div><b>在手机上交代任务</b><span>“修复税费计算并补测试”</span></div></li>
+          <li class="done"><time>09:03</time><i class="dot"></i><div><b>读取项目，定位问题</b><span>38 个文件</span></div></li>
+          <li class="done"><time>09:21</time><i class="dot"></i><div><b>修改多个文件</b><span>tax.ts +42 −17 · tax.test.ts +88</span></div></li>
+          <li class="done"><time>09:31</time><i class="dot"></i><div><b>运行测试与构建</b><span>214 / 214 passed · build ok</span></div></li>
+          <li class="done"><time>09:40</time><i class="dot"></i><div><b>部署到预发环境</b><span>部署前已在手机上批准</span></div></li>
+          <li><time>09:41</time><i class="dot"></i><div><b>结果、日志、状态发回手机</b><span>logs/run-1042.txt</span></div></li>
+        </ol>
+      </div>
+
+      <div class="rv">
+        <div class="agents">
+          <a class="agent" href="https://developers.openai.com/codex" target="_blank" rel="noopener"><span class="agent-h"><span class="agent-logo"><img class="mono-logo" src="assets/logos/openai.svg" alt="" width="22" height="22" /></span><h3>Codex</h3><span class="ext" aria-hidden="true">↗</span></span><p>OpenAI 出品。擅长批量修改、重构和排队执行的长任务。</p><span class="agent-url">developers.openai.com</span></a>
+          <a class="agent" href="https://claude.com/product/claude-code" target="_blank" rel="noopener"><span class="agent-h"><span class="agent-logo"><img src="assets/logos/claude.svg" alt="" width="22" height="22" /></span><h3>Claude Code</h3><span class="ext" aria-hidden="true">↗</span></span><p>Anthropic 出品。擅长读懂大型项目、跨多个文件修改和调试。</p><span class="agent-url">claude.com</span></a>
+        </div>
+        <ul class="dlist">
+          <li><span>读取项目，修改多个文件的代码</span><span>终端</span></li>
+          <li><span>运行测试、编译、构建、部署</span><span>长时间运行</span></li>
+          <li><span>执行终端、浏览器和自动化任务</span><span>后台运行</span></li>
+          <li><span>在浏览器里打开 VS Code Web 编辑项目</span><span>平板也能用</span></li>
+          <li><span>用 UU 远程操作完整的桌面</span><span>Xcode · 图形界面</span></li>
+          <li><span>用 SSH / mosh 看日志、执行命令</span><span>网络不好也不断</span></li>
+        </ul>
+        <p class="bridge"><b>和 nanoMuse 配合：</b>在手机上的 nanoMuse 里，也能看到电脑上 Codex、Claude Code 的任务，并接着给它们发指令。</p>
+      </div>
+    </div>
+
+    <p class="kicker rv" style="margin:clamp(64px,8vw,104px) 0 20px">这些时候，它最有用</p>
+    <div class="cases">
+      <article class="case rv">
+        <span class="when">周六 15:20 · 在外面玩</span>
+        <h3>出门在外，线上出了紧急 bug</h3>
+        <p>不用找地方打开电脑。在手机上把报错发给 Claude Code，它在远程电脑上查日志、修复、跑完测试。你看一眼 diff，批准部署，接着玩。</p>
+        <dl><div><dt>你</dt><dd>一句话，加一次批准</dd></div><div><dt>远程电脑</dt><dd>查日志 → 修复 → 测试 → 部署</dd></div></dl>
+      </article>
+      <article class="case rv">
+        <span class="when">周三 16:40 · 临时有事</span>
+        <h3>临时有事离开，活继续干着</h3>
+        <p>合上自己的笔记本就能走。任务跑在远程电脑上，不会因为你断网、合盖或关机而停下。回来时，结果和日志已经发到手机上了。</p>
+        <dl><div><dt>你</dt><dd>合上电脑，出门</dd></div><div><dt>远程电脑</dt><dd>继续编译、测试、导出</dd></div></dl>
+      </article>
+      <article class="case rv">
+        <span class="when">高铁上 · 信号时有时无</span>
+        <h3>自己网络不好，也能干活</h3>
+        <p>SSH 只传文字，很慢的网也够用；mosh 断线或在 Wi-Fi 和 4G 之间切换后会自动接上，打的字马上显示。拉代码、装依赖、下载素材这些重活都在远程电脑上完成。</p>
+        <dl><div><dt>你</dt><dd>一个终端窗口</dd></div><div><dt>远程电脑</dt><dd>用自己的家庭光纤干重活</dd></div></dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 03 mobile -->
+<section id="mobile" class="rule-top">
+  <div class="wrap mobile">
+    <figure class="photo rv"><img src="assets/mobile-cafe.jpg" alt="咖啡馆桌上，一只手拿着显示聊天界面的手机" loading="lazy" /></figure>
+    <div class="rv">
+      <p class="kicker"><b>03</b> 移动办公</p>
+      <h2 style="margin-top:18px">电脑留在吉隆坡，<br>工作<em>跟着你走</em>。</h2>
+      <div class="ways">
+        <div class="way"><span class="d">手机</span><div><h3>发一句话就布置好</h3><p>给 nanoMuse 或工作 Agent 发消息，进度和需要你批准的事都回到手机上。</p></div></div>
+        <div class="way"><span class="d">平板 / 笔记本</span><div><h3>在浏览器里写代码</h3><p>VS Code Web 打开就是你的项目和终端，本地什么都不用装。</p></div></div>
+        <div class="way"><span class="d">任意一台电脑</span><div><h3>接管完整桌面</h3><p>用 UU 远程处理图形界面，用 SSH / mosh 看日志，网络不好也不容易断。</p></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="connect rv">
+      <div class="connect-head">
+        <p class="kicker">远程登录方式</p>
+        <h3>用你习惯的方式，连上这台电脑。</h3>
+        <p>代码、依赖和运行环境都留在远程电脑上，你的设备只负责显示和输入。换一台电脑、换一部手机，都能接着干。</p>
+      </div>
+      <div class="cx" role="group" aria-label="从你的设备，经过远程登录方式，连到吉隆坡的远程主机">
+        <div class="cx-end">
+          <span class="cx-label">你的设备</span>
+          <ul class="cx-devs"><li>手机</li><li>平板</li><li>笔记本</li><li>任意一台电脑</li></ul>
+        </div>
+        <span class="cx-link" aria-hidden="true"><i></i><i></i><i></i></span>
+        <ul class="cx-ways">
+          <li class="wide rec"><b>UU 远程<em>推荐</em></b><span>完整桌面，画面流畅，适合 Xcode、剪辑和各种图形界面</span></li>
+          <li><b>UU 终端</b><span>命令行连接，看日志、跑命令</span></li>
+          <li><b>SSH / mosh</b><span>只传文字，网络差也能用</span></li>
+          <li><b>Tailscale</b><span>组私有网络，用自己的工具直连</span></li>
+          <li><b>VS Code Web</b><span>在浏览器里写代码，平板也能用</span></li>
+          <li><b>ToDesk</b><span>常用的远程桌面</span></li>
+          <li><b>RustDesk</b><span>开源的远程桌面</span></li>
+          <li class="wide"><b>Cloudflare 固定专属地址</b><span>每台机器一个固定网址，浏览器里直接 SSH / VNC，不用装客户端。只有你的邮箱能收到验证码进入，进入后再用系统账户密码登录。</span></li>
+        </ul>
+        <span class="cx-link" aria-hidden="true"><i></i><i></i><i></i></span>
+        <div class="cx-end">
+          <span class="cx-label">吉隆坡</span>
+          <div class="cx-host"><span class="status"><span class="live"></span>在线</span><b>你的远程主机</b><small>整机独享 · 家庭宽带 · 住宅 IP</small></div>
+        </div>
+      </div>
+      <p class="small" style="margin-top:18px">可用的方式因系统而异，每台设备的页面都会写明支持哪些。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 real host -->
+<section id="host" class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>04</b> 一台真实主机</p>
+      <div>
+        <h2>你租到的，是一台<br>放在真实房间里的<em>电脑</em>。</h2>
+        <p class="lede">不是从资源池里切出来的虚拟机。每台设备都写明所在城市、系统、配置、网络、延迟和交付时间，租之前就知道它是什么样。</p>
+      </div>
+    </div>
+
+    <div class="host rv">
+      <figure class="photo" style="min-height:360px">
+        <img src="assets/device-shelf.jpg" alt="吉隆坡公寓木架上的 Mac mini、小主机和家用路由器" loading="lazy" />
+        <figcaption><span class="chip"><span class="live"></span>吉隆坡 · Mont Kiara</span></figcaption>
+      </figure>
+      <div class="sheet">
+        <div class="sheet-h"><div><h3>Mac mini M4</h3><p class="small">设备页信息示例</p></div><span class="status"><span class="live"></span>在线</span></div>
+        <dl>
+          <dt>城市</dt><dd>吉隆坡，马来西亚</dd>
+          <dt>系统</dt><dd>macOS 15</dd>
+          <dt>配置</dt><dd>10 核 · 16 GB · 512 GB</dd>
+          <dt>网络</dt><dd>家庭光纤 500M</dd>
+          <dt>IP</dt><dd>住宅 IP · 租期内固定</dd>
+          <dt>延迟</dt><dd>广州 ≈ 45 ms</dd>
+          <dt>交付</dt><dd>付款后 2 小时内</dd>
+        </dl>
+        <p class="small">数据为示例，以设备页实测为准。</p>
+      </div>
+    </div>
+
+    <div class="points">
+      <div class="point rv"><span class="n">01</span><h3>实体设备，资源独享</h3><p>租期内这台机器的 CPU、内存、硬盘和 GPU 只给你一个人用。</p></div>
+      <div class="point rv"><span class="n">02</span><h3>macOS、Windows、Linux</h3><p>iOS 构建和 Final Cut 用 Mac，ComfyUI 和剪辑软件可选带 GPU 的 Windows。</p></div>
+      <div class="point rv"><span class="n">03</span><h3>完整管理员权限</h3><p>装你自己的软件和开发环境，用起来和自己的电脑一样。</p></div>
+      <div class="point rv"><span class="n">04</span><h3>常用工具可预装</h3><div class="tools"><span>Homebrew</span><span>Git</span><span>Node.js</span><span>Python</span><span>Xcode CLI</span><span>Docker</span><span>tmux</span><span>mosh</span></div></div>
+      <div class="point rv"><span class="n">05</span><h3>24 小时在线</h3><p>UPS 供电，来电后自动开机。你合上自己的笔记本，它照样继续跑。</p></div>
+      <div class="point rv"><span class="n">06</span><h3>有人维护</h3><p>平台或当地运维负责断电恢复、远程重启、定期巡检和硬件故障更换。</p></div>
+    </div>
+
+    <figure class="ops rv">
+      <img src="assets/ops-rack.jpg" alt="当地运维人员检查放有 Mac mini、UPS 和路由器的设备架" loading="lazy" />
+      <figcaption class="ops-card">
+        <div><p class="kicker">当地运维</p><h3>机器出了问题，<br>有人到现场处理。</h3></div>
+        <ul>
+          <li><span>断电恢复</span><span>来电自启 · UPS</span></li>
+          <li><span>远程重启</span><span>随时申请</span></li>
+          <li><span>定期巡检</span><span>温度 · 磁盘 · 网络</span></li>
+          <li><span>硬件故障</span><span>当地更换</span></li>
+        </ul>
+      </figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- 05 who -->
+<section id="who" class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>05</b> 适合谁</p>
+      <div>
+        <h2>不只是程序员，<br>所有需要一台<em>不关机</em>的电脑的人。</h2>
+        <p class="lede">写代码、剪视频、出图、跑店铺，最耗时的那部分都可以交给远程电脑。你的笔记本留给你自己用。</p>
+      </div>
+    </div>
+
+    <div class="feature rv">
+      <figure class="photo"><img src="assets/creator-edit.jpg" alt="家庭工作室里，显示器上是视频剪辑时间线" loading="lazy" /></figure>
+      <div>
+        <p class="kicker">重点场景 · AI 剪辑与视频制作</p>
+        <h3>导出、转码、生成，<br>交给远程电脑通宵去做。</h3>
+        <p class="lede" style="font-size:16px">长视频导出和批量生成最占机器。把它们放到远程电脑上，你自己的电脑不卡、不烫，也不用一直开着。</p>
+        <ul>
+          <li><span><b>剪映、DaVinci Resolve、Final Cut Pro</b> 跑在独享的 Mac 或 Windows 上</span></li>
+          <li><span><b>长视频导出、AI 字幕、批量转码</b> 晚上开始，第二天早上收结果</span></li>
+          <li><span><b>ComfyUI、Stable Diffusion</b> 在带 GPU 的主机上批量出图、生成视频</span></li>
+          <li><span><b>素材在远程电脑上下载，成片直接上传</b>，不占你家里的上行带宽</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="people">
+      <div class="person rv"><span class="n">01</span><h3>个人 Agent 用户</h3><p>让 nanoMuse 一直在线：在后台推进你的目标，事情发生时自动开工，跨手机和电脑替你动手。</p><span class="pick">常选 · Mac mini 入门配置</span></div>
+      <div class="person rv"><span class="n">02</span><h3>AI 编程与独立开发者</h3><p>Codex、Claude Code 通宵跑任务，白天只看结果和 diff。</p><span class="pick">常选 · Mac / Linux · 32 GB</span></div>
+      <div class="person rv"><span class="n">03</span><h3>AI 剪辑与视频制作</h3><p>长视频导出、AI 字幕、批量转码交给远程电脑。</p><span class="pick">常选 · Mac mini M4 Pro</span></div>
+      <div class="person rv"><span class="n">04</span><h3>AIGC 与设计创作者</h3><p>在带 GPU 的主机上跑 ComfyUI，批量出图、生成视频。</p><span class="pick">常选 · Windows · RTX 显卡</span></div>
+      <div class="person rv"><span class="n">05</span><h3>iOS / Flutter 编译团队</h3><p>用真实的 Mac 签名、归档、上传 TestFlight。</p><span class="pick">常选 · Mac mini M4 Pro</span></div>
+      <div class="person rv"><span class="n">06</span><h3>跨境电商与海外运营</h3><p>在当地的真实家庭网络里看店铺、价格、内容和发布时间。</p><span class="pick">常选 · Windows · 住宅 IP</span></div>
+      <div class="person rv"><span class="n">07</span><h3>移动办公的远程工作者</h3><p>一部手机加任意一块屏幕，就能接上自己的完整工作环境。</p><span class="pick">常选 · Mac · VS Code Web</span></div>
+      <div class="person rv"><span class="n">08</span><h3>需要长期在线电脑的团队</h3><p>定时任务、监控、构建机，不用自己管机房和停电。</p><span class="pick">常选 · 多台 · 按年付</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 tasks -->
+<section id="tasks" style="background:var(--surface)" class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>06</b> 实际能做的事</p>
+      <div>
+        <h2>远程电脑上的<em>一天</em>。</h2>
+        <p class="lede">七种常见的用法，每一种都是一台电脑在一天里真的能做完的事：几点开始、谁在做、你最后拿到什么。</p>
+      </div>
+    </div>
+
+    <div class="tabs rv" role="tablist" aria-label="按用途查看任务">
+      <button role="tab" aria-selected="true" aria-controls="p-life" id="t-life">个人生活</button>
+      <button role="tab" aria-selected="false" aria-controls="p-dev" id="t-dev" tabindex="-1">编程开发</button>
+      <button role="tab" aria-selected="false" aria-controls="p-ios" id="t-ios" tabindex="-1">iOS 构建</button>
+      <button role="tab" aria-selected="false" aria-controls="p-video" id="t-video" tabindex="-1">视频创作</button>
+      <button role="tab" aria-selected="false" aria-controls="p-aigc" id="t-aigc" tabindex="-1">AIGC 出图</button>
+      <button role="tab" aria-selected="false" aria-controls="p-shop" id="t-shop" tabindex="-1">跨境运营</button>
+      <button role="tab" aria-selected="false" aria-controls="p-team" id="t-team" tabindex="-1">团队与自动化</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-life" aria-labelledby="t-life">
+      <div class="psum"><p>nanoMuse 的价值不在于定个闹钟，而在于记得你的目标、在后台一步步推进、事情发生时自动开工，还能跨手机和电脑替你动手。这些都要求它一直在线。</p><dl><div><dt>推荐配置</dt><dd>Mac mini 入门配置</dd></div><div><dt>常用功能</dt><dd>目标 · 触发器 · Feed · Hands · 技能 · 文件库</dd></div></dl></div>
+      <div class="task"><time>08:00</time><span class="who">nanoMuse</span><div><h3>今天的 Feed</h3><p>按你写的关注方向，结合目标和记忆写好三条短帖；昨晚它在后台做了什么，也列在“你不在时”里。</p><span class="out">→ 三条专门为你写的短帖</span></div><span class="where">Feed</span></div>
+      <div class="task"><time>09:30</time><span class="who">nanoMuse</span><div><h3>推进一个长期目标</h3><p>后台挑出“日本行程”的下一步：比较几家航司的机票，把结果和链接记到目标里。</p><span class="out">→ 目标进度又前进一步</span></div><span class="where">后台推进</span></div>
+      <div class="task"><time>11:00</time><span class="who">nanoMuse</span><div><h3>手机上找，电脑上填</h3><p>你说一句“把外卖订单号填进报销表”：手机上的 nanoMuse 在 App 里找到订单号，电脑上的 nanoMuse 写进表格。</p><span class="out">→ 填好的报销表</span></div><span class="where">手机 + 远程电脑</span></div>
+      <div class="task"><time>13:30</time><span class="who">nanoMuse</span><div><h3>会前简报</h3><p>日历里标题带“评审”的会议开始前半小时，自动整理相关邮件和资料。</p><span class="out">→ 一页会前简报</span></div><span class="where">触发器 · 日历</span></div>
+      <div class="task"><time>16:00</time><span class="who">nanoMuse</span><div><h3>比较三份保险方案</h3><p>查条款、算保费，整理成对比表存进文件库。</p><span class="out">→ 一张能在手机上打开的对比表</span></div><span class="where">技能 · 文件库</span></div>
+      <div class="task"><time>周一 09:00</time><span class="who">nanoMuse</span><div><h3>目标跟进</h3><p>问你这周的进展；发现原计划不合适时，给出修改后的步骤和理由，由你决定用哪一版。</p><span class="out">→ 一份更新过的计划</span></div><span class="where">目标 · 跟进</span></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-dev" aria-labelledby="t-dev" hidden>
+      <div class="psum"><p>Codex 和 Claude Code 跑在常开的 Mac 或 Linux 上，你只负责交代任务和验收结果。</p><dl><div><dt>推荐配置</dt><dd>Mac mini M4 / Linux · 32 GB</dd></div><div><dt>常用工具</dt><dd>Codex · Claude Code · Git · Docker · VS Code Web</dd></div></dl></div>
+      <div class="task"><time>09:10</time><span class="who">Claude Code</span><div><h3>修复 bug 并补测试</h3><p>读取项目、定位问题，修改 4 个文件，跑完全部测试后推送分支。</p><span class="out">→ 一个待合并的 PR 和测试报告</span></div><span class="where">macOS · 终端</span></div>
+      <div class="task"><time>11:00</time><span class="who">Codex</span><div><h3>批量迁移旧接口</h3><p>把旧的 API 调用逐个模块迁到新版，每改完一个模块就跑一次测试。</p><span class="out">→ 按模块拆开的 diff</span></div><span class="where">长时间运行</span></div>
+      <div class="task"><time>14:00</time><span class="who w">你</span><div><h3>在平板上看代码</h3><p>打开 VS Code Web，项目和终端都在，顺手改两行直接提交。</p></div><span class="where">VS Code Web</span></div>
+      <div class="task"><time>16:00</time><span class="who">Claude Code</span><div><h3>跑端到端测试</h3><p>用浏览器自动化把注册、下单、支付几条主流程走一遍。</p><span class="out">→ 失败步骤的截图发到手机</span></div><span class="where">浏览器自动化</span></div>
+      <div class="task"><time>20:00</time><span class="who">Codex</span><div><h3>部署到预发环境</h3><p>构建 Docker 镜像并部署，部署前在手机上批准。</p><span class="out">→ 预发环境地址和部署日志</span></div><span class="where">Docker</span></div>
+      <div class="task"><time>02:00</time><span class="who">Codex</span><div><h3>通宵升级依赖</h3><p>升级依赖、修复兼容问题，你睡觉的时候跑完。</p><span class="out">→ 早上收到 diff 摘要和测试结果</span></div><span class="where">后台运行</span></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-ios" aria-labelledby="t-ios" hidden>
+      <div class="psum"><p>签名、归档和上传 TestFlight 都离不开真实的 Mac，这些步骤可以全部放在远程电脑上完成。</p><dl><div><dt>推荐配置</dt><dd>Mac mini M4 Pro</dd></div><div><dt>常用工具</dt><dd>Xcode · xcodebuild · Flutter · fastlane</dd></div></dl></div>
+      <div class="task"><time>10:00</time><span class="who">Claude Code</span><div><h3>修复 Flutter 布局问题</h3><p>改完代码后在 iOS 模拟器里跑一遍，截图给你确认。</p><span class="out">→ 修改前后的模拟器截图</span></div><span class="where">iOS 模拟器</span></div>
+      <div class="task"><time>13:00</time><span class="who">Codex</span><div><h3>跑单元测试和 UI 测试</h3><p>用 xcodebuild test 在几个不同尺寸的模拟器上跑完测试。</p><span class="out">→ 各机型的测试结果</span></div><span class="where">终端</span></div>
+      <div class="task"><time>15:30</time><span class="who">Codex</span><div><h3>归档、签名、上传</h3><p>xcodebuild 归档并签名，上传前在手机上批准。</p><span class="out">→ 构建号和更新说明发到手机</span></div><span class="where">TestFlight</span></div>
+      <div class="task"><time>16:00</time><span class="who w">你</span><div><h3>处理证书和描述文件</h3><p>需要图形界面的钥匙串和签名设置，用 UU 远程点几下就好。</p></div><span class="where">UU 远程桌面</span></div>
+      <div class="task"><time>22:00</time><span class="who w">定时任务</span><div><h3>每晚自动出测试包</h3><p>每天晚上从主分支打一个测试包，构建失败就通知你。</p><span class="out">→ 每天一个可安装的测试版本</span></div><span class="where">cron</span></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-video" aria-labelledby="t-video" hidden>
+      <div class="psum"><p>导出、转码和生成最占机器。放到远程电脑上，你自己的电脑不卡、不烫，也不用一直开着。</p><dl><div><dt>推荐配置</dt><dd>Mac mini M4 Pro / Windows GPU</dd></div><div><dt>常用工具</dt><dd>剪映 · DaVinci Resolve · Final Cut Pro · FFmpeg</dd></div></dl></div>
+      <div class="task"><time>10:00</time><span class="who w">远程电脑</span><div><h3>下载拍摄素材</h3><p>从网盘直接拉到远程电脑，几十 GB 的素材也不用经过你家的网络。</p></div><span class="where">家庭光纤</span></div>
+      <div class="task"><time>11:30</time><span class="who w">你</span><div><h3>用 UU 远程粗剪</h3><p>在剪映或 DaVinci 里把结构剪好，剩下的交给机器。</p></div><span class="where">UU 远程桌面</span></div>
+      <div class="task"><time>14:00</time><span class="who">Claude Code</span><div><h3>批量整理素材</h3><p>写一个 FFmpeg 脚本：统一格式、生成代理文件、按拍摄日期归档。</p><span class="out">→ 一个整理好的素材库</span></div><span class="where">终端</span></div>
+      <div class="task"><time>17:00</time><span class="who w">远程电脑</span><div><h3>AI 识别字幕</h3><p>自动识别字幕并导出 SRT 文件，你只需要校对。</p><span class="out">→ 可直接导入的字幕文件</span></div><span class="where">剪辑软件</span></div>
+      <div class="task"><time>20:00</time><span class="who w">远程电脑</span><div><h3>多版本导出</h3><p>横屏、竖屏和不同码率的版本一起导出，进度在手机上就能看。</p><span class="out">→ 一整套成片</span></div><span class="where">Mac M4 Pro</span></div>
+      <div class="task"><time>次日 08:00</time><span class="who w">远程电脑</span><div><h3>成片直接上传</h3><p>从远程电脑上传到网盘或发布平台，不占你家的上行带宽。</p></div><span class="where">家庭光纤</span></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-aigc" aria-labelledby="t-aigc" hidden>
+      <div class="psum"><p>ComfyUI 和 Stable Diffusion 需要显卡和长时间运行，一台独享的 GPU 主机可以整夜排队生成。</p><dl><div><dt>推荐配置</dt><dd>Windows · RTX 4070 · 32 GB</dd></div><div><dt>常用工具</dt><dd>ComfyUI · Stable Diffusion · Python</dd></div></dl></div>
+      <div class="task"><time>10:00</time><span class="who w">你</span><div><h3>搭好 ComfyUI 工作流</h3><p>在远程桌面里调参数、试几张，确认风格。</p></div><span class="where">UU 远程桌面</span></div>
+      <div class="task"><time>11:00</time><span class="who">Claude Code</span><div><h3>写批处理脚本</h3><p>从表格里读提示词和尺寸，自动排进生成队列。</p><span class="out">→ 一个可以反复用的脚本</span></div><span class="where">终端</span></div>
+      <div class="task"><time>13:00</time><span class="who w">远程电脑</span><div><h3>批量生成商品图</h3><p>不同背景、尺寸和风格一次生成几百张。</p><span class="out">→ 按商品分好文件夹的图片</span></div><span class="where">GPU</span></div>
+      <div class="task"><time>19:00</time><span class="who w">远程电脑</span><div><h3>生成短视频素材</h3><p>图生视频这类长任务交给机器整晚跑。</p></div><span class="where">GPU · 长时间运行</span></div>
+      <div class="task"><time>次日 09:00</time><span class="who w">你</span><div><h3>挑图</h3><p>在浏览器里看缩略图，挑出要用的，其余一键删掉。</p></div><span class="where">浏览器</span></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-shop" aria-labelledby="t-shop" hidden>
+      <div class="psum"><p>设备接在当地真实的家庭网络上，你看到的就是当地用户看到的价格、内容和活动。</p><dl><div><dt>推荐配置</dt><dd>Windows · 住宅 IP</dd></div><div><dt>常用工具</dt><dd>浏览器 · 定时任务 · 表格 · Claude Code</dd></div></dl></div>
+      <div class="task"><time>08:00</time><span class="who w">定时任务</span><div><h3>检查当地站点价格</h3><p>用当地网络打开自己的店铺和竞品页面，截图并记录价格。</p><span class="out">→ 一份带截图的价格记录</span></div><span class="where">浏览器自动化</span></div>
+      <div class="task"><time>10:00</time><span class="who">nanoMuse</span><div><h3>汇总价格变化</h3><p>把记录整理成表格，变化大的商品单独提醒你。</p><span class="out">→ 一张价格变化表</span></div><span class="where">发到手机</span></div>
+      <div class="task"><time>11:00</time><span class="who w">你</span><div><h3>登录店铺后台</h3><p>住宅 IP 长期固定，每次登录都来自同一个地点。</p></div><span class="where">固定住宅 IP</span></div>
+      <div class="task"><time>15:00</time><span class="who w">你</span><div><h3>看当地用户看到的内容</h3><p>确认广告、商品页和活动页在当地是怎么显示的。</p></div><span class="where">区域测试</span></div>
+      <div class="task"><time>17:00</time><span class="who">Claude Code</span><div><h3>批量改写商品文案</h3><p>按当地的语言习惯改写标题和描述，你审核后再上架。</p><span class="out">→ 一份待审核的文案表</span></div><span class="where">终端</span></div>
+      <div class="task"><time>21:00</time><span class="who w">定时任务</span><div><h3>按当地时间发布</h3><p>吉隆坡和北京同一个时区，发布时间不用换算。</p></div><span class="where">UTC+8</span></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-team" aria-labelledby="t-team" hidden>
+      <div class="psum"><p>一台不关机的电脑，可以当构建机、监控机和定时任务机，不用自己管机房和停电。</p><dl><div><dt>推荐配置</dt><dd>多台 · 按年付</dd></div><div><dt>常用工具</dt><dd>GitHub Actions 自托管 Runner · cron · Docker</dd></div></dl></div>
+      <div class="task"><time>全天</time><span class="who w">Runner</span><div><h3>自托管构建机</h3><p>把 Mac 注册成 GitHub Actions 的自托管 Runner，iOS 构建不用再排队。</p><span class="out">→ 更快的 CI</span></div><span class="where">GitHub Actions</span></div>
+      <div class="task"><time>每 5 分钟</time><span class="who w">监控脚本</span><div><h3>检查网站和接口</h3><p>定时请求关键页面和接口，出现异常时推送到手机。</p></div><span class="where">cron</span></div>
+      <div class="task"><time>每天 03:00</time><span class="who w">定时任务</span><div><h3>数据同步和报表</h3><p>拉取前一天的数据，生成报表，上传到团队自己的存储。</p><span class="out">→ 一份每日报表</span></div><span class="where">cron</span></div>
+      <div class="task"><time>工作日 09:00</time><span class="who">nanoMuse</span><div><h3>会前准备</h3><p>用“会议准备”技能整理昨天的提交和待办，开会前发给你。</p><span class="out">→ 一页会议要点</span></div><span class="where">定时任务</span></div>
+      <div class="task"><time>入职当天</time><span class="who w">新同事</span><div><h3>一天搭好开发环境</h3><p>新同事租一台同配置的机器，按脚本装好环境，第一天就能写代码。</p></div><span class="where">预装脚本</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 network -->
+<section id="network">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>07</b> 网络与区域</p>
+      <div>
+        <h2>稳定的家庭 IP，<br>是 VPS <em>给不了</em>的。</h2>
+        <p class="lede">每台设备接的都是当地真实的家庭宽带，用的是运营商分配给住户的 IP。我们把线路、IP 类型、城市和延迟写清楚，你自己判断适不适合。</p>
+      </div>
+    </div>
+
+    <div class="net">
+      <div class="rv">
+        <div class="ipcmp" aria-label="住宅 IP 与机房 IP 的对比">
+          <div class="iprow">
+            <span class="k">VPS / 云主机</span><span class="v">机房 IP</span><span class="ip">203.0.113.x</span>
+            <ul><li>数据中心 IP 段</li><li>常被识别为机房流量</li><li>更容易遇到验证码</li></ul>
+          </div>
+          <div class="iprow home">
+            <span class="k">远桌</span><span class="v">家庭宽带住宅 IP</span><span class="ip">198.51.100.x</span>
+            <ul><li>运营商分配</li><li>租期内固定</li><li>消费级路由器</li><li>真实家庭网络</li></ul>
+          </div>
+        </div>
+        <div class="reasons">
+          <div class="reason"><h3>为什么更适合用 AI</h3><p>不少网站和 AI 服务会把机房 IP 当作服务器流量，更容易出现验证码、二次验证或功能限制。住宅 IP 更接近普通用户，登录地点长期不变，适合一直挂着的 Agent 和 AI 工具。</p></div>
+          <div class="reason"><h3>为什么要稳定</h3><p>IP 经常变，账号就会不停地被要求重新验证。租期内 IP 不变，如果运营商调整，我们会提前通知你。</p></div>
+          <div class="reason"><h3>区域测试</h3><p>在当地网络里查看真实的内容、价格和发布时间。</p></div>
+        </div>
+        <p class="honest">我们出租的是真实设备，不提供 VPN 或代理服务，也不能保证任何第三方服务的风控结果。请遵守各服务的条款和当地法律。</p>
+      </div>
+
+      <div class="rv">
+        <div class="lat" style="margin-top:0" aria-labelledby="lat-h">
+          <div class="lat-h"><h3 id="lat-h">中国城市到吉隆坡的延迟</h3><span class="small">RTT 中位数</span></div>
+          <div class="lrow"><span>深圳</span><span class="track"><i style="width:38%"></i></span><span class="ms">≈ 40 ms</span></div>
+          <div class="lrow"><span>广州</span><span class="track"><i style="width:42%"></i></span><span class="ms">≈ 45 ms</span></div>
+          <div class="lrow"><span>杭州</span><span class="track"><i style="width:63%"></i></span><span class="ms">≈ 66 ms</span></div>
+          <div class="lrow"><span>上海</span><span class="track"><i style="width:66%"></i></span><span class="ms">≈ 70 ms</span></div>
+          <div class="lrow"><span>成都</span><span class="track"><i style="width:72%"></i></span><span class="ms">≈ 76 ms</span></div>
+          <div class="lrow"><span>北京</span><span class="track"><i style="width:82%"></i></span><span class="ms">≈ 86 ms</span></div>
+          <div class="tz"><span>北京与吉隆坡同为 UTC+8</span><b class="clock"><span data-tz="Asia/Kuala_Lumpur">--:--</span></b></div>
+          <p class="small" style="margin-top:14px">示例数据，实际延迟取决于你的运营商和时段，每台设备页展示最近 7 天的实测值。SSH / mosh 在 100 ms 以内很流畅，远程桌面建议在 80 ms 以内。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 08 market -->
+<section id="market" style="background:var(--surface)" class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>08</b> 设备租赁市场</p>
+      <div>
+        <h2>官方自营，也有<br>第三方出租的<em>设备</em>。</h2>
+        <p class="lede">每台设备都写明城市、系统、配置、网络、延迟、交付时间和当前状态。在线下单，到期一键续租。</p>
+      </div>
+    </div>
+
+    <div class="mk-top rv">
+      <div class="seg" role="tablist" aria-label="设备来源">
+        <button role="tab" aria-selected="true" data-f="all">全部</button>
+        <button role="tab" aria-selected="false" data-f="own">官方自营</button>
+        <button role="tab" aria-selected="false" data-f="third">第三方</button>
+      </div>
+      <span class="small">价格和库存为示例</span>
+    </div>
+
+    <div class="listing rv">
+      <div class="row th" aria-hidden="true"><span>设备</span><span class="c-city">城市</span><span class="c-net">网络</span><span class="c-lat">广州延迟</span><span class="c-del">交付</span><span>价格</span><span></span></div>
+      <div class="row" data-s="own">
+        <div><span class="src">官方自营</span><h3>Mac mini M4</h3><p class="cfg">10 核 · 16 GB · 512 GB · macOS 15</p></div>
+        <span class="c-city"><span class="lbl">城市</span>吉隆坡</span><span class="c-net"><span class="lbl">网络</span>家庭光纤 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 45 ms</span><span class="c-del"><span class="lbl">交付</span>2 小时内</span>
+        <span class="price">¥399<small> /月</small></span><a class="btn btn-green" href="#request">租用</a>
+      </div>
+      <div class="row" data-s="own">
+        <div><span class="src">官方自营</span><h3>Mac mini M4 Pro</h3><p class="cfg">14 核 · 48 GB · 1 TB · 适合剪辑与 iOS 构建</p></div>
+        <span class="c-city"><span class="lbl">城市</span>吉隆坡</span><span class="c-net"><span class="lbl">网络</span>独享线路 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 42 ms</span><span class="c-del"><span class="lbl">交付</span>当天</span>
+        <span class="price">¥899<small> /月</small></span><a class="btn btn-green" href="#request">租用</a>
+      </div>
+      <div class="row" data-s="third">
+        <div><span class="src t">第三方 · 房东</span><h3>Windows GPU 主机</h3><p class="cfg">i7-13700 · 32 GB · RTX 4070 · 适合 ComfyUI</p></div>
+        <span class="c-city"><span class="lbl">城市</span>槟城</span><span class="c-net"><span class="lbl">网络</span>家庭宽带 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 52 ms</span><span class="c-del"><span class="lbl">交付</span>3 天</span>
+        <span class="price">¥599<small> /月</small></span><a class="btn btn-ghost" href="#request">预约</a>
+      </div>
+      <div class="row" data-s="third">
+        <div><span class="src t">第三方</span><h3>Linux 工作站</h3><p class="cfg">Ryzen 7 · 64 GB · 2 TB · Ubuntu 24.04</p></div>
+        <span class="c-city"><span class="lbl">城市</span>新加坡</span><span class="c-net"><span class="lbl">网络</span>家庭光纤 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 48 ms</span><span class="c-del"><span class="lbl">交付</span>次日</span>
+        <span class="price">¥529<small> /月</small></span><a class="btn btn-green" href="#request">租用</a>
+      </div>
+    </div>
+
+    <div class="supply">
+      <a href="#request" data-intent="lend" class="rv"><h3>发布出租 <span>→</span></h3><p>家里有闲置的 Mac 或主机？挂到市场上，平台负责撮合和收款。</p></a>
+      <a href="#request" data-intent="want" class="rv"><h3>发布求租 <span>→</span></h3><p>没找到合适的？写下城市、系统和预算，我们帮你找。</p></a>
+      <a href="#request" data-intent="host" class="rv"><h3>房东合作 <span>→</span></h3><p>你提供电和家庭宽带，当地运维上门安装和巡检。</p></a>
+    </div>
+    <div class="flow" aria-label="租用流程"><span><i>01</i>选设备</span><span><i>02</i>在线下单</span><span><i>03</i>收到连接信息</span><span><i>04</i>开始使用</span><span><i>05</i>到期续租</span></div>
+  </div>
+</section>
+
+<!-- 09 vps -->
+<section id="vps">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>09</b> 与 VPS / 云主机的区别</p>
+      <div><h2>云主机适合跑服务，<br>真实主机适合当<em>你的电脑</em>。</h2></div>
+    </div>
+    <div class="cmp-wrap rv">
+      <table class="cmp">
+        <thead><tr><th scope="col">对比项</th><th scope="col">远桌真实主机</th><th scope="col">VPS / 云主机</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">IP</th><td class="us"><b>家庭宽带住宅 IP，租期内固定</b></td><td>数据中心 IP，常被识别为机房流量</td></tr>
+          <tr><th scope="row">用 AI 工具</th><td class="us">登录地点稳定，不容易反复验证</td><td>更容易遇到验证码或功能限制</td></tr>
+          <tr><th scope="row">硬件</th><td class="us">实体机，租期内独享</td><td>虚拟机，和别人共用宿主机</td></tr>
+          <tr><th scope="row">macOS</th><td class="us">原生 macOS，可用 Xcode、Final Cut</td><td>通常没有，有也很贵</td></tr>
+          <tr><th scope="row">桌面与剪辑</th><td class="us">完整图形桌面，可选 GPU</td><td>大多没有图形界面</td></tr>
+          <tr><th scope="row">Agent</th><td class="us">个人 Agent 与工作 Agent 长期在线</td><td>需要自己搭建、自己维护</td></tr>
+          <tr><th scope="row">运维</th><td class="us">当地有人处理断电和硬件故障</td><td>自己提工单</td></tr>
+          <tr><th scope="row">更适合</th><td class="us">开发、构建、剪辑、Agent、区域测试</td><td>网站、API、数据库等线上服务</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 10 faq -->
+<section id="faq" class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>10</b> 常见问题</p>
+      <div>
+        <h2>租之前，<br>先把<em>问题</em>问清楚。</h2>
+        <p class="lede">关于设备、网络、AI 工具、付款和出租的常见疑问。没找到答案，可以直接发布求租或联系我们。</p>
+        <p class="tbc-note"><span class="tbc-tag">待确认</span>标出的内容是原型里的业务假设，上线前需要确认或修改，确认后删掉标记即可。</p>
+      </div>
+    </div>
+    <div class="faq rv">
+      <div class="faq-nav" role="tablist" aria-label="问题分类"><button role="tab" aria-selected="true" data-cat="dev">设备与网络<span>5</span></button><button role="tab" aria-selected="false" data-cat="ai" tabindex="-1">Agent 与 AI 工具<span>4</span></button><button role="tab" aria-selected="false" data-cat="use" tabindex="-1">使用与数据<span>5</span></button><button role="tab" aria-selected="false" data-cat="pay" tabindex="-1">付款与租期<span>4</span></button><button role="tab" aria-selected="false" data-cat="host" tabindex="-1">出租与房东合作<span>4</span></button></div>
+      <div class="faq-list">
+        <div class="faq-group" data-cat="dev" role="tabpanel" aria-label="设备与网络"><details><summary>租到的是虚拟机吗？会和别人共用吗？<i aria-hidden="true"></i></summary><p>不是虚拟机。官方自营的每个方案都对应一台实体电脑，租期内整机只给你一个人用，不超售。第三方设备由机主提供，独享方式写在设备页上，租之前请再核对一次。</p></details><details><summary>机器放在哪里？<i aria-hidden="true"></i></summary><p>官方自营设备在马来西亚吉隆坡，第三方设备分布在槟城、新加坡等城市。每台设备的国家和城市都写在设备页和交付信息里。</p></details><details><summary><span>住宅 IP 是固定的吗？是我一个人用吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>官方自营设备的<mark class="tbc" title="待业务确认">住宅 IP 在租期内保持不变，运营商如有调整会提前通知你</mark>。家庭宽带不等于每台电脑都有独立的出口 IP：是独享还是和同一条线路上的机器共用，设备页会单独写明。</p></details><details><summary>从中国连过去，延迟大概多少？<i aria-hidden="true"></i></summary><p>以吉隆坡为例，深圳、广州约 40–50 ms，上海、杭州约 65–70 ms，北京约 85 ms，实际取决于你的运营商和时段。远程桌面能感觉到一点；在终端里配合 tmux 或 mosh，几乎感觉不到。每台设备页有最近 7 天的实测值，付款前也可以申请连接测试。</p></details><details><summary>机器会一直开着吗？停电怎么办？<i aria-hidden="true"></i></summary><p>会。我们关闭了自动睡眠，配了 UPS，并设置为来电后自动开机。计划内的系统更新会提前通知你；硬件故障由当地运维到现场处理。</p></details></div>
+        <div class="faq-group" data-cat="ai" role="tabpanel" aria-label="Agent 与 AI 工具" hidden><details><summary>nanoMuse 是你们的产品吗？<i aria-hidden="true"></i></summary><p>不是。nanoMuse 是独立的开源社区项目，我们提供的是能让它长期运行的电脑，也可以帮你预装。它的功能和更新以 nanomuse.cn 官方文档为准。</p></details><details><summary>可以跑 Codex、Claude Code 这类 AI 编程工具吗？<i aria-hidden="true"></i></summary><p>可以，它们和在你自己的电脑上一样运行。AI 服务的账号由你自己注册、付费和管理，请遵守各服务的条款和使用地区规定；设备在哪里，不代表你因此获得某项服务的使用资格。</p></details><details><summary>你们提供 Claude、ChatGPT 等账号吗？<i aria-hidden="true"></i></summary><p>不提供，也不代开、不代管任何第三方账号或订阅，更不提供共享账号。租金只包含设备和网络。</p></details><details><summary>能保证某个 AI 服务一直能用吗？<i aria-hidden="true"></i></summary><p>不能。我们负责让机器和网络稳定在线；第三方服务是否可用、如何管理账号，由服务方自己决定，我们无法对此做任何承诺。</p></details></div>
+        <div class="faq-group" data-cat="use" role="tabpanel" aria-label="使用与数据" hidden><details><summary><span>租到之后怎么连上？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>交付信息里会给出连接方式，默认推荐 UU 远程；也可以用 UU 终端、SSH / mosh、VS Code Web，或使用<mark class="tbc" title="待业务确认">每台机器的 Cloudflare 固定专属地址</mark>在浏览器里登录。Tailscale、ToDesk、RustDesk 可以在进入桌面后自己配置。</p></details><details><summary>有管理员权限吗？能自己装软件吗？<i aria-hidden="true"></i></summary><p>有完整的管理员权限，想装什么软件和开发环境都可以。Homebrew、Git、Node.js、Python、Docker 等常用工具可以预装；Xcode、Final Cut Pro 等需要你用自己的 Apple 账户下载或购买。</p></details><details><summary>你们会看我的数据吗？<i aria-hidden="true"></i></summary><p>不会录屏，不记录按键，日常运营也不浏览你的文件。需要进入你的环境维护时，会先征得你同意并保留操作记录；机器失去响应时，只检查供电、网络或重启，不借此读取文件。</p></details><details><summary><span>数据会备份吗？退租后怎么处理？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>机器上的数据请自己备份，重要代码及时推送到你自己的仓库。<mark class="tbc" title="待业务确认">退租后我们会抹除整块硬盘并重装系统</mark>，再交给下一位租客。</p></details><details><summary>可以几个人一起用一台吗？<i aria-hidden="true"></i></summary><p>一台机器对应一位客户。团队里多个人要用，建议每人一台；如有特殊需要，请在下单前说明。连接权限不能转租或转卖。</p></details></div>
+        <div class="faq-group" data-cat="pay" role="tabpanel" aria-label="付款与租期" hidden><details><summary><span>付款后多久能用上？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>官方自营的现货设备，<mark class="tbc" title="待业务确认">付款后 2 小时内</mark>把连接信息发到你的邮箱。第三方设备以设备页标注的交付时间为准。</p></details><details><summary>怎么付款？能开发票吗？<i aria-hidden="true"></i></summary><p>在线下单付款，支持按月、季、年付，可用的付款方式以付款页为准。需要发票或报销凭证的，请在下单前说明。</p></details><details><summary><span>怎么续租、停用？能退款吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>到期前可以一键续租；不续租的话到期自动停用，<mark class="tbc" title="待业务确认">没有押金</mark>。交付后如果因为我们的原因无法正常使用，<mark class="tbc" title="待业务确认">可以申请全额退款</mark>，其他情况以服务条款为准。</p></details><details><summary><span>租到一半想升级配置可以吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>可以。<mark class="tbc" title="待业务确认">差价按剩余天数计算，数据迁移由我们协助完成</mark>。</p></details></div>
+        <div class="faq-group" data-cat="host" role="tabpanel" aria-label="出租与房东合作" hidden><details><summary>发布出租或求租要收费吗？<i aria-hidden="true"></i></summary><p>发布免费。出租帖和求租帖都要先审核，通过后才会公开展示，成交前请双方确认实际配置、网络和交付安排。</p></details><details><summary><span>第三方设备你们核验过吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p><mark class="tbc" title="待业务确认">上架前我们会审核设备信息，并做一次连接测试</mark>。但配置、所在地和网络以机主填写为主，审核不等于担保，付款前请再次和机主确认。</p></details><details><summary><span>房东合作和自己发布出租有什么区别？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>自己发布出租，你负责定价、沟通和交付。房东合作是你提供设备、电和家庭宽带，当地运维上门安装和巡检，平台负责招租、交付和日常维护，<mark class="tbc" title="待业务确认">按租金分成，比例在合作前写明</mark>。</p></details><details><summary>登记之后能保证有租客、有收入吗？<i aria-hidden="true"></i></summary><p>不能保证。出租快慢取决于设备、地区、价格和需求；没有租客时不会产生租金收入。</p></details></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 cta -->
+<section id="request" class="dark">
+  <div class="wrap cta">
+    <div class="rv">
+      <p class="kicker"><b>11</b> 开始</p>
+      <h2 style="margin-top:18px">租一台，或者<br>告诉我们你<em>需要什么</em>。</h2>
+      <p class="lede" style="margin-top:20px">有合适的设备就直接下单；没有的话发布求租，通常 24 小时内回复匹配结果。</p>
+      <div class="hero-cta">
+        <a class="btn btn-light" href="#market">立即租用 <span class="arrow">→</span></a>
+        <a class="btn btn-ghost-light" href="#rf">发布求租</a>
+      </div>
+      <div class="sum">
+        <div><b>nanoMuse</b><span>记住你，处理你的个人事务。</span></div>
+        <div><b>Codex · Claude Code</b><span>在远程电脑上完成你的工作。</span></div>
+        <div><b>远桌</b><span>提供一台真实、独享、长期在线、有人维护的电脑。</span></div>
+      </div>
+    </div>
+
+    <form id="rf" class="rv" novalidate>
+      <div class="ftabs" role="tablist" aria-label="提交类型">
+        <button type="button" role="tab" aria-selected="true" data-k="want">发布求租</button>
+        <button type="button" role="tab" aria-selected="false" data-k="lend">发布出租</button>
+        <button type="button" role="tab" aria-selected="false" data-k="host">房东合作</button>
+      </div>
+      <div class="f2">
+        <label>系统<select name="os"><option>macOS</option><option>Windows</option><option>Linux</option><option>都可以</option></select></label>
+        <label>城市<select name="city"><option>吉隆坡</option><option>槟城</option><option>新加坡</option><option>不限</option></select></label>
+      </div>
+      <div class="f2">
+        <label>租期<select name="term"><option>1 个月</option><option>3 个月</option><option>6 个月</option><option>12 个月</option></select></label>
+        <label>月预算（¥）<input name="budget" type="number" min="0" inputmode="numeric" placeholder="例如 500" /></label>
+      </div>
+      <label>主要用途<textarea name="use" placeholder="例如：nanoMuse 常驻 + 晚上导出视频"></textarea></label>
+      <label>联系方式<input name="contact" type="text" required placeholder="邮箱或微信号" /></label>
+      <button class="btn btn-light" type="submit">提交求租</button>
+      <p class="ok" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span>© 2026 远桌 · 真实远程电脑租赁</span><p class="tm">nanoMuse 是独立的开源社区项目，Codex 是 OpenAI 的产品，Claude Code 是 Anthropic 的产品。相关名称和标志归各自所有者，本平台与它们没有隶属关系。</p></div>
+    <nav aria-label="页脚"><a href="#market">设备市场</a><a href="#request">发布出租</a><a href="#request">房东合作</a><a href="#network">网络说明</a><a href="#vps">与 VPS 的区别</a><a href="#faq">常见问题</a></nav>
+  </div>
+</footer>
+
+<script>
+// Sticky nav border + mobile menu
+const nav = document.getElementById('nav');
+addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 8), { passive: true });
+const menu = document.querySelector('.menu'), links = document.getElementById('navlinks');
+menu.addEventListener('click', () => menu.setAttribute('aria-expanded', links.classList.toggle('open')));
+links.addEventListener('click', e => { if (e.target.closest('a')) { links.classList.remove('open'); menu.setAttribute('aria-expanded', false); } });
+
+// Live clocks (Beijing and Kuala Lumpur share UTC+8)
+function tick() {
+  document.querySelectorAll('[data-tz]').forEach(el => {
+    el.textContent = new Intl.DateTimeFormat('zh-CN', { timeZone: el.dataset.tz, hour: '2-digit', minute: '2-digit', hour12: false }).format(new Date());
+  });
+}
+tick(); setInterval(tick, 15000);
+
+// Task tabs with arrow-key support
+const tabs = [...document.querySelectorAll('.tabs [role=tab]')];
+function select(t) {
+  tabs.forEach(b => { const on = b === t; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; document.getElementById(b.getAttribute('aria-controls')).hidden = !on; });
+}
+tabs.forEach((t, i) => {
+  t.addEventListener('click', () => select(t));
+  t.addEventListener('keydown', e => {
+    const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+    if (d) { const n = tabs[(i + d + tabs.length) % tabs.length]; select(n); n.focus(); }
+  });
+});
+
+// Market source filter
+const segs = document.querySelectorAll('.seg button');
+segs.forEach(b => b.addEventListener('click', () => {
+  segs.forEach(x => x.setAttribute('aria-selected', x === b));
+  document.querySelectorAll('.row[data-s]').forEach(r => r.hidden = !(b.dataset.f === 'all' || r.dataset.s === b.dataset.f));
+}));
+
+// Request form: intent tabs, supply links and prototype submit (no network request)
+const labels = { want: '提交求租', lend: '提交出租信息', host: '提交合作申请' };
+const ftabs = document.querySelectorAll('.ftabs button'), submit = document.querySelector('#rf [type=submit]');
+function setIntent(k) { ftabs.forEach(b => b.setAttribute('aria-selected', b.dataset.k === k)); submit.textContent = labels[k]; }
+ftabs.forEach(b => b.addEventListener('click', () => setIntent(b.dataset.k)));
+document.querySelectorAll('[data-intent]').forEach(a => a.addEventListener('click', () => setIntent(a.dataset.intent)));
+document.getElementById('rf').addEventListener('submit', e => {
+  e.preventDefault();
+  const f = e.target, ok = f.querySelector('.ok');
+  if (!f.contact.value.trim()) { ok.textContent = '请留下联系方式。'; f.contact.focus(); return; }
+  ok.textContent = '已收到（原型演示，未实际发送）。我们会在 24 小时内联系你。';
+  f.reset();
+});
+
+// FAQ categories with arrow-key support
+const fTabs = [...document.querySelectorAll('.faq-nav [role=tab]')];
+function pickCat(t) {
+  fTabs.forEach(b => { const on = b === t; b.setAttribute('aria-selected', on); b.tabIndex = on ? 0 : -1; });
+  document.querySelectorAll('.faq-group').forEach(g => g.hidden = g.dataset.cat !== t.dataset.cat);
+}
+fTabs.forEach((t, i) => {
+  t.addEventListener('click', () => pickCat(t));
+  t.addEventListener('keydown', e => {
+    const d = ['ArrowDown', 'ArrowRight'].includes(e.key) ? 1 : ['ArrowUp', 'ArrowLeft'].includes(e.key) ? -1 : 0;
+    if (d) { e.preventDefault(); const n = fTabs[(i + d + fTabs.length) % fTabs.length]; pickCat(n); n.focus(); }
+  });
+});
+
+// Reveal on scroll
+const io = 'IntersectionObserver' in window ? new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' }) : null;
+document.querySelectorAll('.rv').forEach(el => io ? io.observe(el) : el.classList.add('in'));
+</script>
+</body>
+</html>
