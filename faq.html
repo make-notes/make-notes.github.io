@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>常见问题 · 远桌</title>
+<meta name="description" content="关于设备、网络、AI 工具、付款租期和出租合作的常见问题。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="远桌 首页">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="5" width="24" height="15" rx="4" fill="none" stroke="#1b1a16" stroke-width="1.6"/><rect x="8" y="21.5" width="10" height="1.6" rx=".8" fill="#1b1a16"/><circle cx="19.5" cy="12.5" r="2.2" fill="#2fae69"/></svg>
+      远桌
+    </a>
+    <nav class="nav-links" id="navlinks" aria-label="主导航">
+      <a href="nanomuse.html">nanoMuse</a>
+      <a href="coding.html">编程 Agent</a>
+      <a href="use-cases/index.html">适合谁</a>
+      <a href="market.html">设备市场</a>
+      <a href="network.html">网络与连接</a>
+      <a href="faq.html" aria-current="page">常见问题</a>
+    </nav>
+    <div class="nav-r">
+      <a class="link" href="request.html">发布求租</a>
+      <a class="btn btn-green" href="market.html">租一台</a>
+      <button class="menu" aria-label="打开菜单" aria-expanded="false" aria-controls="navlinks"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="pghead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="当前位置"><a href="index.html">首页</a> <span aria-hidden="true">/</span> <span aria-current="page">常见问题</span></nav>
+    <p class="kicker">常见问题</p>
+    <h1>租之前，<br>先把<em>问题</em>问清楚。</h1>
+    <p class="lede">关于设备、网络、AI 工具、付款和出租的常见疑问。没找到答案，可以直接发布求租或联系我们。</p>
+    <p class="tbc-note"><span class="tbc-tag">待确认</span>标出的内容是原型里的业务假设，上线前需要确认或修改，确认后删掉标记即可。</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="faq rv">
+      <div class="faq-nav" role="tablist" aria-label="问题分类"><button role="tab" aria-selected="true" data-cat="dev">设备与网络<span>5</span></button><button role="tab" aria-selected="false" data-cat="ai" tabindex="-1">Agent 与 AI 工具<span>4</span></button><button role="tab" aria-selected="false" data-cat="use" tabindex="-1">使用与数据<span>5</span></button><button role="tab" aria-selected="false" data-cat="pay" tabindex="-1">付款与租期<span>4</span></button><button role="tab" aria-selected="false" data-cat="host" tabindex="-1">出租与房东合作<span>4</span></button></div>
+      <div class="faq-list">
+        <div class="faq-group" data-cat="dev" role="tabpanel" aria-label="设备与网络"><details><summary>租到的是虚拟机吗？会和别人共用吗？<i aria-hidden="true"></i></summary><p>不是虚拟机。官方自营的每个方案都对应一台实体电脑，租期内整机只给你一个人用，不超售。第三方设备由机主提供，独享方式写在设备页上，租之前请再核对一次。</p></details><details><summary>机器放在哪里？<i aria-hidden="true"></i></summary><p>官方自营设备在马来西亚吉隆坡，第三方设备分布在槟城、新加坡等城市。每台设备的国家和城市都写在设备页和交付信息里。</p></details><details><summary><span>住宅 IP 是固定的吗？是我一个人用吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>官方自营设备的<mark class="tbc" title="待业务确认">住宅 IP 在租期内保持不变，运营商如有调整会提前通知你</mark>。家庭宽带不等于每台电脑都有独立的出口 IP：是独享还是和同一条线路上的机器共用，设备页会单独写明。</p></details><details><summary>从中国连过去，延迟大概多少？<i aria-hidden="true"></i></summary><p>以吉隆坡为例，深圳、广州约 40–50 ms，上海、杭州约 65–70 ms，北京约 85 ms，实际取决于你的运营商和时段。远程桌面能感觉到一点；在终端里配合 tmux 或 mosh，几乎感觉不到。每台设备页有最近 7 天的实测值，付款前也可以申请连接测试。</p></details><details><summary>机器会一直开着吗？停电怎么办？<i aria-hidden="true"></i></summary><p>会。我们关闭了自动睡眠，配了 UPS，并设置为来电后自动开机。计划内的系统更新会提前通知你；硬件故障由当地运维到现场处理。</p></details></div>
+        <div class="faq-group" data-cat="ai" role="tabpanel" aria-label="Agent 与 AI 工具" hidden><details><summary>nanoMuse 是你们的产品吗？<i aria-hidden="true"></i></summary><p>不是。nanoMuse 是独立的开源社区项目，我们提供的是能让它长期运行的电脑，也可以帮你预装。它的功能和更新以 nanomuse.cn 官方文档为准。</p></details><details><summary>可以跑 Codex、Claude Code 这类 AI 编程工具吗？<i aria-hidden="true"></i></summary><p>可以，它们和在你自己的电脑上一样运行。AI 服务的账号由你自己注册、付费和管理，请遵守各服务的条款和使用地区规定；设备在哪里，不代表你因此获得某项服务的使用资格。</p></details><details><summary>你们提供 Claude、ChatGPT 等账号吗？<i aria-hidden="true"></i></summary><p>不提供，也不代开、不代管任何第三方账号或订阅，更不提供共享账号。租金只包含设备和网络。</p></details><details><summary>能保证某个 AI 服务一直能用吗？<i aria-hidden="true"></i></summary><p>不能。我们负责让机器和网络稳定在线；第三方服务是否可用、如何管理账号，由服务方自己决定，我们无法对此做任何承诺。</p></details></div>
+        <div class="faq-group" data-cat="use" role="tabpanel" aria-label="使用与数据" hidden><details><summary><span>租到之后怎么连上？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>交付信息里会给出连接方式，默认推荐 UU 远程；也可以用 UU 终端、SSH / mosh、VS Code Web，或使用<mark class="tbc" title="待业务确认">每台机器的 Cloudflare 固定专属地址</mark>在浏览器里登录。Tailscale、ToDesk、RustDesk 可以在进入桌面后自己配置。</p></details><details><summary>有管理员权限吗？能自己装软件吗？<i aria-hidden="true"></i></summary><p>有完整的管理员权限，想装什么软件和开发环境都可以。Homebrew、Git、Node.js、Python、Docker 等常用工具可以预装；Xcode、Final Cut Pro 等需要你用自己的 Apple 账户下载或购买。</p></details><details><summary>你们会看我的数据吗？<i aria-hidden="true"></i></summary><p>不会录屏，不记录按键，日常运营也不浏览你的文件。需要进入你的环境维护时，会先征得你同意并保留操作记录；机器失去响应时，只检查供电、网络或重启，不借此读取文件。</p></details><details><summary><span>数据会备份吗？退租后怎么处理？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>机器上的数据请自己备份，重要代码及时推送到你自己的仓库。<mark class="tbc" title="待业务确认">退租后我们会抹除整块硬盘并重装系统</mark>，再交给下一位租客。</p></details><details><summary>可以几个人一起用一台吗？<i aria-hidden="true"></i></summary><p>一台机器对应一位客户。团队里多个人要用，建议每人一台；如有特殊需要，请在下单前说明。连接权限不能转租或转卖。</p></details></div>
+        <div class="faq-group" data-cat="pay" role="tabpanel" aria-label="付款与租期" hidden><details><summary><span>付款后多久能用上？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>官方自营的现货设备，<mark class="tbc" title="待业务确认">付款后 2 小时内</mark>把连接信息发到你的邮箱。第三方设备以设备页标注的交付时间为准。</p></details><details><summary>怎么付款？能开发票吗？<i aria-hidden="true"></i></summary><p>在线下单付款，支持按月、季、年付，可用的付款方式以付款页为准。需要发票或报销凭证的，请在下单前说明。</p></details><details><summary><span>怎么续租、停用？能退款吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>到期前可以一键续租；不续租的话到期自动停用，<mark class="tbc" title="待业务确认">没有押金</mark>。交付后如果因为我们的原因无法正常使用，<mark class="tbc" title="待业务确认">可以申请全额退款</mark>，其他情况以服务条款为准。</p></details><details><summary><span>租到一半想升级配置可以吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>可以。<mark class="tbc" title="待业务确认">差价按剩余天数计算，数据迁移由我们协助完成</mark>。</p></details></div>
+        <div class="faq-group" data-cat="host" role="tabpanel" aria-label="出租与房东合作" hidden><details><summary>发布出租或求租要收费吗？<i aria-hidden="true"></i></summary><p>发布免费。出租帖和求租帖都要先审核，通过后才会公开展示，成交前请双方确认实际配置、网络和交付安排。</p></details><details><summary><span>第三方设备你们核验过吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p><mark class="tbc" title="待业务确认">上架前我们会审核设备信息，并做一次连接测试</mark>。但配置、所在地和网络以机主填写为主，审核不等于担保，付款前请再次和机主确认。</p></details><details><summary><span>房东合作和自己发布出租有什么区别？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>自己发布出租，你负责定价、沟通和交付。房东合作是你提供设备、电和家庭宽带，当地运维上门安装和巡检，平台负责招租、交付和日常维护，<mark class="tbc" title="待业务确认">按租金分成，比例在合作前写明</mark>。</p></details><details><summary>登记之后能保证有租客、有收入吗？<i aria-hidden="true"></i></summary><p>不能保证。出租快慢取决于设备、地区、价格和需求；没有租客时不会产生租金收入。</p></details></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark band">
+  <div class="wrap band-in">
+    <div><h2>没找到答案？<br>直接<em>告诉我们</em>。</h2><p class="lede">写下你的需求，通常 24 小时内回复。</p></div>
+    <div class="hero-cta"><a class="btn btn-light" href="request.html">发布求租 <span class="arrow">→</span></a><a class="btn btn-ghost-light" href="market.html">去设备市场</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span>© 2026 远桌 · 真实远程电脑租赁</span><p class="tm">nanoMuse 是独立的开源社区项目，Codex 是 OpenAI 的产品，Claude Code 是 Anthropic 的产品。相关名称和标志归各自所有者，本平台与它们没有隶属关系。</p></div>
+    <nav aria-label="页脚"><a href="market.html">设备市场</a><a href="request.html">发布求租</a><a href="host.html">出租与房东合作</a><a href="network.html">网络与连接</a><a href="index.html#vps">与 VPS 的区别</a><a href="faq.html">常见问题</a></nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>编程 Agent · 远桌</title>
+<meta name="description" content="让 Codex 与 Claude Code 在一台长期在线的远程电脑上读项目、改代码、跑测试和部署，结果发回手机。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css" />
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="远桌 首页">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="5" width="24" height="15" rx="4" fill="none" stroke="#1b1a16" stroke-width="1.6"/><rect x="8" y="21.5" width="10" height="1.6" rx=".8" fill="#1b1a16"/><circle cx="19.5" cy="12.5" r="2.2" fill="#2fae69"/></svg>
+      远桌
+    </a>
+    <nav class="nav-links" id="navlinks" aria-label="主导航">
+      <a href="nanomuse.html">nanoMuse</a>
+      <a href="coding.html" aria-current="page">编程 Agent</a>
+      <a href="use-cases/index.html">适合谁</a>
+      <a href="market.html">设备市场</a>
+      <a href="network.html">网络与连接</a>
+      <a href="faq.html">常见问题</a>
+    </nav>
+    <div class="nav-r">
+      <a class="link" href="request.html">发布求租</a>
+      <a class="btn btn-green" href="market.html">租一台</a>
+      <button class="menu" aria-label="打开菜单" aria-expanded="false" aria-controls="navlinks"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="pghead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="当前位置"><a href="index.html">首页</a> <span aria-hidden="true">/</span> <span aria-current="page">编程 Agent</span></nav>
+    <p class="kicker">工作 / 编程 Agent</p>
+    <h1>Codex 与 Claude Code，<br>在远程电脑上<em>替你干活</em>。</h1>
+    <p class="lede">在手机上交代任务，它们在一台不会合盖、不会断网的电脑上一直跑。做完后，结果、日志和状态都发回你的手机。</p>
+    <div class="brand-row"><a class="link" href="https://developers.openai.com/codex" target="_blank" rel="noopener">Codex 官网 <span class="arrow">↗</span></a><a class="link" href="https://claude.com/product/claude-code" target="_blank" rel="noopener">Claude Code 官网 <span class="arrow">↗</span></a></div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">一个任务的全过程</p>
+      <div>
+        <h2>在手机上交代，<br>做完<em>发回手机</em>。</h2>
+        <p class="lede">一次修 bug 的完整过程：从一句话到部署，再把结果送回你手上。</p>
+      </div>
+    </div>
+    <div class="work">
+      <div class="job rv" aria-label="示意：一个编程任务的执行过程">
+        <div class="job-h"><b>修复结算页税费计算</b><span>kl-mini-07 · Claude Code</span></div>
+        <ol class="steps">
+          <li class="done"><time>09:02</time><i class="dot"></i><div><b>在手机上交代任务</b><span>“修复税费计算并补测试”</span></div></li>
+          <li class="done"><time>09:03</time><i class="dot"></i><div><b>读取项目，定位问题</b><span>38 个文件</span></div></li>
+          <li class="done"><time>09:21</time><i class="dot"></i><div><b>修改多个文件</b><span>tax.ts +42 −17 · tax.test.ts +88</span></div></li>
+          <li class="done"><time>09:31</time><i class="dot"></i><div><b>运行测试与构建</b><span>214 / 214 passed · build ok</span></div></li>
+          <li class="done"><time>09:40</time><i class="dot"></i><div><b>部署到预发环境</b><span>部署前已在手机上批准</span></div></li>
+          <li><time>09:41</time><i class="dot"></i><div><b>结果、日志、状态发回手机</b><span>logs/run-1042.txt</span></div></li>
+        </ol>
+      </div>
+
+      <div class="rv">
+        <div class="agents">
+          <a class="agent" href="https://developers.openai.com/codex" target="_blank" rel="noopener"><span class="agent-h"><span class="agent-logo"><img class="mono-logo" src="assets/logos/openai.svg" alt="" width="22" height="22" /></span><h3>Codex</h3><span class="ext" aria-hidden="true">↗</span></span><p>OpenAI 出品。擅长批量修改、重构和排队执行的长任务。</p><span class="agent-url">developers.openai.com</span></a>
+          <a class="agent" href="https://claude.com/product/claude-code" target="_blank" rel="noopener"><span class="agent-h"><span class="agent-logo"><img src="assets/logos/claude.svg" alt="" width="22" height="22" /></span><h3>Claude Code</h3><span class="ext" aria-hidden="true">↗</span></span><p>Anthropic 出品。擅长读懂大型项目、跨多个文件修改和调试。</p><span class="agent-url">claude.com</span></a>
+        </div>
+        <ul class="dlist">
+          <li><span>读取项目，修改多个文件的代码</span><span>终端</span></li>
+          <li><span>运行测试、编译、构建、部署</span><span>长时间运行</span></li>
+          <li><span>执行终端、浏览器和自动化任务</span><span>后台运行</span></li>
+          <li><span>在浏览器里打开 VS Code Web 编辑项目</span><span>平板也能用</span></li>
+          <li><span>用 UU 远程操作完整的桌面</span><span>Xcode · 图形界面</span></li>
+          <li><span>用 SSH / mosh 看日志、执行命令</span><span>网络不好也不断</span></li>
+        </ul>
+        <p class="bridge"><b>和 nanoMuse 配合：</b>在手机上的 nanoMuse 里，也能看到电脑上 Codex、Claude Code 的任务，并接着给它们发指令。</p>
+      </div>
+    </div>
+
+    <p class="kicker rv" style="margin:clamp(64px,8vw,104px) 0 20px">这些时候，它最有用</p>
+    <div class="cases">
+      <article class="case rv">
+        <span class="when">周六 15:20 · 在外面玩</span>
+        <h3>出门在外，线上出了紧急 bug</h3>
+        <p>不用找地方打开电脑。在手机上把报错发给 Claude Code，它在远程电脑上查日志、修复、跑完测试。你看一眼 diff，批准部署，接着玩。</p>
+        <dl><div><dt>你</dt><dd>一句话，加一次批准</dd></div><div><dt>远程电脑</dt><dd>查日志 → 修复 → 测试 → 部署</dd></div></dl>
+      </article>
+      <article class="case rv">
+        <span class="when">周三 16:40 · 临时有事</span>
+        <h3>临时有事离开，活继续干着</h3>
+        <p>合上自己的笔记本就能走。任务跑在远程电脑上，不会因为你断网、合盖或关机而停下。回来时，结果和日志已经发到手机上了。</p>
+        <dl><div><dt>你</dt><dd>合上电脑，出门</dd></div><div><dt>远程电脑</dt><dd>继续编译、测试、导出</dd></div></dl>
+      </article>
+      <article class="case rv">
+        <span class="when">高铁上 · 信号时有时无</span>
+        <h3>自己网络不好，也能干活</h3>
+        <p>SSH 只传文字，很慢的网也够用；mosh 断线或在 Wi-Fi 和 4G 之间切换后会自动接上，打的字马上显示。拉代码、装依赖、下载素材这些重活都在远程电脑上完成。</p>
+        <dl><div><dt>你</dt><dd>一个终端窗口</dd></div><div><dt>远程电脑</dt><dd>用自己的家庭光纤干重活</dd></div></dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">按用途看</p>
+      <div>
+        <h2>开发者最常见的<br><em>两种</em>用法。</h2>
+      </div>
+    </div>
+    <div class="people">
+      <a class="person rv" href="use-cases/dev.html"><span class="n">01</span><h3>AI 编程与独立开发者</h3><p>Codex、Claude Code 通宵跑任务，白天只看结果和 diff。</p><span class="pick">常选 · Mac / Linux · 32 GB</span></a>
+      <a class="person rv" href="use-cases/ios.html"><span class="n">02</span><h3>iOS / Flutter 编译团队</h3><p>用真实的 Mac 签名、归档、上传 TestFlight。</p><span class="pick">常选 · Mac mini M4 Pro</span></a>
+    </div>
+    <div class="more rv"><a class="link" href="network.html#connect">怎么连上远程电脑：UU 远程、SSH / mosh、VS Code Web… <span class="arrow">→</span></a></div>
+  </div>
+</section>
+
+<section class="dark band">
+  <div class="wrap band-in">
+    <div><h2>给 Agent 一台<em>不会合盖</em>的电脑。</h2><p class="lede">Mac 适合 iOS 构建，Linux 适合后端和长任务，都可以预装 Git、Docker 和常用开发环境。</p></div>
+    <div class="hero-cta"><a class="btn btn-light" href="market.html">去设备市场 <span class="arrow">→</span></a><a class="btn btn-ghost-light" href="request.html">发布求租</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span>© 2026 远桌 · 真实远程电脑租赁</span><p class="tm">nanoMuse 是独立的开源社区项目，Codex 是 OpenAI 的产品，Claude Code 是 Anthropic 的产品。相关名称和标志归各自所有者，本平台与它们没有隶属关系。</p></div>
+    <nav aria-label="页脚"><a href="market.html">设备市场</a><a href="request.html">发布求租</a><a href="host.html">出租与房东合作</a><a href="network.html">网络与连接</a><a href="index.html#vps">与 VPS 的区别</a><a href="faq.html">常见问题</a></nav>
+  </div>
+</footer>
+
+<script src="assets/site.js"></script>
+</body>
+</html>
