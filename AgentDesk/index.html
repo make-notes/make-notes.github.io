@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AgentDesk · 真实远程电脑</title>
+<meta name="description" content="租一台真实、独享、长期在线、有人维护的远程电脑，把它变成你的个人 Agent 工作站。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css?v=1793440198" />
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="AgentDesk 首页">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="5" width="24" height="15" rx="4" fill="none" stroke="#1b1a16" stroke-width="1.6"/><rect x="8" y="21.5" width="10" height="1.6" rx=".8" fill="#1b1a16"/><circle cx="19.5" cy="12.5" r="2.2" fill="#2fae69"/></svg>
+      AgentDesk
+    </a>
+    <nav class="nav-links" id="navlinks" aria-label="主导航">
+      <a href="nanomuse.html">个人 Agent</a>
+      <a href="coding.html">工作 Agent</a>
+      <a href="use-cases/index.html">适合谁</a>
+      <a href="market.html">设备市场</a>
+      <a href="host.html">托管出租</a>
+      <a href="network.html">网络与连接</a>
+      <a href="faq.html">常见问题</a>
+    </nav>
+    <div class="nav-r">
+      <a class="link" href="login.html" data-auth-out>登录</a>
+      <a class="nav-msg" href="messages.html" data-auth-in hidden aria-label="消息"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="badge" data-unread data-default="2" hidden></span></a>
+      <a class="nav-user" href="console.html" data-auth-in hidden><span class="host-av" aria-hidden="true" data-user-initial></span><span data-user-name></span></a>
+      <a class="btn btn-green" href="market.html">租一台</a>
+      <button class="menu" aria-label="打开菜单" aria-expanded="false" aria-controls="navlinks"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill"><span class="live pulse"></span>吉隆坡 · 家庭光纤 · 设备在线</span>
+      <h1><span class="nw">一台真实的电脑，</span><br><span class="nw">替你<em>一直在线</em>工作。</span></h1>
+      <p class="lede">nanoMuse 记住你、处理你的个人事务；Codex 与 Claude Code 在远程电脑上替你完成工作。我们提供它们运行的那台电脑：真实、独享、长期在线，有人维护。</p>
+      <div class="hero-cta">
+        <a class="btn btn-green" href="market.html">查看可租设备 <span class="arrow">→</span></a>
+        <a class="link" href="#nanomuse">先看看它能做什么 <span class="arrow">↓</span></a>
+      </div>
+      <dl class="specs">
+        <div><dt>设备</dt><dd>Mac · Windows · Linux 实体机</dd></div>
+        <div><dt>网络</dt><dd>家庭宽带 · 固定住宅 IP</dd></div>
+        <div><dt>Agent</dt><dd class="brands"><a href="https://nanomuse.cn/" target="_blank" rel="noopener"><img src="assets/logos/nanomuse.svg" alt="" width="20" height="20" />nanoMuse</a><a href="https://developers.openai.com/codex" target="_blank" rel="noopener"><img class="mono-logo" src="assets/logos/openai.svg" alt="" width="18" height="18" />Codex</a><a href="https://claude.com/product/claude-code" target="_blank" rel="noopener"><img src="assets/logos/claude.svg" alt="" width="18" height="18" />Claude Code</a></dd></div>
+        <div><dt>时间</dt><dd class="clock">北京 <span data-tz="Asia/Shanghai">--:--</span> · 吉隆坡 <span data-tz="Asia/Kuala_Lumpur">--:--</span></dd></div>
+      </dl>
+    </div>
+
+    <div class="scene" aria-label="示意：你手上安卓手机里的 nanoMuse，连着吉隆坡那台正在运行 Claude Code 的远程主机">
+      <div class="phone" aria-hidden="true">
+        <div class="ph-status">
+          <span class="ph-time">21:40</span><span class="ph-cam"></span>
+          <span class="ph-icons"><svg width="15" height="10" viewBox="0 0 15 10"><rect x="0" y="6" width="2.6" height="4" rx=".6"/><rect x="4" y="4" width="2.6" height="6" rx=".6"/><rect x="8" y="2" width="2.6" height="8" rx=".6"/><rect x="12" y="0" width="2.6" height="10" rx=".6"/></svg><svg width="13" height="10" viewBox="0 0 13 10"><path d="M6.5 9.6 4.6 7.5a2.7 2.7 0 0 1 3.8 0zM2.9 5.8a5.1 5.1 0 0 1 7.2 0l-1 1.1a3.6 3.6 0 0 0-5.2 0zM1 3.9a7.8 7.8 0 0 1 11 0l-1 1a6.3 6.3 0 0 0-9 0z"/></svg><span class="ph-batt"><i></i></span></span>
+        </div>
+        <div class="ph-bar">
+          <span class="ph-back">‹</span>
+          <img src="assets/logos/nanomuse.svg" alt="" width="26" height="26" />
+          <span class="ph-title"><b>nanoMuse</b><small><span class="live"></span>kl-mini-07 在线</small></span>
+          <span class="ph-more">···</span>
+        </div>
+        <div class="ph-chat">
+          <div class="msg me">帮我买周五晚上深圳回长沙的高铁，6 点以后，靠窗</div>
+          <div class="ph-tool"><span class="ph-ic">📱</span><span>查到余票 · 在 12306 App 里选座</span></div>
+          <div class="msg ai">18:20 那班还有靠窗，按你常坐的二等座选好了。</div>
+          <div class="ph-ticket">
+            <div class="tk-route"><div><b>18:20</b><span>深圳北</span></div><i>3 小时 12 分</i><div><b>21:32</b><span>长沙南</span></div></div>
+            <div class="tk-meta"><span>周五 · 二等座 · 12F 靠窗</span><b>¥314</b></div>
+          </div>
+          <div class="approve pay">
+            <div class="ap-h"><b>确认付款</b><span class="ap-risk">付款</span></div>
+            <div class="ap-src">12306 App · 支付密码由你自己输入</div>
+            <div class="pay-amt">¥314.00</div>
+            <div class="acts"><span>取消</span><span>确认付款</span></div>
+          </div>
+        </div>
+        <div class="ph-input"><span class="ph-plus">+</span><span class="ph-field">给 nanoMuse 发消息</span><span class="ph-mic"><svg width="9" height="12" viewBox="0 0 9 12"><rect x="2.2" y="0" width="4.6" height="7.6" rx="2.3"/><path d="M.8 5.6a3.7 3.7 0 0 0 7.4 0M4.5 9.4V12" fill="none" stroke-width="1.1"/></svg></span></div>
+        <span class="ph-home"></span>
+      </div>
+      <div class="wire" aria-hidden="true">
+        <span class="wire-line"><i></i></span>
+        <span class="wire-chip"><b>⇄ 42 ms</b><small>深圳 → 吉隆坡</small></span>
+      </div>
+      <div class="rig">
+        <div class="rig-photo"><img src="assets/macmini-night.jpg" alt="夜里吉隆坡窗前书桌上的一台 Mac mini，状态灯亮着，窗外是双子塔夜景" /><span class="rig-tag">你的远程主机 · 吉隆坡</span></div>
+        <div class="rig-body">
+          <div class="rig-h"><span class="rig-host"><span class="live pulse"></span>kl-mini-07</span><span class="rig-up">已在线 41 天</span></div>
+          <div class="rig-spec">Mac mini M4 · 家庭光纤 · 住宅 IP</div>
+          <div class="rig-term" aria-hidden="true">
+            <div class="rig-sub">Claude Code<span>运行中</span></div>
+            <div>✓ 读取 38 个文件，修改 4 个</div>
+            <div class="ok">✓ 214 / 214 测试通过</div>
+            <div>▸ 正在构建 iOS 归档…</div>
+            <div class="bar"><i></i></div>
+          </div>
+        </div>
+      </div>
+      <p class="scene-cap small">界面为示意；操作手机上的 App 目前只支持安卓</p>
+    </div>
+  </div>
+</section>
+
+<!-- 01 nanoMuse -->
+<section id="nanomuse" class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>01</b> 个人 / 生活 Agent</p>
+      <div>
+        <h2>nanoMuse 记住你，<br>把生活里的事<em>替你做完</em>。</h2>
+        <p class="lede">nanoMuse 是一个开源的个人 Agent。它记得你的目标，在后台一步步推进；事情发生时自动开工；还能跨手机和电脑操作应用，把结果做成文件交给你。同一个账号覆盖手机、电脑和网页，看到的是同样的对话。</p>
+        <div class="brand-row">
+          <span class="brand-id"><img src="assets/logos/nanomuse.svg" alt="nanoMuse 标志" width="40" height="40" /><span><b>nanoMuse</b><small>开源个人 Agent · GPL-3.0</small></span></span>
+          <a class="link" href="https://nanomuse.cn/" target="_blank" rel="noopener">官网 nanomuse.cn <span class="arrow">↗</span></a>
+          <a class="link" href="https://nanomuse.cn/docs/" target="_blank" rel="noopener">文档 <span class="arrow">↗</span></a>
+          <a class="link" href="https://github.com/nano-muse/nanoMuse" target="_blank" rel="noopener">GitHub <span class="arrow">↗</span></a>
+        </div>
+      </div>
+    </div>
+
+    <p class="kicker rv" style="margin-bottom:18px">你可以这样跟它说</p>
+    <div class="says rv">
+      <div class="say"><q>三个月后去日本，帮我一步步准备</q><span class="tag">长期目标 · 主动推进</span><p>它把目标拆成步骤，在后台隔一段时间推进一步：比价机票、列出签证材料。每周一跟你同步进度；计划不再合适时，它会提出修改，由你决定用不用。</p></div>
+      <div class="say"><q>找到手机上的外卖订单号，填进电脑上的报销表</q><span class="tag">跨设备 · 一句话</span><p>手机上的 nanoMuse 通过屏幕找到订单号，电脑上的 nanoMuse 把它写进表格。两台设备各做一半，过程都在你发消息的那段对话里。</p></div>
+      <div class="say"><q>标题带“评审”的会议，提前半小时给我一页简报</q><span class="tag">触发器</span><p>不是到点提醒，而是事情发生时自动开工：日程开始前、收到某封邮件、某台设备上线，或者你的部署脚本调用它的时候。</p></div>
+    </div>
+    <div class="callout rv"><b>电脑睡着了，nanoMuse 也就停了。</b><span>推进目标、触发器、定时任务和每天的 Feed，都要 nanoMuse 一直在运行。放在一台 24 小时在线的电脑上，它才真的一直在替你做事。</span></div>
+    <div class="more rv"><a class="btn btn-ghost" href="nanomuse.html">nanoMuse 能做的全部 <span class="arrow">→</span></a><span class="small">记忆、目标、触发器、Feed、技能，以及它的使用边界</span></div>
+  </div>
+</section>
+
+<!-- 02 work agents -->
+<section id="work" class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>02</b> 工作 / 编程 Agent</p>
+      <div>
+        <h2>Codex 与 Claude Code，<br>在远程电脑上<em>替你干活</em>。</h2>
+        <p class="lede">在手机上交代任务，它们在一台不会合盖、不会断网的电脑上一直跑。做完后，结果、日志和状态都发回你的手机。</p>
+      </div>
+    </div>
+    <div class="rv"><div class="agents">
+          <a class="agent" href="https://developers.openai.com/codex" target="_blank" rel="noopener"><span class="agent-h"><span class="agent-logo"><img class="mono-logo" src="assets/logos/openai.svg" alt="" width="22" height="22" /></span><h3>Codex</h3><span class="ext" aria-hidden="true">↗</span></span><p>OpenAI 出品。擅长批量修改、重构和排队执行的长任务。</p><span class="agent-url">developers.openai.com</span></a>
+          <a class="agent" href="https://claude.com/product/claude-code" target="_blank" rel="noopener"><span class="agent-h"><span class="agent-logo"><img src="assets/logos/claude.svg" alt="" width="22" height="22" /></span><h3>Claude Code</h3><span class="ext" aria-hidden="true">↗</span></span><p>Anthropic 出品。擅长读懂大型项目、跨多个文件修改和调试。</p><span class="agent-url">claude.com</span></a>
+        </div></div>
+    <p class="kicker rv" style="margin:clamp(48px,6vw,72px) 0 20px">这些时候，它最有用</p>
+    <div class="cases">
+      <article class="case rv">
+        <span class="when">周六 15:20 · 在外面玩</span>
+        <h3>出门在外，线上出了紧急 bug</h3>
+        <p>不用找地方打开电脑。在手机上把报错发给 Claude Code，它在远程电脑上查日志、修复、跑完测试。你看一眼 diff，批准部署，接着玩。</p>
+        <dl><div><dt>你</dt><dd>一句话，加一次批准</dd></div><div><dt>远程电脑</dt><dd>查日志 → 修复 → 测试 → 部署</dd></div></dl>
+      </article>
+      <article class="case rv">
+        <span class="when">周三 16:40 · 临时有事</span>
+        <h3>临时有事离开，活继续干着</h3>
+        <p>合上自己的笔记本就能走。任务跑在远程电脑上，不会因为你断网、合盖或关机而停下。回来时，结果和日志已经发到手机上了。</p>
+        <dl><div><dt>你</dt><dd>合上电脑，出门</dd></div><div><dt>远程电脑</dt><dd>继续编译、测试、导出</dd></div></dl>
+      </article>
+      <article class="case rv">
+        <span class="when">高铁上 · 信号时有时无</span>
+        <h3>自己网络不好，也能干活</h3>
+        <p>SSH 只传文字，很慢的网也够用；mosh 断线或在 Wi-Fi 和 4G 之间切换后会自动接上，打的字马上显示。拉代码、装依赖、下载素材这些重活都在远程电脑上完成。</p>
+        <dl><div><dt>你</dt><dd>一个终端窗口</dd></div><div><dt>远程电脑</dt><dd>用自己的家庭光纤干重活</dd></div></dl>
+      </article>
+    </div>
+    <div class="more rv"><a class="btn btn-ghost-light" href="coding.html">看完整的工作流程 <span class="arrow">→</span></a><span class="small">任务怎么执行、能用哪些工具、怎么和 nanoMuse 配合</span></div>
+  </div>
+</section>
+
+<!-- 03 mobile -->
+<section id="mobile" class="rule-top">
+  <div class="wrap mobile">
+    <figure class="photo rv"><img src="assets/mobile-cafe.jpg" alt="咖啡馆桌上，一只手拿着显示聊天界面的手机" loading="lazy" /></figure>
+    <div class="rv">
+      <p class="kicker"><b>03</b> 移动办公</p>
+      <h2 style="margin-top:18px">电脑留在吉隆坡，<br>工作<em>跟着你走</em>。</h2>
+      <div class="ways">
+        <div class="way"><span class="d">手机</span><div><h3>发一句话就布置好</h3><p>给 nanoMuse 或工作 Agent 发消息，进度和需要你批准的事都回到手机上。</p></div></div>
+        <div class="way"><span class="d">平板 / 笔记本</span><div><h3>在浏览器里写代码</h3><p>VS Code Web 打开就是你的项目和终端，本地什么都不用装。</p></div></div>
+        <div class="way"><span class="d">任意一台电脑</span><div><h3>接管完整桌面</h3><p>用 UU 远程处理图形界面，用 SSH / mosh 看日志，网络不好也不容易断。</p></div></div>
+      </div>
+      <div class="via">
+        <p class="small">可用的连接方式</p>
+        <div class="tools"><span>UU 远程</span><span>UU 终端</span><span>SSH / mosh</span><span>VS Code Web</span><span>Tailscale</span><span>ToDesk</span><span>RustDesk</span><span>Cloudflare 固定地址</span></div>
+        <a class="link" href="network.html#connect">每种方式适合做什么 <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 real host -->
+<section id="host" class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>04</b> 一台真实主机</p>
+      <div>
+        <h2>你租到的，是一台<br>放在真实房间里的<em>电脑</em>。</h2>
+        <p class="lede">不是从资源池里切出来的虚拟机。每台设备都写明所在城市、系统、配置、网络、延迟和交付时间，租之前就知道它是什么样。</p>
+      </div>
+    </div>
+
+    <div class="host rv">
+      <figure class="photo" style="min-height:360px">
+        <img src="assets/device-shelf.jpg" alt="吉隆坡公寓木架上的 Mac mini、小主机和家用路由器" loading="lazy" />
+        <figcaption><span class="chip"><span class="live"></span>吉隆坡 · Mont Kiara</span></figcaption>
+      </figure>
+      <div class="sheet">
+        <div class="sheet-h"><div><h3>Mac mini M4</h3><p class="small">设备页信息示例</p></div><span class="status"><span class="live"></span>在线</span></div>
+        <dl>
+          <dt>城市</dt><dd>吉隆坡，马来西亚</dd>
+          <dt>系统</dt><dd>macOS 15</dd>
+          <dt>配置</dt><dd>10 核 · 16 GB · 512 GB</dd>
+          <dt>网络</dt><dd>家庭光纤 500M</dd>
+          <dt>IP</dt><dd>住宅 IP · 租期内固定</dd>
+          <dt>延迟</dt><dd>广州 ≈ 45 ms</dd>
+          <dt>交付</dt><dd>付款后 2 小时内</dd>
+        </dl>
+        <p class="small">数据为示例，以设备页实测为准。</p>
+      </div>
+    </div>
+
+    <div class="points">
+      <div class="point rv"><span class="n">01</span><h3>实体设备，资源独享</h3><p>租期内这台机器的 CPU、内存、硬盘和 GPU 只给你一个人用。</p></div>
+      <div class="point rv"><span class="n">02</span><h3>macOS、Windows、Linux</h3><p>iOS 构建和 Final Cut 用 Mac，ComfyUI 和剪辑软件可选带 GPU 的 Windows。</p></div>
+      <div class="point rv"><span class="n">03</span><h3>完整管理员权限</h3><p>装你自己的软件和开发环境，用起来和自己的电脑一样。</p></div>
+      <div class="point rv"><span class="n">04</span><h3>常用工具可预装</h3><div class="tools"><span>Homebrew</span><span>Git</span><span>Node.js</span><span>Python</span><span>Xcode CLI</span><span>Docker</span><span>tmux</span><span>mosh</span></div></div>
+      <div class="point rv"><span class="n">05</span><h3>24 小时在线</h3><p>UPS 供电，来电后自动开机。你合上自己的笔记本，它照样继续跑。</p></div>
+      <div class="point rv"><span class="n">06</span><h3>有人维护</h3><p>平台或当地运维负责断电恢复、远程重启、定期巡检和硬件故障更换。</p></div>
+    </div>
+    <div class="more rv"><a class="btn btn-ghost" href="device-m4.html">看一台设备的完整页面 <span class="arrow">→</span></a><span class="small">配置、网络、最近 7 天延迟、连接方式和运维保障</span></div>
+  </div>
+</section>
+
+<!-- 05 who -->
+<section id="who" class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>05</b> 适合谁</p>
+      <div>
+        <h2>不只是程序员，<br>所有需要一台<em>不关机</em>的电脑的人。</h2>
+        <p class="lede">写代码、剪视频、出图、跑店铺，最耗时的那部分都可以交给远程电脑。你的笔记本留给你自己用。</p>
+      </div>
+    </div>
+
+    <div class="people">
+      <a class="person rv" href="use-cases/life.html"><span class="n">01</span><h3>个人 Agent 用户</h3><p>让 nanoMuse 一直在线：在后台推进你的目标，事情发生时自动开工，跨手机和电脑替你动手。</p><span class="pick">常选 · Mac mini 入门配置</span></a>
+      <a class="person rv" href="use-cases/dev.html"><span class="n">02</span><h3>AI 编程与独立开发者</h3><p>Codex、Claude Code 通宵跑任务，白天只看结果和 diff。</p><span class="pick">常选 · Mac / Linux · 32 GB</span></a>
+      <a class="person rv" href="use-cases/video.html"><span class="n">03</span><h3>AI 剪辑与视频制作</h3><p>长视频导出、AI 字幕、批量转码交给远程电脑。</p><span class="pick">常选 · Mac mini M4 Pro</span></a>
+      <a class="person rv" href="use-cases/aigc.html"><span class="n">04</span><h3>AIGC 与设计创作者</h3><p>在带 GPU 的主机上跑 ComfyUI，批量出图、生成视频。</p><span class="pick">常选 · Windows · RTX 显卡</span></a>
+      <a class="person rv" href="use-cases/ios.html"><span class="n">05</span><h3>iOS / Flutter 编译团队</h3><p>用真实的 Mac 签名、归档、上传 TestFlight。</p><span class="pick">常选 · Mac mini M4 Pro</span></a>
+      <a class="person rv" href="use-cases/shop.html"><span class="n">06</span><h3>跨境电商与海外运营</h3><p>在当地的真实家庭网络里看店铺、价格、内容和发布时间。</p><span class="pick">常选 · Windows · 住宅 IP</span></a>
+      <a class="person rv" href="network.html#connect"><span class="n">07</span><h3>移动办公的远程工作者</h3><p>一部手机加任意一块屏幕，就能接上自己的完整工作环境。</p><span class="pick">常选 · Mac · VS Code Web</span></a>
+      <a class="person rv" href="use-cases/team.html"><span class="n">08</span><h3>需要长期在线电脑的团队</h3><p>定时任务、监控、构建机，不用自己管机房和停电。</p><span class="pick">常选 · 多台 · 按年付</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- 06 tasks -->
+<section id="tasks" style="background:var(--surface)" class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>06</b> 实际能做的事</p>
+      <div>
+        <h2>远程电脑上的<em>一天</em>。</h2>
+        <p class="lede">七种常见的用法，每一种都是一台电脑在一天里真的能做完的事：几点开始、谁在做、你最后拿到什么。</p>
+      </div>
+    </div>
+
+    <div class="tabs rv" role="tablist" aria-label="按用途查看任务">
+      <button role="tab" aria-selected="true" aria-controls="p-life" id="t-life">个人生活</button>
+      <button role="tab" aria-selected="false" aria-controls="p-dev" id="t-dev" tabindex="-1">编程开发</button>
+      <button role="tab" aria-selected="false" aria-controls="p-ios" id="t-ios" tabindex="-1">iOS 构建</button>
+      <button role="tab" aria-selected="false" aria-controls="p-video" id="t-video" tabindex="-1">视频创作</button>
+      <button role="tab" aria-selected="false" aria-controls="p-aigc" id="t-aigc" tabindex="-1">AIGC 出图</button>
+      <button role="tab" aria-selected="false" aria-controls="p-shop" id="t-shop" tabindex="-1">跨境运营</button>
+      <button role="tab" aria-selected="false" aria-controls="p-team" id="t-team" tabindex="-1">团队与自动化</button>
+    </div>
+
+    <div class="panel" role="tabpanel" id="p-life" aria-labelledby="t-life">
+      <div class="psum"><p>nanoMuse 的价值不在于定个闹钟，而在于记得你的目标、在后台一步步推进、事情发生时自动开工，还能跨手机和电脑替你动手。这些都要求它一直在线。</p><dl><div><dt>推荐配置</dt><dd>Mac mini 入门配置</dd></div><div><dt>常用功能</dt><dd>目标 · 触发器 · Feed · Hands · 技能 · 文件库</dd></div></dl></div>
+      <div class="task"><time>08:00</time><span class="who">nanoMuse</span><div><h3>今天的 Feed</h3><p>按你写的关注方向，结合目标和记忆写好三条短帖；昨晚它在后台做了什么，也列在“你不在时”里。</p><span class="out">→ 三条专门为你写的短帖</span></div><span class="where">Feed</span></div>
+      <div class="task"><time>09:30</time><span class="who">nanoMuse</span><div><h3>推进一个长期目标</h3><p>后台挑出“日本行程”的下一步：比较几家航司的机票，把结果和链接记到目标里。</p><span class="out">→ 目标进度又前进一步</span></div><span class="where">后台推进</span></div>
+      <div class="task"><time>11:00</time><span class="who">nanoMuse</span><div><h3>手机上找，电脑上填</h3><p>你说一句“把外卖订单号填进报销表”：手机上的 nanoMuse 在 App 里找到订单号，电脑上的 nanoMuse 写进表格。</p><span class="out">→ 填好的报销表</span></div><span class="where">手机 + 远程电脑</span></div>
+      <div class="panel-more"><a class="link" href="use-cases/life.html">看「个人生活」完整的一天 <span class="arrow">→</span></a></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-dev" aria-labelledby="t-dev" hidden>
+      <div class="psum"><p>Codex 和 Claude Code 跑在常开的 Mac 或 Linux 上，你只负责交代任务和验收结果。</p><dl><div><dt>推荐配置</dt><dd>Mac mini M4 / Linux · 32 GB</dd></div><div><dt>常用工具</dt><dd>Codex · Claude Code · Git · Docker · VS Code Web</dd></div></dl></div>
+      <div class="task"><time>09:10</time><span class="who">Claude Code</span><div><h3>修复 bug 并补测试</h3><p>读取项目、定位问题，修改 4 个文件，跑完全部测试后推送分支。</p><span class="out">→ 一个待合并的 PR 和测试报告</span></div><span class="where">macOS · 终端</span></div>
+      <div class="task"><time>11:00</time><span class="who">Codex</span><div><h3>批量迁移旧接口</h3><p>把旧的 API 调用逐个模块迁到新版，每改完一个模块就跑一次测试。</p><span class="out">→ 按模块拆开的 diff</span></div><span class="where">长时间运行</span></div>
+      <div class="task"><time>14:00</time><span class="who w">你</span><div><h3>在平板上看代码</h3><p>打开 VS Code Web，项目和终端都在，顺手改两行直接提交。</p></div><span class="where">VS Code Web</span></div>
+      <div class="panel-more"><a class="link" href="use-cases/dev.html">看「编程开发」完整的一天 <span class="arrow">→</span></a></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-ios" aria-labelledby="t-ios" hidden>
+      <div class="psum"><p>签名、归档和上传 TestFlight 都离不开真实的 Mac，这些步骤可以全部放在远程电脑上完成。</p><dl><div><dt>推荐配置</dt><dd>Mac mini M4 Pro</dd></div><div><dt>常用工具</dt><dd>Xcode · xcodebuild · Flutter · fastlane</dd></div></dl></div>
+      <div class="task"><time>10:00</time><span class="who">Claude Code</span><div><h3>修复 Flutter 布局问题</h3><p>改完代码后在 iOS 模拟器里跑一遍，截图给你确认。</p><span class="out">→ 修改前后的模拟器截图</span></div><span class="where">iOS 模拟器</span></div>
+      <div class="task"><time>13:00</time><span class="who">Codex</span><div><h3>跑单元测试和 UI 测试</h3><p>用 xcodebuild test 在几个不同尺寸的模拟器上跑完测试。</p><span class="out">→ 各机型的测试结果</span></div><span class="where">终端</span></div>
+      <div class="task"><time>15:30</time><span class="who">Codex</span><div><h3>归档、签名、上传</h3><p>xcodebuild 归档并签名，上传前在手机上批准。</p><span class="out">→ 构建号和更新说明发到手机</span></div><span class="where">TestFlight</span></div>
+      <div class="panel-more"><a class="link" href="use-cases/ios.html">看「iOS 构建」完整的一天 <span class="arrow">→</span></a></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-video" aria-labelledby="t-video" hidden>
+      <div class="psum"><p>导出、转码和生成最占机器。放到远程电脑上，你自己的电脑不卡、不烫，也不用一直开着。</p><dl><div><dt>推荐配置</dt><dd>Mac mini M4 Pro / Windows GPU</dd></div><div><dt>常用工具</dt><dd>剪映 · DaVinci Resolve · Final Cut Pro · FFmpeg</dd></div></dl></div>
+      <div class="task"><time>10:00</time><span class="who w">远程电脑</span><div><h3>下载拍摄素材</h3><p>从网盘直接拉到远程电脑，几十 GB 的素材也不用经过你家的网络。</p></div><span class="where">家庭光纤</span></div>
+      <div class="task"><time>11:30</time><span class="who w">你</span><div><h3>用 UU 远程粗剪</h3><p>在剪映或 DaVinci 里把结构剪好，剩下的交给机器。</p></div><span class="where">UU 远程桌面</span></div>
+      <div class="task"><time>14:00</time><span class="who">Claude Code</span><div><h3>批量整理素材</h3><p>写一个 FFmpeg 脚本：统一格式、生成代理文件、按拍摄日期归档。</p><span class="out">→ 一个整理好的素材库</span></div><span class="where">终端</span></div>
+      <div class="panel-more"><a class="link" href="use-cases/video.html">看「视频创作」完整的一天 <span class="arrow">→</span></a></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-aigc" aria-labelledby="t-aigc" hidden>
+      <div class="psum"><p>ComfyUI 和 Stable Diffusion 需要显卡和长时间运行，一台独享的 GPU 主机可以整夜排队生成。</p><dl><div><dt>推荐配置</dt><dd>Windows · RTX 4070 · 32 GB</dd></div><div><dt>常用工具</dt><dd>ComfyUI · Stable Diffusion · Python</dd></div></dl></div>
+      <div class="task"><time>10:00</time><span class="who w">你</span><div><h3>搭好 ComfyUI 工作流</h3><p>在远程桌面里调参数、试几张，确认风格。</p></div><span class="where">UU 远程桌面</span></div>
+      <div class="task"><time>11:00</time><span class="who">Claude Code</span><div><h3>写批处理脚本</h3><p>从表格里读提示词和尺寸，自动排进生成队列。</p><span class="out">→ 一个可以反复用的脚本</span></div><span class="where">终端</span></div>
+      <div class="task"><time>13:00</time><span class="who w">远程电脑</span><div><h3>批量生成商品图</h3><p>不同背景、尺寸和风格一次生成几百张。</p><span class="out">→ 按商品分好文件夹的图片</span></div><span class="where">GPU</span></div>
+      <div class="panel-more"><a class="link" href="use-cases/aigc.html">看「AIGC 出图」完整的一天 <span class="arrow">→</span></a></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-shop" aria-labelledby="t-shop" hidden>
+      <div class="psum"><p>设备接在当地真实的家庭网络上，你看到的就是当地用户看到的价格、内容和活动。</p><dl><div><dt>推荐配置</dt><dd>Windows · 住宅 IP</dd></div><div><dt>常用工具</dt><dd>浏览器 · 定时任务 · 表格 · Claude Code</dd></div></dl></div>
+      <div class="task"><time>08:00</time><span class="who w">定时任务</span><div><h3>检查当地站点价格</h3><p>用当地网络打开自己的店铺和竞品页面，截图并记录价格。</p><span class="out">→ 一份带截图的价格记录</span></div><span class="where">浏览器自动化</span></div>
+      <div class="task"><time>10:00</time><span class="who">nanoMuse</span><div><h3>汇总价格变化</h3><p>把记录整理成表格，变化大的商品单独提醒你。</p><span class="out">→ 一张价格变化表</span></div><span class="where">发到手机</span></div>
+      <div class="task"><time>11:00</time><span class="who w">你</span><div><h3>登录店铺后台</h3><p>住宅 IP 长期固定，每次登录都来自同一个地点。</p></div><span class="where">固定住宅 IP</span></div>
+      <div class="panel-more"><a class="link" href="use-cases/shop.html">看「跨境运营」完整的一天 <span class="arrow">→</span></a></div>
+    </div>
+    <div class="panel" role="tabpanel" id="p-team" aria-labelledby="t-team" hidden>
+      <div class="psum"><p>一台不关机的电脑，可以当构建机、监控机和定时任务机，不用自己管机房和停电。</p><dl><div><dt>推荐配置</dt><dd>多台 · 按年付</dd></div><div><dt>常用工具</dt><dd>GitHub Actions 自托管 Runner · cron · Docker</dd></div></dl></div>
+      <div class="task"><time>全天</time><span class="who w">Runner</span><div><h3>自托管构建机</h3><p>把 Mac 注册成 GitHub Actions 的自托管 Runner，iOS 构建不用再排队。</p><span class="out">→ 更快的 CI</span></div><span class="where">GitHub Actions</span></div>
+      <div class="task"><time>每 5 分钟</time><span class="who w">监控脚本</span><div><h3>检查网站和接口</h3><p>定时请求关键页面和接口，出现异常时推送到手机。</p></div><span class="where">cron</span></div>
+      <div class="task"><time>每天 03:00</time><span class="who w">定时任务</span><div><h3>数据同步和报表</h3><p>拉取前一天的数据，生成报表，上传到团队自己的存储。</p><span class="out">→ 一份每日报表</span></div><span class="where">cron</span></div>
+      <div class="panel-more"><a class="link" href="use-cases/team.html">看「团队与自动化」完整的一天 <span class="arrow">→</span></a></div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 network -->
+<section id="network">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>07</b> 网络与区域</p>
+      <div>
+        <h2>稳定的家庭 IP，<br>是 VPS <em>给不了</em>的。</h2>
+        <p class="lede">每台设备接的都是当地真实的家庭宽带，用的是运营商分配给住户的 IP。我们把线路、IP 类型、城市和延迟写清楚，你自己判断适不适合。</p>
+      </div>
+    </div>
+
+    <div class="net">
+      <div class="rv">
+        <div class="ipcmp" aria-label="住宅 IP 与机房 IP 的对比">
+          <div class="iprow">
+            <span class="k">VPS / 云主机</span><span class="v">机房 IP</span><span class="ip">203.0.113.x</span>
+            <ul><li>数据中心 IP 段</li><li>常被识别为机房流量</li><li>更容易遇到验证码</li></ul>
+          </div>
+          <div class="iprow home">
+            <span class="k">AgentDesk</span><span class="v">家庭宽带住宅 IP</span><span class="ip">198.51.100.x</span>
+            <ul><li>运营商分配</li><li>租期内固定</li><li>消费级路由器</li><li>真实家庭网络</li></ul>
+          </div>
+        </div>
+        <div class="reasons">
+          <div class="reason"><h3>为什么更适合用 AI</h3><p>不少网站和 AI 服务会把机房 IP 当作服务器流量，更容易出现验证码、二次验证或功能限制。住宅 IP 更接近普通用户，登录地点长期不变，适合一直挂着的 Agent 和 AI 工具。</p></div>
+          <div class="reason"><h3>为什么要稳定</h3><p>IP 经常变，账号就会不停地被要求重新验证。租期内 IP 不变，如果运营商调整，我们会提前通知你。</p></div>
+          <div class="reason"><h3>区域测试</h3><p>在当地网络里查看真实的内容、价格和发布时间。</p></div>
+        </div>
+        <p class="honest">我们出租的是真实设备，不提供 VPN 或代理服务，也不能保证任何第三方服务的风控结果。请遵守各服务的条款和当地法律。</p>
+      </div>
+
+      <div class="rv">
+        <div class="lat" style="margin-top:0" aria-labelledby="lat-h">
+          <div class="lat-h"><h3 id="lat-h">中国城市到吉隆坡的延迟</h3><span class="small">RTT 中位数</span></div>
+          <div class="lrow"><span>深圳</span><span class="track"><i style="width:38%"></i></span><span class="ms">≈ 40 ms</span></div>
+          <div class="lrow"><span>广州</span><span class="track"><i style="width:42%"></i></span><span class="ms">≈ 45 ms</span></div>
+          <div class="lrow"><span>杭州</span><span class="track"><i style="width:63%"></i></span><span class="ms">≈ 66 ms</span></div>
+          <div class="lrow"><span>上海</span><span class="track"><i style="width:66%"></i></span><span class="ms">≈ 70 ms</span></div>
+          <div class="lrow"><span>成都</span><span class="track"><i style="width:72%"></i></span><span class="ms">≈ 76 ms</span></div>
+          <div class="lrow"><span>北京</span><span class="track"><i style="width:82%"></i></span><span class="ms">≈ 86 ms</span></div>
+          <div class="tz"><span>北京与吉隆坡同为 UTC+8</span><b class="clock"><span data-tz="Asia/Kuala_Lumpur">--:--</span></b></div>
+          <p class="small" style="margin-top:14px">示例数据，实际延迟取决于你的运营商和时段，每台设备页展示最近 7 天的实测值。SSH / mosh 在 100 ms 以内很流畅，远程桌面建议在 80 ms 以内。</p>
+        </div>
+      </div>
+    </div>
+    <div class="more rv"><a class="btn btn-ghost" href="network.html">网络与连接方式详解 <span class="arrow">→</span></a></div>
+  </div>
+</section>
+
+<!-- 08 market -->
+<section id="market" style="background:var(--surface)" class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>08</b> 设备市场</p>
+      <div>
+        <h2>官方直营、托管出租，<br>还有<em>个人直租</em>。</h2>
+        <p class="lede">每台设备都写明城市、系统、配置、网络、延迟、交付时间和当前状态。在线下单，到期一键续租。</p>
+      </div>
+    </div>
+
+    <div class="mk-top rv"><span class="small">精选 3 台 · 价格和库存为示例</span><span class="mk-links"><a class="link" href="market.html">全部 7 台设备 <span class="arrow">→</span></a><a class="link" href="wanted.html">看看大家在求租什么 <span class="arrow">→</span></a></span></div>
+    <div class="listing rv">
+      <div class="row th" aria-hidden="true"><span>设备</span><span class="c-city">城市</span><span class="c-net">网络</span><span class="c-lat">广州延迟</span><span class="c-del">交付</span><span>价格</span><span></span></div>
+      <div class="row" data-item data-src="own" data-os="mac">
+        <div><span class="src">官方直营</span><h3><a href="device-m4.html">Mac mini M4</a></h3><p class="cfg">10 核 · 16 GB · 512 GB · macOS 15</p><p class="row-host"><span class="small">平台自营 · 平台负责售后</span></p></div>
+        <span class="c-city"><span class="lbl">城市</span>吉隆坡</span><span class="c-net"><span class="lbl">网络</span>家庭光纤 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 45 ms</span><span class="c-del"><span class="lbl">交付</span>2 小时内</span>
+        <span class="price">¥399<small> /月</small></span><a class="btn btn-green" href="device-m4.html">租用</a>
+      </div>
+      <div class="row" data-item data-src="own" data-os="mac">
+        <div><span class="src">官方直营</span><h3><a href="device-m4pro.html">Mac mini M4 Pro</a></h3><p class="cfg">14 核 · 48 GB · 1 TB · 适合剪辑与 iOS 构建</p><p class="row-host"><span class="small">平台自营 · 平台负责售后</span></p></div>
+        <span class="c-city"><span class="lbl">城市</span>吉隆坡</span><span class="c-net"><span class="lbl">网络</span>独享线路 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 42 ms</span><span class="c-del"><span class="lbl">交付</span>11/20 起</span>
+        <span class="price">¥899<small> /月</small></span><a class="btn btn-ghost" href="device-m4pro.html">预约</a>
+      </div>
+      <div class="row" data-item data-src="third" data-os="win">
+        <div><span class="src t">个人直租</span><h3><a href="device-gpu.html">Windows GPU 主机</a></h3><p class="cfg">i7-13700 · 32 GB · RTX 4070 · 适合 ComfyUI</p><p class="row-host"><span class="small">个人房东</span><a class="uchip sm" href="user-leon.html"><span class="host-av" aria-hidden="true">L</span><span>Leon</span></a><a class="small link" href="user-leon.html#reviews-in"><span class="stars">★</span> 4.5 · 2 条评价</a></p></div>
+        <span class="c-city"><span class="lbl">城市</span>槟城</span><span class="c-net"><span class="lbl">网络</span>家庭宽带 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 52 ms</span><span class="c-del"><span class="lbl">交付</span>12/01 起</span>
+        <span class="price">¥599<small> /月</small></span><a class="btn btn-ghost" href="device-gpu.html">预约</a>
+      </div>
+    </div>
+
+    <div class="supply">
+      <a href="host.html" class="rv"><h3>托管出租 <span>→</span></h3><p>机器放在你家，交给平台定价、收款和交付。</p></a>
+      <a href="lend.html" class="rv"><h3>个人直租 <span>→</span></h3><p>自己定价、自己找租客、自己交付。</p></a>
+      <a href="request.html" class="rv"><h3>发布求租 <span>→</span></h3><p>没找到合适的？写下城市、系统和预算，我们帮你找。</p></a>
+    </div>
+  </div>
+</section>
+
+<!-- 09 vps -->
+<section id="vps">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>09</b> 与 VPS / 云主机的区别</p>
+      <div><h2>云主机适合跑服务，<br>真实主机适合当<em>你的电脑</em>。</h2></div>
+    </div>
+    <div class="cmp-wrap rv">
+      <table class="cmp">
+        <thead><tr><th scope="col">对比项</th><th scope="col">AgentDesk 真实主机</th><th scope="col">VPS / 云主机</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">IP</th><td class="us"><b>家庭宽带住宅 IP，租期内固定</b></td><td>数据中心 IP，常被识别为机房流量</td></tr>
+          <tr><th scope="row">用 AI 工具</th><td class="us">登录地点稳定，不容易反复验证</td><td>更容易遇到验证码或功能限制</td></tr>
+          <tr><th scope="row">硬件</th><td class="us">实体机，租期内独享</td><td>虚拟机，和别人共用宿主机</td></tr>
+          <tr><th scope="row">macOS</th><td class="us">原生 macOS，可用 Xcode、Final Cut</td><td>通常没有，有也很贵</td></tr>
+          <tr><th scope="row">桌面与剪辑</th><td class="us">完整图形桌面，可选 GPU</td><td>大多没有图形界面</td></tr>
+          <tr><th scope="row">Agent</th><td class="us">个人 Agent 与工作 Agent 长期在线</td><td>需要自己搭建、自己维护</td></tr>
+          <tr><th scope="row">运维</th><td class="us">当地有人处理断电和硬件故障</td><td>自己提工单</td></tr>
+          <tr><th scope="row">更适合</th><td class="us">开发、构建、剪辑、Agent、区域测试</td><td>网站、API、数据库等线上服务</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- 10 faq -->
+<section id="faq" class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker"><b>10</b> 常见问题</p>
+      <div>
+        <h2>租之前，<br>先把<em>问题</em>问清楚。</h2>
+        <p class="lede">关于设备、网络、AI 工具、付款和出租的常见疑问。没找到答案，可以直接发布求租或联系我们。</p>
+        <p class="tbc-note"><span class="tbc-tag">待确认</span>标出的内容是原型里的业务假设，上线前需要确认或修改，确认后删掉标记即可。</p>
+      </div>
+    </div>
+    <div class="faq one rv"><div class="faq-list"><details><summary>租到的是虚拟机吗？会和别人共用吗？<i aria-hidden="true"></i></summary><p>不是虚拟机。官方直营的每个方案都对应一台实体电脑，租期内整机只给你一个人用，不超售。个人直租的设备由机主提供，独享方式写在设备页上，租之前请再核对一次。</p></details><details><summary><span>住宅 IP 是固定的吗？是我一个人用吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>官方直营设备的<mark class="tbc" title="待业务确认">住宅 IP 在租期内保持不变，运营商如有调整会提前通知你</mark>。家庭宽带不等于每台电脑都有独立的出口 IP：是独享还是和同一条线路上的机器共用，设备页会单独写明。</p></details><details><summary>从中国连过去，延迟大概多少？<i aria-hidden="true"></i></summary><p>以吉隆坡为例，深圳、广州约 40–50 ms，上海、杭州约 65–70 ms，北京约 85 ms，实际取决于你的运营商和时段。远程桌面能感觉到一点；在终端里配合 tmux 或 mosh，几乎感觉不到。每台设备页有最近 7 天的实测值，付款前也可以申请连接测试。</p></details><details><summary>nanoMuse 是你们的产品吗？<i aria-hidden="true"></i></summary><p>不是。nanoMuse 是独立的开源社区项目，我们提供的是能让它长期运行的电脑，也可以帮你预装。它的功能和更新以 nanomuse.cn 官方文档为准。</p></details><details><summary>你们提供 Claude、ChatGPT 等账号吗？<i aria-hidden="true"></i></summary><p>不提供，也不代开、不代管任何第三方账号或订阅，更不提供共享账号。租金只包含设备和网络。</p></details><details><summary><span>付款后多久能用上？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>官方直营的现货设备，<mark class="tbc" title="待业务确认">付款后 2 小时内</mark>把连接信息发到你的邮箱。个人直租的设备以设备页标注的交付时间为准。</p></details></div></div>
+    <div class="more rv"><a class="btn btn-ghost" href="faq.html">全部 34 个问题 <span class="arrow">→</span></a></div>
+  </div>
+</section>
+
+<!-- 11 cta -->
+<section id="request" class="dark">
+  <div class="wrap cta">
+    <div class="rv">
+      <p class="kicker"><b>11</b> 开始</p>
+      <h2 style="margin-top:18px">租一台，或者<br>告诉我们你<em>需要什么</em>。</h2>
+      <p class="lede" style="margin-top:20px">有合适的设备就直接下单；没有的话发布求租，通常 24 小时内回复匹配结果。</p>
+      <div class="hero-cta">
+        <a class="btn btn-light" href="market.html">立即租用 <span class="arrow">→</span></a>
+        <a class="btn btn-ghost-light" href="#rf">发布求租</a>
+      </div>
+      <div class="sum">
+        <div><b>nanoMuse</b><span>记住你，处理你的个人事务。</span></div>
+        <div><b>Codex · Claude Code</b><span>在远程电脑上完成你的工作。</span></div>
+        <div><b>AgentDesk</b><span>提供一台真实、独享、长期在线、有人维护的电脑。</span></div>
+      </div>
+    </div>
+
+    <form id="rf" class="rv" novalidate>
+      <div class="f2">
+        <label>系统<select name="os"><option>macOS</option><option>Windows</option><option>Linux</option><option>都可以</option></select></label>
+        <label>城市<select name="city"><option>吉隆坡</option><option>槟城</option><option>新加坡</option><option>不限</option></select></label>
+      </div>
+      <div class="f2">
+        <label><span data-want="租期" data-lend="可出租时长" data-host="可合作时长">租期</span><select name="term"><option>1 个月</option><option>3 个月</option><option>6 个月</option><option>12 个月</option></select></label>
+        <label><span data-want="月预算（¥）" data-lend="期望月租（¥）" data-host="可提供的设备数量">月预算（¥）</span><input name="budget" type="number" min="0" inputmode="numeric" placeholder="例如 500" data-ph-want="例如 500" data-ph-lend="例如 600" data-ph-host="例如 2" /></label>
+      </div>
+      <div class="f3">
+        <label><span>芯片 <i class="opt">可选</i></span><select name="chip"><option value="">不限</option><option>Apple M1 及以上</option><option>Apple M4 及以上</option><option>Intel</option><option>AMD</option></select></label>
+        <label><span>内存 <i class="opt">可选</i></span><select name="ram"><option value="">不限</option><option>8 GB 以上</option><option>16 GB 以上</option><option>32 GB 以上</option><option>64 GB 以上</option></select></label>
+        <label><span>硬盘 <i class="opt">可选</i></span><select name="disk"><option value="">不限</option><option>256 GB 以上</option><option>512 GB 以上</option><option>1 TB 以上</option><option>2 TB 以上</option></select></label>
+        <label><span>显卡 <i class="opt">可选</i></span><select name="gpu"><option value="">不限</option><option>集成显卡即可</option><option>独立显卡</option><option>RTX 4070 及以上</option><option>RTX 4090</option></select></label>
+      </div>
+      <label><span data-want="主要用途" data-lend="设备配置和网络" data-host="设备情况">主要用途</span><textarea name="use" placeholder="例如：nanoMuse 常驻 + 晚上导出视频" data-ph-want="例如：nanoMuse 常驻 + 晚上导出视频" data-ph-lend="例如：Mac mini M2 · 16 GB · 家庭光纤 300M" data-ph-host="例如：两台 Mac mini M2 · 16 GB，九成新，下周可以寄出"></textarea></label>
+      <fieldset class="ct" data-contact><legend>联系方式</legend><div class="ct-methods"><label><input type="radio" name="ct" value="tg" checked /><span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg>Telegram</span></label><label><input type="radio" name="ct" value="wx" /><span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg>微信</span></label><label><input type="radio" name="ct" value="wa" /><span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg>WhatsApp</span></label></div><input type="text" name="contact" required autocomplete="off" spellcheck="false" maxlength="40" placeholder="@你的 Telegram 用户名" aria-label="联系账号" /><p class="ct-hint">我们会通过它联系你。</p></fieldset>
+      <button class="btn btn-light" type="submit">提交求租</button>
+      <p class="ok" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span>© 2026 AgentDesk · 真实远程电脑租赁</span><p class="tm">nanoMuse 是独立的开源社区项目，Codex 是 OpenAI 的产品，Claude Code 是 Anthropic 的产品。相关名称和标志归各自所有者，本平台与它们没有隶属关系。</p><p class="foot-ct">联系我们：<a href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg>Telegram</a><a href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg>WhatsApp</a><button type="button" data-wechat><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg>微信</button></p></div>
+    <nav aria-label="页脚"><a href="market.html">设备市场</a><a href="wanted.html">求租广场</a><a href="request.html">发布求租</a><a href="host.html">托管出租</a><a href="lend.html">个人直租</a><a href="network.html">网络与连接</a><a href="index.html#vps">与 VPS 的区别</a><a href="faq.html">常见问题</a></nav>
+  </div>
+</footer>
+
+
+<div class="cw" id="cw">
+  <div class="cw-menu" id="cw-menu" hidden>
+    <a class="cw-item" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><span class="cw-ic tg"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg></span><span><b>Telegram</b><small>@example_yuanzhuo · 回复最快</small></span></a>
+    <a class="cw-item" href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><span class="cw-ic wa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg></span><span><b>WhatsApp</b><small>+60 00-000 0000</small></span></a>
+    <button class="cw-item" type="button" data-wechat><span class="cw-ic wx"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg></span><span><b>微信</b><small>扫码添加客服</small></span></button>
+    <p class="cw-note">联系方式为示例<span class="tbc-tag">待替换</span></p>
+  </div>
+  <div class="cw-bar">
+    <a class="cw-main" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener" aria-label="Telegram 咨询"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg><span>Telegram 咨询</span></a>
+    <button class="cw-more" type="button" aria-expanded="false" aria-controls="cw-menu" aria-label="更多联系方式：微信、WhatsApp"><span aria-hidden="true">···</span></button>
+  </div>
+</div>
+<dialog class="wx-dlg" id="wx-dialog" aria-labelledby="wx-title">
+  <div class="wx-in">
+    <h2 id="wx-title">微信扫码，添加客服</h2>
+    <img src="assets/wechat-qr.svg" width="200" height="200" alt="AgentDesk 客服微信二维码（示例）" />
+    <p>微信号 <b>yuanzhuo_example</b> <button type="button" class="link" data-copy="yuanzhuo_example">复制</button></p>
+    <p class="small">添加时请备注「AgentDesk」。这是示例二维码<span class="tbc-tag">待替换</span></p>
+    <button type="button" class="btn btn-ghost" data-close>关闭</button>
+  </div>
+</dialog>
+
+<script src="assets/site.js?v=1793440198"></script>
+</body>
+</html>

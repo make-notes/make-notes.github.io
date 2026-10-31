@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>用户 · 管理后台 · AgentDesk</title>
+<meta name="description" content="AgentDesk 超级管理员后台（演示）：用户。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../assets/site.css?v=1793440198" />
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="../index.html" aria-label="AgentDesk 首页">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="5" width="24" height="15" rx="4" fill="none" stroke="#1b1a16" stroke-width="1.6"/><rect x="8" y="21.5" width="10" height="1.6" rx=".8" fill="#1b1a16"/><circle cx="19.5" cy="12.5" r="2.2" fill="#2fae69"/></svg>
+      AgentDesk
+    </a>
+    <nav class="nav-links" id="navlinks" aria-label="主导航">
+      <a href="../nanomuse.html">个人 Agent</a>
+      <a href="../coding.html">工作 Agent</a>
+      <a href="../use-cases/index.html">适合谁</a>
+      <a href="../market.html">设备市场</a>
+      <a href="../host.html">托管出租</a>
+      <a href="../network.html">网络与连接</a>
+      <a href="../faq.html">常见问题</a>
+    </nav>
+    <div class="nav-r">
+      <a class="link" href="../login.html" data-auth-out>登录</a>
+      <a class="nav-msg" href="../messages.html" data-auth-in hidden aria-label="消息"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="badge" data-unread data-default="2" hidden></span></a>
+      <a class="nav-user" href="../console.html" data-auth-in hidden><span class="host-av" aria-hidden="true" data-user-initial></span><span data-user-name></span></a>
+      <a class="btn btn-green" href="../market.html">租一台</a>
+      <button class="menu" aria-label="打开菜单" aria-expanded="false" aria-controls="navlinks"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="pghead" style="padding-bottom:20px">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="当前位置"><a href="../index.html">首页</a> <span aria-hidden="true">/</span> <a href="../admin/overview.html">管理后台</a> <span aria-hidden="true">/</span> <span aria-current="page">用户</span></nav>
+    <div id="adm-gate">
+      <p class="kicker">超级管理员</p>
+      <h1>管理后台</h1>
+      <p class="honest" style="margin-top:20px"><b>原型演示：</b>这里没有真实的权限系统。管理员口令固定为 <code>admin-demo</code>，所有改动只保存在这台浏览器里，不会影响别人。正式上线必须由服务端做身份验证、权限控制和操作审计。</p>
+      <form class="inq adm-login" id="adm-login" novalidate>
+        <label class="inq-f">管理员口令<input type="password" name="code" autocomplete="off" placeholder="admin-demo" /></label>
+        <button class="btn btn-green" type="submit">进入后台</button>
+        <p class="ok" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+    <div id="adm-head" hidden><p class="kicker">超级管理员 · 演示</p><h2 class="ct-name">管理后台</h2>
+      <p class="small">改动只保存在这台浏览器。<button type="button" class="link" id="adm-reset">恢复示例数据</button> · <button type="button" class="link" id="adm-logout">退出后台</button></p></div>
+  </div>
+</section>
+
+<section style="padding-top:0" id="adm-app" data-section="a-users" data-root="../" hidden>
+  <div class="wrap adm">
+    <nav class="adm-side" aria-label="后台菜单"><a href="../admin/overview.html">概览<span class="badge" data-count="a-overview" hidden></span></a><a href="../admin/users.html" aria-current="page">用户<span class="badge" data-count="a-users" hidden></span></a><a href="../admin/listings.html">设备审核<span class="badge" data-count="a-listings" hidden></span></a><a href="../admin/ohost.html">托管上架<span class="badge" data-count="a-ohost" hidden></span></a><a href="../admin/devices.html">设备管理<span class="badge" data-count="a-devices" hidden></span></a><a href="../admin/reports.html">举报处理<span class="badge" data-count="a-reports" hidden></span></a><a href="../admin/reviews.html">评价管理<span class="badge" data-count="a-reviews" hidden></span></a><a href="../admin/wanted.html">求租审核<span class="badge" data-count="a-wanted" hidden></span></a><a href="../admin/chat.html">发起对话<span class="badge" data-count="a-chat" hidden></span></a><a href="../admin/contacts.html">客服方式<span class="badge" data-count="a-contacts" hidden></span></a><a href="../admin/settings.html">平台设置<span class="badge" data-count="a-settings" hidden></span></a><a href="../admin/log.html">操作日志<span class="badge" data-count="a-log" hidden></span></a></nav>
+    <div class="adm-main"><section class="adm-panel" id="a-users" aria-labelledby="adm-title"><h2 id="adm-title">用户</h2><div data-render="a-users"></div></section></div>
+  </div>
+  <dialog class="od" id="adm-dialog" aria-labelledby="adm-dlg-title"><form class="inq od-in" id="adm-dlg-form" novalidate>
+    <div class="od-h"><h2 id="adm-dlg-title"></h2><button type="button" class="od-x" data-close aria-label="关闭">×</button></div>
+    <div id="adm-dlg-body"></div>
+    <button class="btn btn-green" type="submit" id="adm-dlg-ok">确定</button>
+    <p class="ok" role="status" aria-live="polite"></p>
+  </form></dialog>
+</section>
+<script type="application/json" id="adm-seed">{"users": [{"id": "chen", "name": "陈一", "av": "陈", "city": "深圳", "joined": "2026 年 5 月", "roles": ["租客", "托管房东"], "status": "正常", "hosts": 1, "href": "user-chen.html"}, {"id": "mia", "name": "Mia", "av": "M", "city": "上海", "joined": "2026 年 4 月", "roles": ["租客", "托管房东"], "status": "正常", "hosts": 1, "href": "user-mia.html"}, {"id": "leon", "name": "Leon", "av": "L", "city": "槟城", "joined": "2026 年 3 月", "roles": ["个人房东"], "status": "正常", "hosts": 1, "href": "user-leon.html"}, {"id": "wei", "name": "Wei", "av": "W", "city": "新加坡", "joined": "2025 年 11 月", "roles": ["个人房东"], "status": "正常", "hosts": 1, "href": "user-wei.html"}, {"id": "aaron", "name": "Aaron", "av": "A", "city": "新加坡", "joined": "2026 年 6 月", "roles": ["个人房东", "租客"], "status": "正常", "hosts": 1, "href": "user-aaron.html"}, {"id": "kok", "name": "Kok", "av": "K", "city": "新山", "joined": "2026 年 10 月", "roles": ["个人房东"], "status": "正常", "hosts": 0, "href": ""}], "devices": [{"id": "m4", "name": "Mac mini M4", "src": "官方直营", "city": "吉隆坡", "price": 399, "host": "平台", "status": "已上架", "href": "device-m4.html"}, {"id": "m4pro", "name": "Mac mini M4 Pro", "src": "官方直营", "city": "吉隆坡", "price": 899, "host": "平台", "status": "已上架", "href": "device-m4pro.html"}, {"id": "winmini", "name": "Windows 小主机", "src": "托管出租", "city": "吉隆坡", "price": 299, "host": "陈一", "status": "已上架", "href": "device-winmini.html"}, {"id": "n100", "name": "Linux 小主机", "src": "托管出租", "city": "吉隆坡", "price": 169, "host": "Mia", "status": "已上架", "href": "device-n100.html"}, {"id": "gpu", "name": "Windows GPU 主机", "src": "个人直租", "city": "槟城", "price": 599, "host": "Leon", "status": "已上架", "href": "device-gpu.html"}, {"id": "linux", "name": "Linux 工作站", "src": "个人直租", "city": "新加坡", "price": 529, "host": "Wei", "status": "已上架", "href": "device-linux.html"}, {"id": "studio", "name": "Mac Studio M2 Max", "src": "个人直租", "city": "新加坡", "price": 1299, "host": "Aaron", "status": "已上架", "href": "device-studio.html"}], "listings": [{"id": "L-2051", "title": "MacBook Pro M3 Pro · 36 GB · 吉隆坡", "host": "Aaron", "city": "吉隆坡", "price": 1099, "submitted": "2026-10-30 22:14", "test": "连接测试通过", "flags": ["介绍里疑似联系方式：「vx: aaron_m3」"], "status": "待审核"}, {"id": "L-2052", "title": "Windows 主机 · RTX 3060 · 新山", "host": "Kok", "city": "新山", "price": 459, "submitted": "2026-10-31 09:02", "test": "还没做连接测试", "flags": [], "status": "待审核"}], "reviews": [{"id": "V-001", "frm": "陈一", "to": "Leon", "device": "Windows GPU 主机", "stars": 5, "month": "2026-09", "text": "ComfyUI 环境都提前装好了，夜里出图很稳，回复也快。", "status": "公开"}, {"id": "V-002", "frm": "Mia", "to": "Leon", "device": "Windows GPU 主机", "stars": 4, "month": "2026-07", "text": "显卡没问题，交付晚了一天，但房东提前说明了。", "status": "公开"}, {"id": "V-003", "frm": "Leon", "to": "Mia", "device": "作为租客", "stars": 5, "month": "2026-07", "text": "按时付款，退租前自己备份并清理了数据。", "status": "公开"}, {"id": "V-004", "frm": "Leon", "to": "陈一", "device": "作为租客", "stars": 5, "month": "2026-09", "text": "沟通清楚，用途和说的一致。", "status": "公开"}, {"id": "V-005", "frm": "Mia", "to": "Wei", "device": "Linux 工作站", "stars": 5, "month": "2026-10", "text": "SSH 很稳，跑 Claude Code 长任务没断过。", "status": "公开"}, {"id": "V-006", "frm": "Wei", "to": "Mia", "device": "作为租客", "stars": 5, "month": "2026-10", "text": "使用规范，有问题会先描述清楚。", "status": "公开"}, {"id": "V-007", "frm": "陈一", "to": "Aaron", "device": "Mac Studio M2 Max", "stars": 4, "month": "2026-08", "text": "导出 4K 很快，周末回复会慢一点。", "status": "公开"}, {"id": "V-008", "frm": "Aaron", "to": "陈一", "device": "作为租客", "stars": 5, "month": "2026-08", "text": "很爽快的租客。", "status": "公开"}], "wanted": [{"id": "W-1031", "title": "Mac mini M4，常驻 nanoMuse，偶尔出 iOS 包", "poster": "陈一", "budget": "¥300–450", "status": "已公开"}, {"id": "W-1030", "title": "Windows GPU 主机，夜里跑 ComfyUI 批量出图", "poster": "—", "budget": "¥500–700", "status": "已公开"}, {"id": "W-1028", "title": "Mac mini M4 Pro，剪 4K 视频和多版本导出", "poster": "Mia", "budget": "¥800–1,000", "status": "已公开"}, {"id": "W-1027", "title": "Linux 小主机，跑 Claude Code 长任务和定时脚本", "poster": "—", "budget": "¥150–250", "status": "已公开"}, {"id": "W-1025", "title": "Windows 主机，看当地店铺和价格，要住宅 IP", "poster": "—", "budget": "¥250–350", "status": "已公开"}, {"id": "W-1022", "title": "团队求 3 台同配置 Linux，做构建机和监控", "poster": "Wei", "budget": "每台 ¥400–550", "status": "已公开"}, {"id": "W-1019", "title": "Mac mini M4，GitHub Actions 自托管 Runner", "poster": "—", "budget": "¥350–450", "status": "已匹配"}, {"id": "W-1012", "title": "Mac Studio，短期渲染一个项目", "poster": "—", "budget": "¥1,200–1,500", "status": "已关闭"}, {"id": "W-1033", "title": "求一台能跑 Final Cut 的 Mac，周末用", "poster": "Kok", "budget": "¥200–300", "status": "待审核"}], "reports": [{"id": "R-100231", "target": "Leon", "kind": "用户", "href": "user-leon.html", "reason": "要求站外交易或私下付款", "by": "Mia", "detail": "房东在消息里让我加微信，说私下转账可以便宜 50。", "order": "", "time": "2026/10/29 21:40", "status": "待处理"}, {"id": "R-100198", "target": "Mac Studio M2 Max", "kind": "设备信息 · 房东 Aaron", "href": "device-studio.html", "reason": "信息不实（配置、位置、网络和描述不符）", "by": "陈一", "detail": "页面写 64 GB 内存，实际只有 32 GB。", "order": "YZ-20260801-0021", "time": "2026/08/03 10:12", "status": "已处理", "result": "警告：房东已更正配置", "note": "房东承认填错，已更正并退还差价"}], "contacts": [{"type": "telegram", "label": "Telegram", "value": "example_yuanzhuo", "enabled": true, "default": true}, {"type": "whatsapp", "label": "WhatsApp", "value": "60000000000", "enabled": true, "default": false}, {"type": "wechat", "label": "微信", "value": "yuanzhuo_example", "enabled": true, "default": false}], "settings": [{"key": "platform_fee", "group": "费用", "label": "托管出租服务费", "unit": "¥ / 台 / 月", "type": "number", "value": 100}, {"key": "market_fee", "group": "费用", "label": "个人直租服务费比例", "unit": "%", "type": "number", "value": 10}, {"key": "hold_hours", "group": "订单与预约", "label": "预约可用后保留时间", "unit": "小时", "type": "number", "value": 24}, {"key": "refund_hours", "group": "订单与预约", "label": "故障超过多久可按天退款", "unit": "小时", "type": "number", "value": 48}, {"key": "wanted_days", "group": "发布", "label": "求租自动关闭", "unit": "天", "type": "number", "value": 30}, {"key": "confirm_days", "group": "发布", "label": "出租方案需要重新确认", "unit": "天", "type": "number", "value": 14}, {"key": "max_listings", "group": "发布", "label": "每个账号最多有效方案", "unit": "条", "type": "number", "value": 3}, {"key": "review_listing", "group": "发布", "label": "出租方案需要先审核再公开", "unit": "", "type": "bool", "value": true}, {"key": "review_wanted", "group": "发布", "label": "求租需要先审核再公开", "unit": "", "type": "bool", "value": true}, {"key": "review_edit_days", "group": "评价与举报", "label": "评价提交后可修改", "unit": "天", "type": "number", "value": 7}, {"key": "report_hours", "group": "评价与举报", "label": "举报处理时限", "unit": "小时", "type": "number", "value": 24}, {"key": "offsite_block", "group": "消息", "label": "消息含站外联系方式时", "unit": "", "type": "select", "value": "提醒后允许发送", "options": ["提醒后允许发送", "直接拦截", "拦截并转人工审核"]}, {"key": "announce", "group": "全站", "label": "全站公告（留空不显示）", "unit": "", "type": "text", "value": ""}]}</script>
+<script src="../assets/admin.js?v=1793440198" defer></script>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span>© 2026 AgentDesk · 真实远程电脑租赁</span><p class="tm">nanoMuse 是独立的开源社区项目，Codex 是 OpenAI 的产品，Claude Code 是 Anthropic 的产品。相关名称和标志归各自所有者，本平台与它们没有隶属关系。</p><p class="foot-ct">联系我们：<a href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg>Telegram</a><a href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg>WhatsApp</a><button type="button" data-wechat><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg>微信</button></p></div>
+    <nav aria-label="页脚"><a href="../market.html">设备市场</a><a href="../wanted.html">求租广场</a><a href="../request.html">发布求租</a><a href="../host.html">托管出租</a><a href="../lend.html">个人直租</a><a href="../network.html">网络与连接</a><a href="../index.html#vps">与 VPS 的区别</a><a href="../faq.html">常见问题</a></nav>
+  </div>
+</footer>
+
+
+<div class="cw" id="cw">
+  <div class="cw-menu" id="cw-menu" hidden>
+    <a class="cw-item" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><span class="cw-ic tg"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg></span><span><b>Telegram</b><small>@example_yuanzhuo · 回复最快</small></span></a>
+    <a class="cw-item" href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><span class="cw-ic wa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg></span><span><b>WhatsApp</b><small>+60 00-000 0000</small></span></a>
+    <button class="cw-item" type="button" data-wechat><span class="cw-ic wx"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg></span><span><b>微信</b><small>扫码添加客服</small></span></button>
+    <p class="cw-note">联系方式为示例<span class="tbc-tag">待替换</span></p>
+  </div>
+  <div class="cw-bar">
+    <a class="cw-main" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener" aria-label="Telegram 咨询"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg><span>Telegram 咨询</span></a>
+    <button class="cw-more" type="button" aria-expanded="false" aria-controls="cw-menu" aria-label="更多联系方式：微信、WhatsApp"><span aria-hidden="true">···</span></button>
+  </div>
+</div>
+<dialog class="wx-dlg" id="wx-dialog" aria-labelledby="wx-title">
+  <div class="wx-in">
+    <h2 id="wx-title">微信扫码，添加客服</h2>
+    <img src="../assets/wechat-qr.svg" width="200" height="200" alt="AgentDesk 客服微信二维码（示例）" />
+    <p>微信号 <b>yuanzhuo_example</b> <button type="button" class="link" data-copy="yuanzhuo_example">复制</button></p>
+    <p class="small">添加时请备注「AgentDesk」。这是示例二维码<span class="tbc-tag">待替换</span></p>
+    <button type="button" class="btn btn-ghost" data-close>关闭</button>
+  </div>
+</dialog>
+
+<script src="../assets/site.js?v=1793440198"></script>
+</body>
+</html>

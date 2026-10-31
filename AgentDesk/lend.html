@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>个人直租 · AgentDesk</title>
+<meta name="description" content="个人直租：自己定价，发布你的闲置电脑：分 6 步填写方案，审核后公开，租客通过站内消息联系你。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css?v=1793440198" />
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="AgentDesk 首页">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="5" width="24" height="15" rx="4" fill="none" stroke="#1b1a16" stroke-width="1.6"/><rect x="8" y="21.5" width="10" height="1.6" rx=".8" fill="#1b1a16"/><circle cx="19.5" cy="12.5" r="2.2" fill="#2fae69"/></svg>
+      AgentDesk
+    </a>
+    <nav class="nav-links" id="navlinks" aria-label="主导航">
+      <a href="nanomuse.html">个人 Agent</a>
+      <a href="coding.html">工作 Agent</a>
+      <a href="use-cases/index.html">适合谁</a>
+      <a href="market.html" aria-current="page">设备市场</a>
+      <a href="host.html">托管出租</a>
+      <a href="network.html">网络与连接</a>
+      <a href="faq.html">常见问题</a>
+    </nav>
+    <div class="nav-r">
+      <a class="link" href="login.html" data-auth-out>登录</a>
+      <a class="nav-msg" href="messages.html" data-auth-in hidden aria-label="消息"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="badge" data-unread data-default="2" hidden></span></a>
+      <a class="nav-user" href="console.html" data-auth-in hidden><span class="host-av" aria-hidden="true" data-user-initial></span><span data-user-name></span></a>
+      <a class="btn btn-green" href="market.html">租一台</a>
+      <button class="menu" aria-label="打开菜单" aria-expanded="false" aria-controls="navlinks"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="pghead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="当前位置"><a href="index.html">首页</a> <span aria-hidden="true">/</span> <a href="market.html">设备市场</a> <span aria-hidden="true">/</span> <span aria-current="page">个人直租</span></nav>
+    <h1>自己定价，<br>出租你的<em>闲置电脑</em>。</h1>
+    <p class="lede">有闲置的 Mac 或主机，可以在这里发布出租方案，让需要远程电脑的人找到你。价格、交付和售后由你自己定；平台负责信息展示、站内消息、付款和纠纷协调<span class="tbc-tag">待确认</span>。不想自己打理，可以选<a class="link" href="host.html">托管出租</a>。</p>
+    <div class="hero-cta"><a class="btn btn-green" href="lend-form.html">发布出租方案 <span class="arrow">→</span></a><a class="link" href="#safety">出租前的安全设置</a></div>
+    <p class="small" style="margin-top:18px">目前发布不收费 · 近 30 天浏览 3,280 次 · 发布中的方案 3 个（示例数据）</p>
+  </div>
+</section>
+
+<section class="rule-top" id="how">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">怎么发布</p>
+      <div>
+        <h2>四步，<br>就能<em>上架</em>。</h2>
+      </div>
+    </div>
+    <ol class="steps3 rv">
+      <li><b>邮箱验证码登录</b><span>不需要密码，新邮箱会自动创建账号；邮箱不会公开。</span></li>
+      <li><b>设置昵称和联系方式</b><span>昵称显示在方案和主页上；联系方式只用于平台通知，不公开。</span></li>
+      <li><b>分 6 步填写方案</b><span>基础、地点与网络、使用条件、费用、服务约定、确认。可以随时保存草稿。</span></li>
+      <li><b>审核后公开，消息里沟通</b><span>租客的咨询、你对求租的回应都在站内消息里。方案每 14 天确认一次仍有效<span class="tbc-tag">待确认</span>。</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="rule-top" style="background:var(--surface)" id="rules">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">发布要求</p>
+      <div>
+        <h2>这些<em>不能少</em>。</h2>
+      </div>
+    </div>
+    <div class="points">
+      <div class="point rv"><span class="n">01</span><h3>整机独占</h3><p>出租期间整台机器只给一位租客。只出租虚拟机、按小时共享、多人共用的方案不能发布。</p></div>
+      <div class="point rv"><span class="n">02</span><h3>至少按月起租</h3><p>最短租期可选 1、3、6、12 个月。</p></div>
+      <div class="point rv"><span class="n">03</span><h3>软件许可自己负责</h3><p>macOS、Windows 和各类软件对出租可能另有要求，提交时要确认会自行履行。</p></div>
+      <div class="point rv"><span class="n">04</span><h3>公开信息不放联系方式</h3><p>标题、介绍、昵称和简介里不写手机号、微信、邮箱或住址，系统会检测；沟通走站内消息。</p></div>
+      <div class="point rv"><span class="n">05</span><h3>不当作代理转售</h3><p>出租的是电脑和网络，不能把线路包装成代理或 VPN 出售。</p></div>
+      <div class="point rv"><span class="n">06</span><h3>数量限制</h3><p>每个账号最多同时有 3 条有效方案<span class="tbc-tag">待确认</span>；同一配置请编辑原方案，不要重复发布。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="rule-top" id="safety">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">出租前的安全设置</p>
+      <div>
+        <h2>先保护好你自己，<br>再<em>交给租客</em>。</h2>
+      </div>
+    </div>
+    <ul class="checks rv"><li><span><b>先抹掉再出租：</b>备份并移走个人数据，把电脑恢复出厂后重新设置</span></li><li><span><b>单独的维护账户：</b>留一个只给你自己用的管理员账户，不放个人数据，密码不交给任何人</span></li><li><span><b>Apple 账户只为「查找」开：</b>不要登录平时用的账户；需要「查找」就为这台电脑专门开一个，只在维护账户里登录</span></li><li><span><b>租客用单独的账户：</b>权限类型和方案里写的一致；租客自己的 Apple 账户在 Xcode 里登录</span></li><li><span><b>隔离网络：</b>接到访客网络或单独的 VLAN，不把 SSH、屏幕共享的端口直接映射到公网</span></li><li><span><b>出租管理员权限后一定抹掉：</b>每次退租都抹掉整台电脑，不只是删除租客账户</span></li></ul>
+    <p class="small rv" style="margin-top:14px">每一步的具体设置，参考 <a class="link" href="host.html#checklist">上架前检查</a>。</p>
+  </div>
+</section>
+
+<section class="rule-top" style="background:var(--surface)" id="role">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">平台的角色</p>
+      <div>
+        <h2>平台做什么，<br><em>不做什么</em>。</h2>
+      </div>
+    </div>
+    <div class="split2">
+      <div class="rv"><p class="kicker" style="margin-bottom:14px">平台提供</p><ul class="checks rv"><li><span>发布出租方案，租客按配置、地区和价格筛选</span></li><li><span>站内消息，有新消息时提醒你</span></li><li><span>公开的求租，有发布中方案的房东可以直接回应</span></li><li><span>代收租金、按月结算，并协调纠纷<span class="tbc-tag">待确认</span></span></li><li><span>举报处理：按证据处理违规内容和账号</span></li></ul></div>
+      <div class="rv"><p class="kicker" style="margin-bottom:14px">平台不做</p><ul class="rows rv"><li>不检测、不核实你的设备，带宽等内容标注「房东自述」</li><li>不托管设备的账号密码；请不要在公开内容或消息里发送密码</li><li>不对交付、可用性、数据和售后负责，这些按你写的服务约定执行</li><li>不帮你找租客做线下交易；站外付款出问题平台无法处理</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark band" id="start">
+  <div class="wrap band-in">
+    <div><h2>准备好了？<br>开始<em>填写出租方案</em>。</h2><p class="lede">分 6 步填写，内容会自动保存，可以随时离开再回来。</p></div>
+    <div class="hero-cta"><a class="btn btn-light" href="lend-form.html">发布出租方案 <span class="arrow">→</span></a><a class="btn btn-ghost-light" href="#safety">先看安全设置</a></div>
+  </div>
+</section>
+
+<section class="rule-top" style="background:var(--surface)" id="compare">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">三种来源</p>
+      <div>
+        <h2>官方直营、托管出租和<br><em>个人直租</em>的区别。</h2>
+        <p class="lede">想省心，选托管出租；想自己定价、自己找租客，选个人直租。</p>
+      </div>
+    </div>
+    <div class="cmp-wrap rv"><table class="cmp cmp3"><thead><tr><th scope="col">对比</th><th scope="col"><span class="src">官方直营</span></th><th scope="col"><span class="src h">托管出租</span></th><th scope="col"><span class="src t">个人直租</span></th></tr></thead><tbody><tr><th scope="row">机器是谁的</th><td>平台</td><td>房东</td><td>房东</td></tr><tr><th scope="row">放在哪里</th><td>平台</td><td>房东家</td><td>房东家</td></tr><tr><th scope="row">谁定价、收款、交付</th><td>平台</td><td>平台</td><td>房东（付款直接给房东）</td></tr><tr><th scope="row">出了问题找谁</th><td>平台</td><td>平台或房东</td><td>房东</td></tr></tbody></table></div>
+    <div class="hero-cta" style="margin-top:28px"><a class="btn btn-ghost" href="host.html">了解托管出租</a><a class="btn btn-green" href="lend-form.html">发布个人直租 <span class="arrow">→</span></a></div>
+  </div>
+</section>
+
+<section class="rule-top" id="wanted-teaser">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">正在找电脑的租客</p>
+      <div>
+        <h2>现在有 6 条<em>求租</em>。</h2>
+        <p class="lede">有发布中的方案后，可以直接在求租广场回应。</p>
+      </div>
+    </div>
+    <div class="wants">      <article class="want rv" data-item data-os="mac" data-st="open" id="W-1031">
+        <div class="want-h"><span class="st open">求租中</span><span class="small">W-1031 · 2 小时前</span></div>
+        <h3>Mac mini M4，常驻 nanoMuse，偶尔出 iOS 包</h3>
+        <dl class="want-spec"><div><dt>系统</dt><dd>macOS</dd></div><div><dt>城市</dt><dd>吉隆坡</dd></div><div><dt>配置</dt><dd>16 GB 以上</dd></div><div><dt>租期</dt><dd>6 个月</dd></div></dl>
+        <div class="want-tags"><span>nanoMuse</span><span>iOS 构建</span></div>
+        <div class="want-by"><span class="small">发布者</span><a class="uchip sm" href="user-chen.html"><span class="host-av" aria-hidden="true">陈</span><span>陈一</span></a></div>
+        <div class="want-f"><span class="budget">¥300–450<small> /月</small></span><span class="small">2 个出租方已报价</span></div>
+        <a class="btn btn-ghost" href="request.html?type=lend&amp;for=W-1031">我有合适的设备</a>
+      </article>      <article class="want rv" data-item data-os="win" data-st="open" id="W-1030">
+        <div class="want-h"><span class="st open">求租中</span><span class="small">W-1030 · 5 小时前</span></div>
+        <h3>Windows GPU 主机，夜里跑 ComfyUI 批量出图</h3>
+        <dl class="want-spec"><div><dt>系统</dt><dd>Windows</dd></div><div><dt>城市</dt><dd>不限</dd></div><div><dt>配置</dt><dd>RTX 4070 以上 · 32 GB</dd></div><div><dt>租期</dt><dd>3 个月</dd></div></dl>
+        <div class="want-tags"><span>AIGC</span></div>
+        
+        <div class="want-f"><span class="budget">¥500–700<small> /月</small></span><span class="small">1 个出租方已报价</span></div>
+        <a class="btn btn-ghost" href="request.html?type=lend&amp;for=W-1030">我有合适的设备</a>
+      </article>      <article class="want rv" data-item data-os="mac" data-st="open" id="W-1028">
+        <div class="want-h"><span class="st open">求租中</span><span class="small">W-1028 · 昨天</span></div>
+        <h3>Mac mini M4 Pro，剪 4K 视频和多版本导出</h3>
+        <dl class="want-spec"><div><dt>系统</dt><dd>macOS</dd></div><div><dt>城市</dt><dd>吉隆坡 / 新加坡</dd></div><div><dt>配置</dt><dd>24 GB 以上 · 1 TB</dd></div><div><dt>租期</dt><dd>3 个月</dd></div></dl>
+        <div class="want-tags"><span>视频剪辑</span></div>
+        <div class="want-by"><span class="small">发布者</span><a class="uchip sm" href="user-mia.html"><span class="host-av" aria-hidden="true">M</span><span>Mia</span></a></div>
+        <div class="want-f"><span class="budget">¥800–1,000<small> /月</small></span><span class="small">3 个出租方已报价</span></div>
+        <a class="btn btn-ghost" href="request.html?type=lend&amp;for=W-1028">我有合适的设备</a>
+      </article></div>
+    <div class="more rv"><a class="btn btn-ghost" href="wanted.html">查看全部求租 <span class="arrow">→</span></a></div>
+  </div>
+</section>
+
+<section class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">常见问题</p>
+      <div>
+        <h2>发布之前，<br>大家常问的。</h2>
+      </div>
+    </div>
+    <div class="faq one rv"><div class="faq-list"><details><summary>租金怎么收？<i aria-hidden="true"></i></summary><p>租客在平台付款，平台扣除服务费后按月结算给你<mark class="tbc" title="待业务确认">（服务费比例待定）</mark>。首期付款、押金和其他费用要在方案里写清楚。</p></details><details><summary><span>发布要审核吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>要。提交后<mark class="tbc" title="待业务确认">通常 1 个工作日内审核</mark>，通过后公开；公开后管理员仍会复查，不符合发布要求的会被要求修改或下架。</p></details><details><summary>同一个账号能不能也发求租？<i aria-hidden="true"></i></summary><p>可以。同一个账号既能发布出租方案，也能发求租、联系其他房东，所有对话都在消息里。</p></details><details><summary>想暂停出租怎么办？<i aria-hidden="true"></i></summary><p>在控制台的「我的发布」里暂停咨询：租客不能再发起新咨询，已有对话不受影响，随时可以恢复。</p></details><details><summary>平台会验证我的设备吗？<i aria-hidden="true"></i></summary><p>上架前会做一次连接测试<mark class="tbc" title="待业务确认">（待确认）</mark>，但不核实配置和身份；带宽这类无法核实的内容标注「房东自述」。请按实际情况填写。</p></details><details><summary>和托管出租有什么区别？<i aria-hidden="true"></i></summary><p>个人直租是你自己定价、收款、交付和维护；托管出租是机器放在你家、由平台定价、收款和交付。详见<a class="link" href="#compare">三种来源的对比</a>。</p></details></div></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span>© 2026 AgentDesk · 真实远程电脑租赁</span><p class="tm">nanoMuse 是独立的开源社区项目，Codex 是 OpenAI 的产品，Claude Code 是 Anthropic 的产品。相关名称和标志归各自所有者，本平台与它们没有隶属关系。</p><p class="foot-ct">联系我们：<a href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg>Telegram</a><a href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg>WhatsApp</a><button type="button" data-wechat><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg>微信</button></p></div>
+    <nav aria-label="页脚"><a href="market.html">设备市场</a><a href="wanted.html">求租广场</a><a href="request.html">发布求租</a><a href="host.html">托管出租</a><a href="lend.html">个人直租</a><a href="network.html">网络与连接</a><a href="index.html#vps">与 VPS 的区别</a><a href="faq.html">常见问题</a></nav>
+  </div>
+</footer>
+
+
+<div class="cw" id="cw">
+  <div class="cw-menu" id="cw-menu" hidden>
+    <a class="cw-item" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><span class="cw-ic tg"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg></span><span><b>Telegram</b><small>@example_yuanzhuo · 回复最快</small></span></a>
+    <a class="cw-item" href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><span class="cw-ic wa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg></span><span><b>WhatsApp</b><small>+60 00-000 0000</small></span></a>
+    <button class="cw-item" type="button" data-wechat><span class="cw-ic wx"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg></span><span><b>微信</b><small>扫码添加客服</small></span></button>
+    <p class="cw-note">联系方式为示例<span class="tbc-tag">待替换</span></p>
+  </div>
+  <div class="cw-bar">
+    <a class="cw-main" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener" aria-label="Telegram 咨询"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg><span>Telegram 咨询</span></a>
+    <button class="cw-more" type="button" aria-expanded="false" aria-controls="cw-menu" aria-label="更多联系方式：微信、WhatsApp"><span aria-hidden="true">···</span></button>
+  </div>
+</div>
+<dialog class="wx-dlg" id="wx-dialog" aria-labelledby="wx-title">
+  <div class="wx-in">
+    <h2 id="wx-title">微信扫码，添加客服</h2>
+    <img src="assets/wechat-qr.svg" width="200" height="200" alt="AgentDesk 客服微信二维码（示例）" />
+    <p>微信号 <b>yuanzhuo_example</b> <button type="button" class="link" data-copy="yuanzhuo_example">复制</button></p>
+    <p class="small">添加时请备注「AgentDesk」。这是示例二维码<span class="tbc-tag">待替换</span></p>
+    <button type="button" class="btn btn-ghost" data-close>关闭</button>
+  </div>
+</dialog>
+
+<script src="assets/site.js?v=1793440198"></script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>托管出租 · AgentDesk</title>
+<meta name="description" content="托管出租：机器放在你家，平台负责定价、收款、交付和售后，每台每月一笔固定服务费。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css?v=1793440198" />
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="AgentDesk 首页">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="5" width="24" height="15" rx="4" fill="none" stroke="#1b1a16" stroke-width="1.6"/><rect x="8" y="21.5" width="10" height="1.6" rx=".8" fill="#1b1a16"/><circle cx="19.5" cy="12.5" r="2.2" fill="#2fae69"/></svg>
+      AgentDesk
+    </a>
+    <nav class="nav-links" id="navlinks" aria-label="主导航">
+      <a href="nanomuse.html">个人 Agent</a>
+      <a href="coding.html">工作 Agent</a>
+      <a href="use-cases/index.html">适合谁</a>
+      <a href="market.html">设备市场</a>
+      <a href="host.html" aria-current="page">托管出租</a>
+      <a href="network.html">网络与连接</a>
+      <a href="faq.html">常见问题</a>
+    </nav>
+    <div class="nav-r">
+      <a class="link" href="login.html" data-auth-out>登录</a>
+      <a class="nav-msg" href="messages.html" data-auth-in hidden aria-label="消息"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="badge" data-unread data-default="2" hidden></span></a>
+      <a class="nav-user" href="console.html" data-auth-in hidden><span class="host-av" aria-hidden="true" data-user-initial></span><span data-user-name></span></a>
+      <a class="btn btn-green" href="market.html">租一台</a>
+      <button class="menu" aria-label="打开菜单" aria-expanded="false" aria-controls="navlinks"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="pghead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="当前位置"><a href="index.html">首页</a> <span aria-hidden="true">/</span> <span aria-current="page">托管出租</span></nav>
+    <h1>家里的闲置电脑，<br><em>交给平台来卖</em>。</h1>
+    <p class="lede">机器放在你家，你负责电和网络；定价、收款、交付和售后都由平台来做，每台每月只扣一笔固定的服务费。</p>
+    <div class="hero-cta"><a class="btn btn-green" href="#apply">申请托管 <span class="arrow">→</span></a><a class="link" href="#calc">先算算能分多少 <span class="arrow">↓</span></a></div>
+    <ul class="facts"><li>机器留在你家</li><li>平台统一定价、收款和交付</li><li>每台每月固定服务费<span class="tbc-tag">待确认</span></li></ul>
+  </div>
+</section>
+
+<section class="rule-top" id="calc">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">算一算</p>
+      <div>
+        <h2>你能<em>分到多少</em>。</h2>
+        <p class="lede">按整月租出去估算。数字是示例，服务费以合作前写明的为准。</p>
+      </div>
+    </div>
+    <form class="calc rv" id="calc-form" onsubmit="return false" data-fee="100">
+      <div class="calc-in">
+        <label>你的机器<select name="price"><option value="169">Linux 小主机 · ¥169/月</option><option value="399" selected>Mac mini M4 · ¥399/月</option><option value="599">Windows GPU 主机 · ¥599/月</option><option value="899">Mac mini M4 Pro · ¥899/月</option></select></label>
+        <label>一年租出几个月 <output id="c-months">10</output><input type="range" name="months" min="1" max="12" value="10" /></label>
+      </div>
+      <div class="calc-out">
+        <div><span>整月租出去，你每月分到</span><b id="c-month">¥0</b></div>
+        <div><span>一年大约</span><b id="c-year">¥0</b></div>
+        <p class="small"><span id="c-rate"></span>（示例<span class="tbc-tag">待确认</span>）。机器空闲的日子没有收入，我们不承诺出租率或收入。</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<section class="rule-top" style="background:var(--surface)" id="duty">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">分工</p>
+      <div>
+        <h2>你管好机器，<br><em>生意交给平台</em>。</h2>
+        <p class="lede">托管的机器和官方直营的机器一起在官网销售。租客下单付款后，系统把连接信息发给租客；每一单、每一笔服务费，你在后台都看得到。</p>
+      </div>
+    </div>
+    <div class="split2">
+      <div class="rv">
+        <p class="kicker" style="margin-bottom:14px">你负责</p>
+        <ul class="checks rv"><li><span>一台符合配置的设备，放在你家</span></li><li><span>稳定的网络和电，出租机和家里其他设备隔开</span></li><li><span>按手册设置好，保存交付信息</span></li><li><span>出状况时到现场；租期结束后按手册抹盘</span></li></ul>
+      </div>
+      <div class="rv">
+        <p class="kicker" style="margin-bottom:14px">平台负责（包含在服务费里）</p>
+        <ul class="checks rv"><li><span>推广：官网、内容和广告</span></li><li><span>定价、收款和售后</span></li><li><span>自动交付：把连接信息发给租客</span></li><li><span>监控提醒和每月结算</span></li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="rule-top" id="fees">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">服务费</p>
+      <div>
+        <h2>服务费固定，<br>配置越高，<em>你分得越多</em>。</h2>
+        <p class="lede">不管什么配置，每台每月都只扣 ¥100（示例）。下面按租客月付、整月租出去计算。</p>
+      </div>
+    </div>
+    <div class="fees"><div class="fee rv"><h3>Linux 小主机</h3><p class="small">租客月付 ¥169</p><b>¥69</b><span>你每月分到 · 约 41%</span></div><div class="fee rv"><h3>Mac mini M4</h3><p class="small">租客月付 ¥399</p><b>¥299</b><span>你每月分到 · 约 75%</span></div><div class="fee rv"><h3>Windows GPU 主机</h3><p class="small">租客月付 ¥599</p><b>¥499</b><span>你每月分到 · 约 83%</span></div><div class="fee rv"><h3>Mac mini M4 Pro</h3><p class="small">租客月付 ¥899</p><b>¥799</b><span>你每月分到 · 约 89%</span></div></div>
+    <p class="small rv" style="margin-top:14px">服务费金额为示例<span class="tbc-tag">待确认</span>，以你后台显示的为准。</p>
+  </div>
+</section>
+
+<section class="rule-top" style="background:var(--surface)" id="steps">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">开始</p>
+      <div>
+        <h2>从申请到接单，<br><em>四步</em>。</h2>
+      </div>
+    </div>
+    <ol class="steps3 rv">
+      <li><b>联系客服申请</b><span>说明设备型号、数量和所在城市，确认合作、签托管协议。</span></li>
+      <li><b>按手册设置</b><span>系统设置、远程工具、网络隔离和心跳监控，保存交付信息。</span></li>
+      <li><b>平台为你上架</b><span>检查通过后，平台在后台建好设备页并上架。</span></li>
+      <li><b>自动接单，每月结算</b><span>租客付款后系统自动交付，每月结算一次。</span></li>
+    </ol>
+    <p class="small rv" style="margin-top:16px">现在<a class="link" href="wanted.html">求租广场</a>有 6 条需求在找设备（示例数据）。</p>
+  </div>
+</section>
+
+<section class="rule-top" id="prepare">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">需要准备的</p>
+      <div>
+        <h2>就这<em>四样</em>。</h2>
+      </div>
+    </div>
+    <div class="points">
+      <div class="point rv"><span class="n">01</span><h3>一台合适的电脑</h3><p>Apple 芯片的 Mac、带独立显卡的 Windows 主机，或常见的 Linux 小主机。</p></div>
+      <div class="point rv"><span class="n">02</span><h3>稳定的网络和电</h3><p>光纤入户，上行建议 50 Mbps 以上<span class="tbc-tag">待确认</span>，能 24 小时开机。</p></div>
+      <div class="point rv"><span class="n">03</span><h3>能照看的时间</h3><p>收到掉线提醒要能及时处理，租期结束后按手册抹盘。</p></div>
+      <div class="point rv"><span class="n">04</span><h3>收款信息</h3><p>首次结算前在后台填好收款方式。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="rule-top" style="background:var(--surface)" id="apply">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">申请托管</p>
+      <div>
+        <h2>联系客服，<br>由平台为你<em>上架</em>。</h2>
+        <p class="lede">托管出租不用自己发布：确认合作后，平台在后台为你的设备建好页面、定好价格并上架。联系客服时说明设备型号、数量和所在城市。</p>
+      </div>
+    </div>
+    <div class="ct-cards light rv">
+        <a class="ct-card main" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><span class="cw-ic tg"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg></span><b>Telegram</b><small>@example_yuanzhuo · 回复最快</small></a>
+        <a class="ct-card" href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><span class="cw-ic wa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg></span><b>WhatsApp</b><small>+60 00-000 0000</small></a>
+        <button class="ct-card" type="button" data-wechat><span class="cw-ic wx"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg></span><b>微信</b><small>点击显示二维码</small></button>
+      </div>
+  </div>
+</section>
+
+<section class="rule-top" id="checklist">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">上架前检查</p>
+      <div>
+        <h2>出租前，<br>这台电脑要<em>能自己活下来</em>。</h2>
+        <p class="lede">上架前需要你自己设置，以 Mac 为例，Windows 和 Linux 有对应的设置。</p>
+      </div>
+    </div>
+    <ul class="checks rv"><li><span>断电恢复后自动开机</span></li><li><span>永不进入睡眠，硬盘不休眠</span></li><li><span>重启后自动登录，远程工具随系统启动</span></li><li><span>打开远程登录（SSH）和屏幕共享</span></li><li><span>给远程工具授予屏幕录制和辅助功能权限</span></li><li><span>最后一步：重启电脑，两分钟内不碰它，从外面能用 SSH 和远程桌面连上</span></li></ul>
+    <p class="kicker rv" style="margin:clamp(48px,6vw,64px) 0 18px">租客使用你的线路时，不允许</p>
+    <ul class="rows rv"><li>把线路当作代理或 VPN 转售</li><li>群发、扫描、攻击、挖矿</li><li>传播违法内容</li><li>长时间跑满上行带宽，影响你家里的正常使用</li></ul>
+  </div>
+</section>
+
+<section class="rule-top" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">常见问题</p>
+      <div>
+        <h2>托管之前，<br>先把<em>规则</em>看清楚。</h2>
+      </div>
+    </div>
+    <div class="faq one rv"><div class="faq-list"><details><summary><span>托管的机器掉线了怎么办？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p><mark class="tbc" title="待业务确认">超过 15 分钟没有心跳，你会收到通知</mark>，请尽快到场处理；掉线期间租客的服务期顺延，<mark class="tbc" title="待业务确认">顺延的天数不计收入</mark>。</p></details><details><summary>我能看到租客的信息吗？<i aria-hidden="true"></i></summary><p>托管出租看不到：租客的姓名和联系方式只在平台这边，你也不接触租客机器里的数据。需要你进入租客环境处理问题时，我们会先征得租客同意。</p></details><details><summary>电费网费谁出？可以退出吗？<i aria-hidden="true"></i></summary><p>机器、电费和网费由你承担。不想继续了，在后台把空闲的机器设为维护，就不再接新租客；在租的租客照常服务到期，已经服务的天数照常结算。</p></details><details><summary>登记之后能保证有租客、有收入吗？<i aria-hidden="true"></i></summary><p>不能保证。出租快慢取决于设备、地区、价格和需求；没有租客时不会产生租金收入。</p></details></div></div>
+  </div>
+</section>
+
+<section class="dark band">
+  <div class="wrap band-in">
+    <div><h2>有闲置的电脑？<br>先<em>申请托管</em>。</h2><p class="lede">申请不收费；确认合作后才会上架。</p></div>
+    <div class="hero-cta"><a class="btn btn-light" href="#apply">申请托管 <span class="arrow">→</span></a><a class="btn btn-ghost-light" href="#calc">先算算能分多少</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span>© 2026 AgentDesk · 真实远程电脑租赁</span><p class="tm">nanoMuse 是独立的开源社区项目，Codex 是 OpenAI 的产品，Claude Code 是 Anthropic 的产品。相关名称和标志归各自所有者，本平台与它们没有隶属关系。</p><p class="foot-ct">联系我们：<a href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg>Telegram</a><a href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg>WhatsApp</a><button type="button" data-wechat><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg>微信</button></p></div>
+    <nav aria-label="页脚"><a href="market.html">设备市场</a><a href="wanted.html">求租广场</a><a href="request.html">发布求租</a><a href="host.html">托管出租</a><a href="lend.html">个人直租</a><a href="network.html">网络与连接</a><a href="index.html#vps">与 VPS 的区别</a><a href="faq.html">常见问题</a></nav>
+  </div>
+</footer>
+
+
+<div class="cw" id="cw">
+  <div class="cw-menu" id="cw-menu" hidden>
+    <a class="cw-item" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><span class="cw-ic tg"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg></span><span><b>Telegram</b><small>@example_yuanzhuo · 回复最快</small></span></a>
+    <a class="cw-item" href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><span class="cw-ic wa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg></span><span><b>WhatsApp</b><small>+60 00-000 0000</small></span></a>
+    <button class="cw-item" type="button" data-wechat><span class="cw-ic wx"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg></span><span><b>微信</b><small>扫码添加客服</small></span></button>
+    <p class="cw-note">联系方式为示例<span class="tbc-tag">待替换</span></p>
+  </div>
+  <div class="cw-bar">
+    <a class="cw-main" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener" aria-label="Telegram 咨询"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg><span>Telegram 咨询</span></a>
+    <button class="cw-more" type="button" aria-expanded="false" aria-controls="cw-menu" aria-label="更多联系方式：微信、WhatsApp"><span aria-hidden="true">···</span></button>
+  </div>
+</div>
+<dialog class="wx-dlg" id="wx-dialog" aria-labelledby="wx-title">
+  <div class="wx-in">
+    <h2 id="wx-title">微信扫码，添加客服</h2>
+    <img src="assets/wechat-qr.svg" width="200" height="200" alt="AgentDesk 客服微信二维码（示例）" />
+    <p>微信号 <b>yuanzhuo_example</b> <button type="button" class="link" data-copy="yuanzhuo_example">复制</button></p>
+    <p class="small">添加时请备注「AgentDesk」。这是示例二维码<span class="tbc-tag">待替换</span></p>
+    <button type="button" class="btn btn-ghost" data-close>关闭</button>
+  </div>
+</dialog>
+
+<script src="assets/site.js?v=1793440198"></script>
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>工作 Agent · Codex 与 Claude Code · AgentDesk</title>
+<meta name="description" content="让 Codex 与 Claude Code 在一台长期在线的远程电脑上读项目、改代码、跑测试和部署，结果发回手机。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css?v=1793440198" />
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="AgentDesk 首页">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="5" width="24" height="15" rx="4" fill="none" stroke="#1b1a16" stroke-width="1.6"/><rect x="8" y="21.5" width="10" height="1.6" rx=".8" fill="#1b1a16"/><circle cx="19.5" cy="12.5" r="2.2" fill="#2fae69"/></svg>
+      AgentDesk
+    </a>
+    <nav class="nav-links" id="navlinks" aria-label="主导航">
+      <a href="nanomuse.html">个人 Agent</a>
+      <a href="coding.html" aria-current="page">工作 Agent</a>
+      <a href="use-cases/index.html">适合谁</a>
+      <a href="market.html">设备市场</a>
+      <a href="host.html">托管出租</a>
+      <a href="network.html">网络与连接</a>
+      <a href="faq.html">常见问题</a>
+    </nav>
+    <div class="nav-r">
+      <a class="link" href="login.html" data-auth-out>登录</a>
+      <a class="nav-msg" href="messages.html" data-auth-in hidden aria-label="消息"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="badge" data-unread data-default="2" hidden></span></a>
+      <a class="nav-user" href="console.html" data-auth-in hidden><span class="host-av" aria-hidden="true" data-user-initial></span><span data-user-name></span></a>
+      <a class="btn btn-green" href="market.html">租一台</a>
+      <button class="menu" aria-label="打开菜单" aria-expanded="false" aria-controls="navlinks"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="pghead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="当前位置"><a href="index.html">首页</a> <span aria-hidden="true">/</span> <span aria-current="page">工作 Agent</span></nav>
+    <h1>Codex 与 Claude Code，<br>在远程电脑上<em>替你干活</em>。</h1>
+    <p class="lede">在手机上交代任务，它们在一台不会合盖、不会断网的电脑上一直跑。做完后，结果、日志和状态都发回你的手机。</p>
+    <div class="brand-row"><a class="brand-id brand-link" href="https://developers.openai.com/codex" target="_blank" rel="noopener"><span class="logo-tile"><img src="assets/logos/openai.svg" alt="Codex（OpenAI）标志" width="26" height="26" /></span><span><b>Codex <span class="ext" aria-hidden="true">↗</span></b><small>OpenAI 出品</small></span></a><a class="brand-id brand-link" href="https://claude.com/product/claude-code" target="_blank" rel="noopener"><span class="logo-tile"><img src="assets/logos/claude.svg" alt="Claude Code（Anthropic）标志" width="26" height="26" /></span><span><b>Claude Code <span class="ext" aria-hidden="true">↗</span></b><small>Anthropic 出品</small></span></a><a class="link" href="#more-agents">还支持更多 Agent <span class="arrow">↓</span></a></div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">一个任务的全过程</p>
+      <div>
+        <h2>在手机上交代，<br>做完<em>发回手机</em>。</h2>
+        <p class="lede">一次修 bug 的完整过程：从一句话到部署，再把结果送回你手上。</p>
+      </div>
+    </div>
+    <div class="work">
+      <div class="job rv" aria-label="示意：一个编程任务的执行过程">
+        <div class="job-h"><b>修复结算页税费计算</b><span>kl-mini-07 · Claude Code</span></div>
+        <ol class="steps">
+          <li class="done"><time>09:02</time><i class="dot"></i><div><b>在手机上交代任务</b><span>“修复税费计算并补测试”</span></div></li>
+          <li class="done"><time>09:03</time><i class="dot"></i><div><b>读取项目，定位问题</b><span>38 个文件</span></div></li>
+          <li class="done"><time>09:21</time><i class="dot"></i><div><b>修改多个文件</b><span>tax.ts +42 −17 · tax.test.ts +88</span></div></li>
+          <li class="done"><time>09:31</time><i class="dot"></i><div><b>运行测试与构建</b><span>214 / 214 passed · build ok</span></div></li>
+          <li class="done"><time>09:40</time><i class="dot"></i><div><b>部署到预发环境</b><span>部署前已在手机上批准</span></div></li>
+          <li><time>09:41</time><i class="dot"></i><div><b>结果、日志、状态发回手机</b><span>logs/run-1042.txt</span></div></li>
+        </ol>
+      </div>
+
+      <div class="rv">
+        <div class="agents">
+          <a class="agent" href="https://developers.openai.com/codex" target="_blank" rel="noopener"><span class="agent-h"><span class="agent-logo"><img class="mono-logo" src="assets/logos/openai.svg" alt="" width="22" height="22" /></span><h3>Codex</h3><span class="ext" aria-hidden="true">↗</span></span><p>OpenAI 出品。擅长批量修改、重构和排队执行的长任务。</p><span class="agent-url">developers.openai.com</span></a>
+          <a class="agent" href="https://claude.com/product/claude-code" target="_blank" rel="noopener"><span class="agent-h"><span class="agent-logo"><img src="assets/logos/claude.svg" alt="" width="22" height="22" /></span><h3>Claude Code</h3><span class="ext" aria-hidden="true">↗</span></span><p>Anthropic 出品。擅长读懂大型项目、跨多个文件修改和调试。</p><span class="agent-url">claude.com</span></a>
+        </div>
+        <ul class="dlist">
+          <li><span>读取项目，修改多个文件的代码</span><span>终端</span></li>
+          <li><span>运行测试、编译、构建、部署</span><span>长时间运行</span></li>
+          <li><span>执行终端、浏览器和自动化任务</span><span>后台运行</span></li>
+          <li><span>在浏览器里打开 VS Code Web 编辑项目</span><span>平板也能用</span></li>
+          <li><span>用 UU 远程操作完整的桌面</span><span>Xcode · 图形界面</span></li>
+          <li><span>用 SSH / mosh 看日志、执行命令</span><span>网络不好也不断</span></li>
+        </ul>
+        <p class="bridge"><b>和 nanoMuse 配合：</b>在手机上的 nanoMuse 里，也能看到电脑上 Codex、Claude Code 的任务，并接着给它们发指令。</p>
+      </div>
+    </div>
+
+    <p class="kicker rv" style="margin:clamp(64px,8vw,104px) 0 20px">这些时候，它最有用</p>
+    <div class="cases">
+      <article class="case rv">
+        <span class="when">周六 15:20 · 在外面玩</span>
+        <h3>出门在外，线上出了紧急 bug</h3>
+        <p>不用找地方打开电脑。在手机上把报错发给 Claude Code，它在远程电脑上查日志、修复、跑完测试。你看一眼 diff，批准部署，接着玩。</p>
+        <dl><div><dt>你</dt><dd>一句话，加一次批准</dd></div><div><dt>远程电脑</dt><dd>查日志 → 修复 → 测试 → 部署</dd></div></dl>
+      </article>
+      <article class="case rv">
+        <span class="when">周三 16:40 · 临时有事</span>
+        <h3>临时有事离开，活继续干着</h3>
+        <p>合上自己的笔记本就能走。任务跑在远程电脑上，不会因为你断网、合盖或关机而停下。回来时，结果和日志已经发到手机上了。</p>
+        <dl><div><dt>你</dt><dd>合上电脑，出门</dd></div><div><dt>远程电脑</dt><dd>继续编译、测试、导出</dd></div></dl>
+      </article>
+      <article class="case rv">
+        <span class="when">高铁上 · 信号时有时无</span>
+        <h3>自己网络不好，也能干活</h3>
+        <p>SSH 只传文字，很慢的网也够用；mosh 断线或在 Wi-Fi 和 4G 之间切换后会自动接上，打的字马上显示。拉代码、装依赖、下载素材这些重活都在远程电脑上完成。</p>
+        <dl><div><dt>你</dt><dd>一个终端窗口</dd></div><div><dt>远程电脑</dt><dd>用自己的家庭光纤干重活</dd></div></dl>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="rule-top" style="background:var(--surface)" id="more-agents">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">更多 Agent</p>
+      <div>
+        <h2>不只 Codex 和 Claude Code，<br>国内外的 Agent <em>都能装</em>。</h2>
+        <p class="lede">这是一台完整的电脑，你有管理员权限。能装在 macOS、Windows 或 Linux 上的 Agent 都可以用；下单时告诉我们要哪些，可以交付前预装<span class="tbc-tag">待确认</span>。</p>
+      </div>
+    </div>
+    <div class="ag-groups"><div class="ag-group rv"><p class="kicker">编程 Agent · 海外</p><a class="ag" href="https://developers.openai.com/codex" target="_blank" rel="noopener"><span class="ag-h"><b>Codex</b><span class="ag-by">OpenAI</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">OpenAI 的编程 Agent，有命令行和 IDE 插件</span></a><a class="ag" href="https://claude.com/product/claude-code" target="_blank" rel="noopener"><span class="ag-h"><b>Claude Code</b><span class="ag-by">Anthropic</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">在终端里读懂整个项目、跨文件修改和调试</span></a><a class="ag" href="https://github.com/google-gemini/gemini-cli" target="_blank" rel="noopener"><span class="ag-h"><b>Gemini CLI</b><span class="ag-by">Google</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">开源（Apache 2.0）的终端 Agent</span></a><a class="ag" href="https://cursor.com/cli" target="_blank" rel="noopener"><span class="ag-h"><b>Cursor CLI</b><span class="ag-by">Cursor</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">在终端、GitHub Actions 和脚本里运行 Agent</span></a><a class="ag" href="https://github.com/features/copilot/cli" target="_blank" rel="noopener"><span class="ag-h"><b>GitHub Copilot CLI</b><span class="ag-by">GitHub</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">在终端里使用 Copilot 编程 Agent</span></a><a class="ag" href="https://opencode.ai/" target="_blank" rel="noopener"><span class="ag-h"><b>OpenCode</b><span class="ag-by">开源社区</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">开源的终端编程 Agent，可以接多家模型</span></a></div><div class="ag-group rv"><p class="kicker">编程 Agent · 国内</p><a class="ag" href="https://github.com/QwenLM/qwen-code" target="_blank" rel="noopener"><span class="ag-h"><b>Qwen Code</b><span class="ag-by">阿里通义</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">开源的终端编程 Agent</span></a><a class="ag" href="https://github.com/MoonshotAI/kimi-code" target="_blank" rel="noopener"><span class="ag-h"><b>Kimi Code CLI</b><span class="ag-by">月之暗面</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">Kimi 的终端编程 Agent</span></a><a class="ag" href="https://github.com/deepseek-ai/deepseek-harness" target="_blank" rel="noopener"><span class="ag-h"><b>DeepSeek Harness</b><span class="ag-by">DeepSeek</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">开源的 Agent 框架，插件化，自带本地网页界面（开发者预览版）</span></a><a class="ag" href="https://github.com/bytedance/trae-agent" target="_blank" rel="noopener"><span class="ag-h"><b>Trae Agent</b><span class="ag-by">字节跳动</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">开源的通用软件工程 Agent，命令行使用</span></a><a class="ag" href="https://www.codebuddy.cn/" target="_blank" rel="noopener"><span class="ag-h"><b>CodeBuddy</b><span class="ag-by">腾讯云</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">腾讯云代码助手</span></a></div><div class="ag-group rv"><p class="kicker">办公 / 个人 Agent</p><a class="ag" href="https://www.workbuddy.cn/" target="_blank" rel="noopener"><span class="ag-h"><b>WorkBuddy</b><span class="ag-by">腾讯</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">办公 Agent，Windows 和 Mac 桌面应用，交付报告、表格等成品</span></a><a class="ag" href="https://openclaw.ai/" target="_blank" rel="noopener"><span class="ag-h"><b>OpenClaw</b><span class="ag-by">开源社区</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">开源个人 AI 助手，跑在你的电脑上，用聊天应用指挥它</span></a><a class="ag" href="https://github.com/NousResearch/hermes-agent" target="_blank" rel="noopener"><span class="ag-h"><b>Hermes Agent</b><span class="ag-by">Nous Research</span><span class="ext" aria-hidden="true">↗</span></span><span class="ag-d">开源的 Agent</span></a><a class="ag" href="nanomuse.html"><span class="ag-h"><b>nanoMuse</b><span class="ag-by">开源社区</span><span class="ext" aria-hidden="true">→</span></span><span class="ag-d">开源个人 Agent，手机和电脑一个账号</span></a></div></div>
+    <div class="split2" style="margin-top:clamp(32px,4vw,44px)">
+      <p class="honest rv" style="margin:0"><b>账号自己准备：</b>各 Agent 的账号、订阅和 API Key 由你自己注册和付费，请遵守各服务的条款和使用地区规定。</p>
+      <p class="honest rv" style="margin:0"><b>选对系统：</b>WorkBuddy 这类桌面应用需要图形界面，选 Mac 或 Windows，用 UU 远程操作；命令行 Agent 三种系统都能用。</p>
+    </div>
+    <p class="note">列表只是举例，链接指向各自的官网或代码仓库；这些产品都属于各自的公司或社区，本平台与它们没有隶属关系。</p>
+  </div>
+</section>
+
+<section class="rule-top" id="rhythm">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">一次任务的节奏</p>
+      <div>
+        <h2>延迟只影响你打字的<br>那<em>几分钟</em>。</h2>
+        <p class="lede">和 Agent 一起工作，大部分时间是它在远程电脑上自己跑。你的网络快不快，只影响交代任务和验收结果的那一小段。</p>
+      </div>
+    </div>
+    <div class="tl3 rv" role="img" aria-label="你描述任务 1 到 2 分钟，Agent 在远程电脑上工作 5 到 30 分钟，你验收 2 到 5 分钟">
+      <div class="you"><b>你描述任务</b><span>1–2 分钟</span></div>
+      <div class="agent"><b>Agent 在远程电脑上干活</b><span>5–30 分钟 · 和你的网络无关</span></div>
+      <div class="you"><b>你验收</b><span>2–5 分钟</span></div>
+    </div>
+    <p class="small rv" style="margin-top:14px">时长为常见范围，取决于任务大小。</p>
+  </div>
+</section>
+
+<section class="rule-top" style="background:var(--surface)" id="ready">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">让 Agent 无人值守</p>
+      <div>
+        <h2>交付时做好的，<br>和建议你<em>自己设置</em>的。</h2>
+      </div>
+    </div>
+    <div class="split2">
+      <div class="rv">
+        <p class="kicker" style="margin-bottom:14px">交付时已经做好</p>
+        <ul class="checks rv"><li><span>关闭自动睡眠，来电后自动开机，配 UPS</span></li><li><span>Homebrew、Git、Node.js、Python、Docker 等常用环境</span></li><li><span>tmux 和 mosh，断线不丢会话</span></li><li><span>远程登录方式已配置好，交付邮件里写明怎么连</span></li></ul>
+      </div>
+      <div class="rv">
+        <p class="kicker" style="margin-bottom:14px">建议你自己设置</p>
+        <ul class="checks rv"><li><span>在 tmux 里启动 Agent，关掉终端它也继续跑</span></li><li><span>给 Codex、Claude Code 配好权限规则：哪些命令可以直接执行，哪些要先问你</span></li><li><span>多个任务并行时，用 git worktree 给每个 Agent 一份独立的工作目录</span></li><li><span>密钥放在环境变量或钥匙串里，不要写进代码和提示词</span></li><li><span>用 <code>claude -p</code> 或 <code>codex exec</code> 写定时任务，结果推送到手机</span></li></ul>
+      </div>
+    </div>
+    <p class="kicker rv" style="margin:clamp(48px,6vw,64px) 0 18px">第一次登录后</p>
+    <ol class="steps3 rv">
+      <li><b>改掉初始密码</b><span>交付邮件里的密码只用一次，不要转发。</span></li>
+      <li><b>设置 Git 身份和 SSH 密钥</b><span>生成 ed25519 密钥，加到 GitHub 或你自己的代码仓库。</span></li>
+      <li><b>登录你自己的 Agent 账号</b><span>Codex、Claude Code 用你自己注册和付费的账号，推一次代码确认一切正常。</span></li>
+    </ol>
+    <p class="honest rv">我们不提供、不代管任何 AI 服务的账号，也不是代理服务。设备在哪里，不代表你因此获得某项服务的使用资格，请遵守各服务的条款和使用地区规定。</p>
+  </div>
+</section>
+
+<section class="rule-top">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">按用途看</p>
+      <div>
+        <h2>开发者最常见的<br><em>两种</em>用法。</h2>
+      </div>
+    </div>
+    <div class="people">
+      <a class="person rv" href="use-cases/dev.html"><span class="n">01</span><h3>AI 编程与独立开发者</h3><p>Codex、Claude Code 通宵跑任务，白天只看结果和 diff。</p><span class="pick">常选 · Mac / Linux · 32 GB</span></a>
+      <a class="person rv" href="use-cases/ios.html"><span class="n">02</span><h3>iOS / Flutter 编译团队</h3><p>用真实的 Mac 签名、归档、上传 TestFlight。</p><span class="pick">常选 · Mac mini M4 Pro</span></a>
+    </div>
+    <div class="more rv"><a class="link" href="network.html#connect">怎么连上远程电脑：UU 远程、SSH / mosh、VS Code Web… <span class="arrow">→</span></a></div>
+  </div>
+</section>
+
+<section class="dark band">
+  <div class="wrap band-in">
+    <div><h2>给 Agent 一台<em>不会合盖</em>的电脑。</h2><p class="lede">Mac 适合 iOS 构建，Linux 适合后端和长任务，都可以预装 Git、Docker 和常用开发环境。</p></div>
+    <div class="hero-cta"><a class="btn btn-light" href="market.html">去设备市场 <span class="arrow">→</span></a><a class="btn btn-ghost-light" href="request.html">发布求租</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span>© 2026 AgentDesk · 真实远程电脑租赁</span><p class="tm">nanoMuse 是独立的开源社区项目，Codex 是 OpenAI 的产品，Claude Code 是 Anthropic 的产品。相关名称和标志归各自所有者，本平台与它们没有隶属关系。</p><p class="foot-ct">联系我们：<a href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg>Telegram</a><a href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg>WhatsApp</a><button type="button" data-wechat><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg>微信</button></p></div>
+    <nav aria-label="页脚"><a href="market.html">设备市场</a><a href="wanted.html">求租广场</a><a href="request.html">发布求租</a><a href="host.html">托管出租</a><a href="lend.html">个人直租</a><a href="network.html">网络与连接</a><a href="index.html#vps">与 VPS 的区别</a><a href="faq.html">常见问题</a></nav>
+  </div>
+</footer>
+
+
+<div class="cw" id="cw">
+  <div class="cw-menu" id="cw-menu" hidden>
+    <a class="cw-item" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><span class="cw-ic tg"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg></span><span><b>Telegram</b><small>@example_yuanzhuo · 回复最快</small></span></a>
+    <a class="cw-item" href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><span class="cw-ic wa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg></span><span><b>WhatsApp</b><small>+60 00-000 0000</small></span></a>
+    <button class="cw-item" type="button" data-wechat><span class="cw-ic wx"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg></span><span><b>微信</b><small>扫码添加客服</small></span></button>
+    <p class="cw-note">联系方式为示例<span class="tbc-tag">待替换</span></p>
+  </div>
+  <div class="cw-bar">
+    <a class="cw-main" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener" aria-label="Telegram 咨询"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg><span>Telegram 咨询</span></a>
+    <button class="cw-more" type="button" aria-expanded="false" aria-controls="cw-menu" aria-label="更多联系方式：微信、WhatsApp"><span aria-hidden="true">···</span></button>
+  </div>
+</div>
+<dialog class="wx-dlg" id="wx-dialog" aria-labelledby="wx-title">
+  <div class="wx-in">
+    <h2 id="wx-title">微信扫码，添加客服</h2>
+    <img src="assets/wechat-qr.svg" width="200" height="200" alt="AgentDesk 客服微信二维码（示例）" />
+    <p>微信号 <b>yuanzhuo_example</b> <button type="button" class="link" data-copy="yuanzhuo_example">复制</button></p>
+    <p class="small">添加时请备注「AgentDesk」。这是示例二维码<span class="tbc-tag">待替换</span></p>
+    <button type="button" class="btn btn-ghost" data-close>关闭</button>
+  </div>
+</dialog>
+
+<script src="assets/site.js?v=1793440198"></script>
+</body>
+</html>

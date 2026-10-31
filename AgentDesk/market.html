@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>设备市场 · AgentDesk</title>
+<meta name="description" content="官方直营、托管出租和个人直租的真实电脑，写明城市、系统、配置、网络、延迟和交付时间，在线下单，到期续租。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css?v=1793440198" />
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="AgentDesk 首页">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="5" width="24" height="15" rx="4" fill="none" stroke="#1b1a16" stroke-width="1.6"/><rect x="8" y="21.5" width="10" height="1.6" rx=".8" fill="#1b1a16"/><circle cx="19.5" cy="12.5" r="2.2" fill="#2fae69"/></svg>
+      AgentDesk
+    </a>
+    <nav class="nav-links" id="navlinks" aria-label="主导航">
+      <a href="nanomuse.html">个人 Agent</a>
+      <a href="coding.html">工作 Agent</a>
+      <a href="use-cases/index.html">适合谁</a>
+      <a href="market.html" aria-current="page">设备市场</a>
+      <a href="host.html">托管出租</a>
+      <a href="network.html">网络与连接</a>
+      <a href="faq.html">常见问题</a>
+    </nav>
+    <div class="nav-r">
+      <a class="link" href="login.html" data-auth-out>登录</a>
+      <a class="nav-msg" href="messages.html" data-auth-in hidden aria-label="消息"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="badge" data-unread data-default="2" hidden></span></a>
+      <a class="nav-user" href="console.html" data-auth-in hidden><span class="host-av" aria-hidden="true" data-user-initial></span><span data-user-name></span></a>
+      <a class="btn btn-green" href="market.html">租一台</a>
+      <button class="menu" aria-label="打开菜单" aria-expanded="false" aria-controls="navlinks"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="pghead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="当前位置"><a href="index.html">首页</a> <span aria-hidden="true">/</span> <span aria-current="page">设备市场</span></nav>
+    <h1>官方直营、托管出租，<br>还有<em>个人直租</em>。</h1>
+    <p class="lede">每台设备都写明城市、系统、配置、网络、延迟、交付时间和当前状态。在线下单，到期一键续租。</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <nav class="mk-switch" aria-label="市场"><a href="market.html" aria-current="page">可租设备<span>7</span></a><a href="wanted.html">求租需求<span>6</span></a></nav>
+    <div class="mk-top">
+      <div class="filters">
+        <div class="seg" data-key="src" role="group" aria-label="设备来源"><button aria-pressed="true" data-v="all">全部</button><button aria-pressed="false" data-v="own">官方直营</button><button aria-pressed="false" data-v="ohost">托管出租</button><button aria-pressed="false" data-v="third">个人直租</button></div>
+        <div class="seg" data-key="os" role="group" aria-label="系统"><button aria-pressed="true" data-v="all">全部系统</button><button aria-pressed="false" data-v="mac">macOS</button><button aria-pressed="false" data-v="win">Windows</button><button aria-pressed="false" data-v="linux">Linux</button></div>
+      </div>
+      <span class="small" aria-live="polite">共 <b id="mk-count">7</b> 台 · 价格和库存为示例</span>
+    </div>
+    <div class="listing rv" data-filterable>
+      <div class="row th" aria-hidden="true"><span>设备</span><span class="c-city">城市</span><span class="c-net">网络</span><span class="c-lat">广州延迟</span><span class="c-del">交付</span><span>价格</span><span></span></div>
+      <div class="row" data-item data-src="own" data-os="mac">
+        <div><span class="src">官方直营</span><h3><a href="device-m4.html">Mac mini M4</a></h3><p class="cfg">10 核 · 16 GB · 512 GB · macOS 15</p><p class="row-host"><span class="small">平台自营 · 平台负责售后</span></p></div>
+        <span class="c-city"><span class="lbl">城市</span>吉隆坡</span><span class="c-net"><span class="lbl">网络</span>家庭光纤 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 45 ms</span><span class="c-del"><span class="lbl">交付</span>2 小时内</span>
+        <span class="price">¥399<small> /月</small></span><a class="btn btn-green" href="device-m4.html">租用</a>
+      </div>
+      <div class="row" data-item data-src="own" data-os="mac">
+        <div><span class="src">官方直营</span><h3><a href="device-m4pro.html">Mac mini M4 Pro</a></h3><p class="cfg">14 核 · 48 GB · 1 TB · 适合剪辑与 iOS 构建</p><p class="row-host"><span class="small">平台自营 · 平台负责售后</span></p></div>
+        <span class="c-city"><span class="lbl">城市</span>吉隆坡</span><span class="c-net"><span class="lbl">网络</span>独享线路 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 42 ms</span><span class="c-del"><span class="lbl">交付</span>11/20 起</span>
+        <span class="price">¥899<small> /月</small></span><a class="btn btn-ghost" href="device-m4pro.html">预约</a>
+      </div>
+      <div class="row" data-item data-src="ohost" data-os="win">
+        <div><span class="src h">托管出租</span><h3><a href="device-winmini.html">Windows 小主机</a></h3><p class="cfg">i5-12450H · 16 GB · 512 GB · 适合跨境运营</p><p class="row-host"><span class="small">托管房东</span><a class="uchip sm" href="user-chen.html"><span class="host-av" aria-hidden="true">陈</span><span>陈一</span></a><a class="small link" href="user-chen.html#reviews-in"><span class="stars">★</span> 5.0 · 2 条评价</a></p></div>
+        <span class="c-city"><span class="lbl">城市</span>吉隆坡</span><span class="c-net"><span class="lbl">网络</span>家庭光纤 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 45 ms</span><span class="c-del"><span class="lbl">交付</span>2 小时内</span>
+        <span class="price">¥299<small> /月</small></span><a class="btn btn-green" href="device-winmini.html">租用</a>
+      </div>
+      <div class="row" data-item data-src="ohost" data-os="linux">
+        <div><span class="src h">托管出租</span><h3><a href="device-n100.html">Linux 小主机</a></h3><p class="cfg">N100 · 16 GB · 512 GB · 适合 nanoMuse 常驻</p><p class="row-host"><span class="small">托管房东</span><a class="uchip sm" href="user-mia.html"><span class="host-av" aria-hidden="true">M</span><span>Mia</span></a><a class="small link" href="user-mia.html#reviews-in"><span class="stars">★</span> 5.0 · 2 条评价</a></p></div>
+        <span class="c-city"><span class="lbl">城市</span>吉隆坡</span><span class="c-net"><span class="lbl">网络</span>家庭光纤 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 45 ms</span><span class="c-del"><span class="lbl">交付</span>11/08 起</span>
+        <span class="price">¥169<small> /月</small></span><a class="btn btn-ghost" href="device-n100.html">预约</a>
+      </div>
+      <div class="row" data-item data-src="third" data-os="win">
+        <div><span class="src t">个人直租</span><h3><a href="device-gpu.html">Windows GPU 主机</a></h3><p class="cfg">i7-13700 · 32 GB · RTX 4070 · 适合 ComfyUI</p><p class="row-host"><span class="small">个人房东</span><a class="uchip sm" href="user-leon.html"><span class="host-av" aria-hidden="true">L</span><span>Leon</span></a><a class="small link" href="user-leon.html#reviews-in"><span class="stars">★</span> 4.5 · 2 条评价</a></p></div>
+        <span class="c-city"><span class="lbl">城市</span>槟城</span><span class="c-net"><span class="lbl">网络</span>家庭宽带 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 52 ms</span><span class="c-del"><span class="lbl">交付</span>12/01 起</span>
+        <span class="price">¥599<small> /月</small></span><a class="btn btn-ghost" href="device-gpu.html">预约</a>
+      </div>
+      <div class="row" data-item data-src="third" data-os="linux">
+        <div><span class="src t">个人直租</span><h3><a href="device-linux.html">Linux 工作站</a></h3><p class="cfg">Ryzen 7 · 64 GB · 2 TB · Ubuntu 24.04</p><p class="row-host"><span class="small">个人房东</span><a class="uchip sm" href="user-wei.html"><span class="host-av" aria-hidden="true">W</span><span>Wei</span></a><a class="small link" href="user-wei.html#reviews-in"><span class="stars">★</span> 5.0 · 1 条评价</a></p></div>
+        <span class="c-city"><span class="lbl">城市</span>新加坡</span><span class="c-net"><span class="lbl">网络</span>家庭光纤 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 48 ms</span><span class="c-del"><span class="lbl">交付</span>次日</span>
+        <span class="price">¥529<small> /月</small></span><a class="btn btn-green" href="device-linux.html">租用</a>
+      </div>
+      <div class="row" data-item data-src="third" data-os="mac">
+        <div><span class="src t">个人直租</span><h3><a href="device-studio.html">Mac Studio M2 Max</a></h3><p class="cfg">12 核 · 64 GB · 1 TB · 适合 4K 剪辑</p><p class="row-host"><span class="small">个人房东</span><a class="uchip sm" href="user-aaron.html"><span class="host-av" aria-hidden="true">A</span><span>Aaron</span></a><a class="small link" href="user-aaron.html#reviews-in"><span class="stars">★</span> 4.0 · 1 条评价</a></p></div>
+        <span class="c-city"><span class="lbl">城市</span>新加坡</span><span class="c-net"><span class="lbl">网络</span>家庭光纤 · 住宅 IP</span><span class="c-lat"><span class="lbl">延迟</span>≈ 48 ms</span><span class="c-del"><span class="lbl">交付</span>次日</span>
+        <span class="price">¥1,299<small> /月</small></span><a class="btn btn-green" href="device-studio.html">租用</a>
+      </div>
+      <p class="mk-empty small" id="mk-empty" hidden>没有符合条件的设备，可以<a class="link" href="request.html">发布求租</a>，我们帮你找。</p>
+    </div>
+    <div class="flow" aria-label="租用流程"><span><i>01</i>选设备</span><span><i>02</i>在线下单</span><span><i>03</i>收到连接信息</span><span><i>04</i>开始使用</span><span><i>05</i>到期续租</span></div>
+
+    <div class="supply">
+      <a href="host.html" class="rv"><h3>托管出租 <span>→</span></h3><p>机器放在你家，交给平台定价、收款和交付。</p></a>
+      <a href="lend.html" class="rv"><h3>个人直租 <span>→</span></h3><p>自己定价、自己找租客、自己交付。</p></a>
+      <a href="request.html" class="rv"><h3>发布求租 <span>→</span></h3><p>没找到合适的？写下城市、系统和预算，我们帮你找。</p></a>
+    </div>
+  </div>
+</section>
+
+
+<section class="rule-top" id="sources">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">三种来源</p>
+      <div>
+        <h2>官方直营、托管出租、<br><em>个人直租</em>。</h2>
+        <p class="lede">每台设备都标着来源。</p>
+      </div>
+    </div>
+    <div class="modes three"><div class="mode rv"><span class="src">官方直营</span><p>平台的机器，放在官方机房，平台负责一切。</p></div><div class="mode rv"><span class="src h">托管出租</span><p>房东的机器，放在房东家；平台定价、收款、交付和售后。</p></div><div class="mode rv"><span class="src t">个人直租</span><p>房东的机器，房东自己定价、沟通和交付。</p></div></div>
+    <p class="honest rv"><b>租个人直租的设备时：</b>付款前和房东确认配置、网络和交付时间；第一次成交建议按月付，不要在平台以外付款。<a class="link" href="lend.html#compare">三种来源详细对比</a></p>
+    <div class="modes" style="margin:clamp(40px,5vw,56px) 0 0">
+      <div class="mode rv"><h3>想要的配置没货？</h3><p>留下联系方式，有货时按登记顺序通知你。</p><a class="btn btn-ghost" href="request.html">登记到货通知</a></div>
+      <div class="mode rv"><h3>需要定制配置或多台？</h3><p>芯片、内存、硬盘都可以按你的需要配，按单独报价，交付时间以采购确认的为准。<span class="tbc-tag">待确认</span></p><a class="btn btn-ghost" href="request.html">提交定制需求</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="rule-top" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">付款与租期</p>
+      <div>
+        <h2>下单前，<br>先看看<em>怎么付、怎么退</em>。</h2>
+      </div>
+    </div>
+    <div class="faq one rv"><div class="faq-list"><details><summary><span>付款后多久能用上？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>官方直营的现货设备，<mark class="tbc" title="待业务确认">付款后 2 小时内</mark>把连接信息发到你的邮箱。个人直租的设备以设备页标注的交付时间为准。</p></details><details><summary>怎么付款？能开发票吗？<i aria-hidden="true"></i></summary><p>在线下单付款，支持按月、季、年付，可用的付款方式以付款页为准。需要发票或报销凭证的，请在下单前说明。</p></details><details><summary><span>怎么续租、停用？能退款吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>到期前可以一键续租；不续租的话到期自动停用，<mark class="tbc" title="待业务确认">没有押金</mark>。交付后如果因为我们的原因无法正常使用，<mark class="tbc" title="待业务确认">可以申请全额退款</mark>，其他情况以服务条款为准。</p></details><details><summary><span>租到一半想升级配置可以吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>可以。<mark class="tbc" title="待业务确认">差价按剩余天数计算，数据迁移由我们协助完成</mark>。</p></details><details><summary><span>设备归谁？能买断吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>官方直营的设备归平台，托管出租和个人直租的设备归房东，<mark class="tbc" title="待业务确认">目前不提供买断</mark>。</p></details><details><summary><span>客服什么时候在线？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p><mark class="tbc" title="待业务确认">工作日 10:00–22:00（北京时间）在线</mark>；机器失联、连不上这类紧急问题全天处理。</p></details></div></div>
+    <div class="more rv"><a class="link" href="faq.html">全部常见问题 <span class="arrow">→</span></a></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span>© 2026 AgentDesk · 真实远程电脑租赁</span><p class="tm">nanoMuse 是独立的开源社区项目，Codex 是 OpenAI 的产品，Claude Code 是 Anthropic 的产品。相关名称和标志归各自所有者，本平台与它们没有隶属关系。</p><p class="foot-ct">联系我们：<a href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg>Telegram</a><a href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg>WhatsApp</a><button type="button" data-wechat><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg>微信</button></p></div>
+    <nav aria-label="页脚"><a href="market.html">设备市场</a><a href="wanted.html">求租广场</a><a href="request.html">发布求租</a><a href="host.html">托管出租</a><a href="lend.html">个人直租</a><a href="network.html">网络与连接</a><a href="index.html#vps">与 VPS 的区别</a><a href="faq.html">常见问题</a></nav>
+  </div>
+</footer>
+
+
+<div class="cw" id="cw">
+  <div class="cw-menu" id="cw-menu" hidden>
+    <a class="cw-item" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><span class="cw-ic tg"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg></span><span><b>Telegram</b><small>@example_yuanzhuo · 回复最快</small></span></a>
+    <a class="cw-item" href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><span class="cw-ic wa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg></span><span><b>WhatsApp</b><small>+60 00-000 0000</small></span></a>
+    <button class="cw-item" type="button" data-wechat><span class="cw-ic wx"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg></span><span><b>微信</b><small>扫码添加客服</small></span></button>
+    <p class="cw-note">联系方式为示例<span class="tbc-tag">待替换</span></p>
+  </div>
+  <div class="cw-bar">
+    <a class="cw-main" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener" aria-label="Telegram 咨询"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg><span>Telegram 咨询</span></a>
+    <button class="cw-more" type="button" aria-expanded="false" aria-controls="cw-menu" aria-label="更多联系方式：微信、WhatsApp"><span aria-hidden="true">···</span></button>
+  </div>
+</div>
+<dialog class="wx-dlg" id="wx-dialog" aria-labelledby="wx-title">
+  <div class="wx-in">
+    <h2 id="wx-title">微信扫码，添加客服</h2>
+    <img src="assets/wechat-qr.svg" width="200" height="200" alt="AgentDesk 客服微信二维码（示例）" />
+    <p>微信号 <b>yuanzhuo_example</b> <button type="button" class="link" data-copy="yuanzhuo_example">复制</button></p>
+    <p class="small">添加时请备注「AgentDesk」。这是示例二维码<span class="tbc-tag">待替换</span></p>
+    <button type="button" class="btn btn-ghost" data-close>关闭</button>
+  </div>
+</dialog>
+
+<script src="assets/site.js?v=1793440198"></script>
+</body>
+</html>

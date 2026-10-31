@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>控制台 · AgentDesk</title>
+<meta name="description" content="查看订单、租用和出租的设备、发布的信息和评价。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css?v=1793440198" />
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="AgentDesk 首页">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="5" width="24" height="15" rx="4" fill="none" stroke="#1b1a16" stroke-width="1.6"/><rect x="8" y="21.5" width="10" height="1.6" rx=".8" fill="#1b1a16"/><circle cx="19.5" cy="12.5" r="2.2" fill="#2fae69"/></svg>
+      AgentDesk
+    </a>
+    <nav class="nav-links" id="navlinks" aria-label="主导航">
+      <a href="nanomuse.html">个人 Agent</a>
+      <a href="coding.html">工作 Agent</a>
+      <a href="use-cases/index.html">适合谁</a>
+      <a href="market.html">设备市场</a>
+      <a href="host.html">托管出租</a>
+      <a href="network.html">网络与连接</a>
+      <a href="faq.html">常见问题</a>
+    </nav>
+    <div class="nav-r">
+      <a class="link" href="login.html" data-auth-out>登录</a>
+      <a class="nav-msg" href="messages.html" data-auth-in hidden aria-label="消息"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="badge" data-unread data-default="2" hidden></span></a>
+      <a class="nav-user" href="console.html" data-auth-in hidden><span class="host-av" aria-hidden="true" data-user-initial></span><span data-user-name></span></a>
+      <a class="btn btn-green" href="market.html">租一台</a>
+      <button class="menu" aria-label="打开菜单" aria-expanded="false" aria-controls="navlinks"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="pghead" style="padding-bottom:32px">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="当前位置"><a href="index.html">首页</a> <span aria-hidden="true">/</span> <span aria-current="page">控制台</span></nav>
+    <div class="need-login" data-auth-out>
+      <p class="kicker">控制台</p>
+      <h2 class="ct-name">请先<em>登录</em>。</h2>
+      <p class="lede">登录后可以查看订单、租用和出租的设备、发布的信息和评价。</p>
+      <div class="hero-cta"><a class="btn btn-green" href="login.html?next=console.html">去登录 <span class="arrow">→</span></a></div>
+    </div>
+    <div class="ct-head" data-auth-in hidden>
+      <span class="host-av big" aria-hidden="true" data-user-initial></span>
+      <div><p class="kicker">控制台</p><h1 class="ct-name"><span data-user-name></span></h1>
+        <p class="ct-bio" data-user-bio></p>
+        <p class="small">你的公开主页别人能看到评价、出租的设备和租用记录；订单和金额只在这里。<a class="link" href="user-chen.html">看看公开主页（示例）</a></p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0" data-auth-in hidden>
+  <div class="wrap">
+    <div class="tabs" role="tablist" aria-label="控制台"><button role="tab" aria-selected="true" aria-controls="c-over" id="t-c-over">概览</button><button role="tab" aria-selected="false" aria-controls="c-orders" id="t-c-orders" tabindex="-1">订单</button><button role="tab" aria-selected="false" aria-controls="c-renting" id="t-c-renting" tabindex="-1">租用的设备</button><button role="tab" aria-selected="false" aria-controls="c-hosting" id="t-c-hosting" tabindex="-1">出租的设备</button><button role="tab" aria-selected="false" aria-controls="c-posts" id="t-c-posts" tabindex="-1">我的发布</button><button role="tab" aria-selected="false" aria-controls="c-money" id="t-c-money" tabindex="-1">收支</button><button role="tab" aria-selected="false" aria-controls="c-reviews" id="t-c-reviews" tabindex="-1">评价</button><button role="tab" aria-selected="false" aria-controls="c-reports" id="t-c-reports" tabindex="-1">举报</button><button role="tab" aria-selected="false" aria-controls="c-account" id="t-c-account" tabindex="-1">账户</button></div>
+    <div class="panel ct-panel" role="tabpanel" id="c-over" aria-labelledby="t-c-over"><h3 class="ct-h">收支</h3>
+        <div class="kpis">
+          <button class="kpi money in" type="button" data-tab-jump="t-c-money"><span>本月收入</span><b>¥199</b><small>累计 ¥398 · 出租 1 台设备</small><em>看收支明细 →</em></button>
+          <button class="kpi money out" type="button" data-tab-jump="t-c-money"><span>本月支出</span><b>¥0</b><small>累计 ¥2,994 · 不含押金</small><em>看收支明细 →</em></button>
+          <button class="kpi money" type="button" data-tab-jump="t-c-money"><span>待结算</span><b>¥199</b><small>11 月 5 日结算 10 月出租收入</small><em>看收支明细 →</em></button>
+          <button class="kpi money" type="button" data-tab-jump="t-c-money"><span>押金</span><b>¥0</b><small>已退还 ¥300</small><em>看收支明细 →</em></button>
+        </div>
+        <h3 class="ct-h" style="margin-top:28px">进行中</h3>
+        <div class="kpis">
+          <button class="kpi" type="button" data-tab-jump="t-c-renting"><span>在租设备</span><b>1</b><small>Mac mini M4 · 1 月 12 日到期</small><em>查看 →</em></button>
+          <button class="kpi" type="button" data-tab-jump="t-c-orders"><span>预约 / 申请</span><b>2</b><small>1 个预约 · 1 个待房东确认</small><em>查看 →</em></button>
+          <button class="kpi" type="button" data-tab-jump="t-c-hosting"><span>出租中的设备</span><b>1</b><small>Windows 小主机 · 托管出租</small><em>查看 →</em></button>
+          <button class="kpi" type="button" data-tab-jump="t-c-posts"><span>收到的报价</span><b>2</b><small>求租 W-1031</small><em>查看 →</em></button>
+          <a class="kpi" href="messages.html"><span>未读消息</span><b data-unread-num>2</b><small>房东回复和平台通知</small><em>打开消息 →</em></a>
+        </div>
+        <p class="small" style="margin-top:16px">数据为示例。点卡片可以看对应的明细。</p></div>
+    <div class="panel ct-panel" role="tabpanel" id="c-orders" aria-labelledby="t-c-orders" hidden><div class="cmp-wrap"><table class="cmp ct-table"><thead><tr><th scope="col">订单号</th><th scope="col">设备</th><th scope="col">类型</th><th scope="col">租期</th><th scope="col">金额</th><th scope="col">状态</th></tr></thead><tbody><tr><td>YZ-20261012-0041</td><td><a class="link" href="device-m4.html">Mac mini M4</a></td><td>租用</td><td>3 个月</td><td>¥1,197</td><td><span class="st open">租用中</span></td></tr><tr><td>YZ-20261028-0107</td><td><a class="link" href="device-m4pro.html">Mac mini M4 Pro</a></td><td>预约</td><td>1 个月</td><td>—</td><td><span class="st matched">预约中 · 11 月 20 日可用</span></td></tr><tr><td>YZ-20261030-0112</td><td><a class="link" href="device-linux.html">Linux 工作站</a></td><td>租用申请</td><td>3 个月</td><td>—</td><td><span class="st matched">待房东确认</span></td></tr><tr><td>YZ-20260601-0013</td><td><a class="link" href="device-gpu.html">Windows GPU 主机</a></td><td>租用</td><td>3 个月</td><td>¥1,797 + 押金 ¥300</td><td><span class="st closed">已完成</span></td></tr></tbody></table></div><p class="small">订单金额和明细只有你自己能看到。</p></div>
+    <div class="panel ct-panel" role="tabpanel" id="c-renting" aria-labelledby="t-c-renting" hidden><div class="cmp-wrap"><table class="cmp ct-table"><thead><tr><th scope="col">设备</th><th scope="col">来源</th><th scope="col">租期</th><th scope="col">到期</th><th scope="col"></th></tr></thead><tbody><tr><td><a class="link" href="device-m4.html">Mac mini M4</a></td><td>官方直营</td><td>2026-10-12 起，3 个月</td><td>2027-01-12</td><td><button class="btn btn-ghost sm" type="button" data-demo="续租">续租</button></td></tr><tr><td><a class="link" href="device-linux.html">Linux 工作站</a></td><td>个人直租 · <a class="uchip sm" href="user-wei.html"><span class="host-av" aria-hidden="true">W</span><span>Wei</span></a></td><td>2026-07-01 – 2026-09-01</td><td>已结束</td><td><button class="btn btn-green sm" type="button" data-write-review="rt-linux">写评价</button></td></tr><tr><td><a class="link" href="device-gpu.html">Windows GPU 主机</a></td><td>个人直租 · <a class="uchip sm" href="user-leon.html"><span class="host-av" aria-hidden="true">L</span><span>Leon</span></a></td><td>2026-06-01 – 2026-09-01</td><td>已结束</td><td><span class="small">已评价</span></td></tr></tbody></table></div></div>
+    <div class="panel ct-panel" role="tabpanel" id="c-hosting" aria-labelledby="t-c-hosting" hidden><div class="cmp-wrap"><table class="cmp ct-table"><thead><tr><th scope="col">设备</th><th scope="col">方式</th><th scope="col">状态</th><th scope="col">本月</th><th scope="col"></th></tr></thead><tbody><tr><td><a class="link" href="device-winmini.html">Windows 小主机</a></td><td>托管出租</td><td><span class="st open">出租中</span></td><td>¥199（示例）</td><td><button class="btn btn-ghost sm" type="button" data-demo="设为维护">设为维护</button></td></tr></tbody></table></div><p class="small">想出租更多设备？<a class="link" href="host.html">托管出租</a></p></div>
+    <div class="panel ct-panel" role="tabpanel" id="c-posts" aria-labelledby="t-c-posts" hidden><div class="cmp-wrap"><table class="cmp ct-table"><thead><tr><th scope="col">编号</th><th scope="col">类型</th><th scope="col">内容</th><th scope="col">状态</th><th scope="col"></th></tr></thead><tbody><tr><td><a class="link" href="wanted.html#W-1031">W-1031</a></td><td>求租</td><td>Mac mini M4，常驻 nanoMuse，偶尔出 iOS 包</td><td><span class="st open">求租中 · 2 个报价</span></td><td><button class="btn btn-ghost sm" type="button" data-demo="关闭求租">关闭</button></td></tr></tbody></table></div><p class="small"><a class="link" href="request.html">再发布一条</a></p></div>
+    <div class="panel ct-panel" role="tabpanel" id="c-money" aria-labelledby="t-c-money" hidden><div class="money-sum"><div><span>累计收入</span><b class="in">¥398</b></div><div><span>累计支出</span><b class="out">¥2,994</b></div><div><span>净额</span><b>−¥2,596</b></div></div><div class="cmp-wrap"><table class="cmp ct-table"><thead><tr><th scope="col">日期</th><th scope="col">类型</th><th scope="col">项目</th><th scope="col">金额</th><th scope="col">状态</th></tr></thead><tbody><tr><td>2026-11-05</td><td>收入</td><td>出租 <a class="link" href="device-winmini.html">Windows 小主机</a> · 10 月（租金 ¥299 − 平台服务费 ¥100）</td><td><b class="in">+¥199</b></td><td><span class="st matched">待结算</span></td></tr><tr><td>2026-10-12</td><td>支出</td><td>租用 <a class="link" href="device-m4.html">Mac mini M4</a> · 3 个月</td><td><b class="out">−¥1,197</b></td><td><span class="st closed">已支付</span></td></tr><tr><td>2026-10-05</td><td>收入</td><td>出租 <a class="link" href="device-winmini.html">Windows 小主机</a> · 9 月</td><td><b class="in">+¥199</b></td><td><span class="st open">已到账</span></td></tr><tr><td>2026-09-02</td><td>退款</td><td>押金退还 · <a class="link" href="device-gpu.html">Windows GPU 主机</a></td><td><b class="in">+¥300</b></td><td><span class="st open">已退还</span></td></tr><tr><td>2026-06-01</td><td>支出</td><td>租用 <a class="link" href="device-gpu.html">Windows GPU 主机</a> · 3 个月 + 押金 ¥300</td><td><b class="out">−¥2,097</b></td><td><span class="st closed">已支付</span></td></tr></tbody></table></div><p class="small">押金不计入收入和支出。平台服务费比例为示例<span class="tbc-tag">待确认</span>。</p></div>
+    <div class="panel ct-panel" role="tabpanel" id="c-reviews" aria-labelledby="t-c-reviews" hidden><div class="tabs sub" role="tablist" aria-label="评价"><button role="tab" aria-selected="true" aria-controls="rv-todo" id="t-rv-todo">待评价 <span class="count" id="rv-todo-count">1</span></button><button role="tab" aria-selected="false" aria-controls="rv-wrote" id="t-rv-wrote" tabindex="-1">我写过的 <span class="count" id="rv-wrote-count">2</span></button><button role="tab" aria-selected="false" aria-controls="rv-got" id="t-rv-got" tabindex="-1">我收到的 <span class="count" id="rv-got-count">2</span></button></div><div class="subpanel" role="tabpanel" id="rv-todo" aria-labelledby="t-rv-todo"><ul class="todo-list" id="rv-todo-list"><li data-review-todo="rt-linux" data-target="Wei" data-about="租用 Linux 工作站 · 2026 年 7 月 – 8 月"><a class="uchip" href="user-wei.html"><span class="host-av" aria-hidden="true">W</span><span>Wei</span></a><span class="small">租用 <a class="link" href="device-linux.html">Linux 工作站</a> · 2026 年 7 月 – 8 月 · 已结束</span><button class="btn btn-green sm" type="button" data-write-review="rt-linux">写评价</button></li></ul><p class="rp-empty" id="rv-todo-empty" hidden>没有待评价的租用。租期结束后，可以在这里给房东写评价。</p></div><div class="subpanel" role="tabpanel" id="rv-wrote" aria-labelledby="t-rv-wrote" hidden><ul class="revs" id="rv-wrote-list"><li class="rev"><a class="uchip" href="user-leon.html"><span class="host-av" aria-hidden="true">L</span><span>Leon</span></a><div class="rev-m"><span class="stars" aria-label="5 星，满分 5 星">★★★★★<span class="off"></span></span><span class="small">2026-09 · 租用 <a class="link" href="device-gpu.html">Windows GPU 主机</a></span></div><p>ComfyUI 环境都提前装好了，夜里出图很稳，回复也快。</p></li><li class="rev"><a class="uchip" href="user-aaron.html"><span class="host-av" aria-hidden="true">A</span><span>Aaron</span></a><div class="rev-m"><span class="stars" aria-label="4 星，满分 5 星">★★★★<span class="off">★</span></span><span class="small">2026-08 · 租用 <a class="link" href="device-studio.html">Mac Studio M2 Max</a></span></div><p>导出 4K 很快，周末回复会慢一点。</p></li></ul></div><div class="subpanel" role="tabpanel" id="rv-got" aria-labelledby="t-rv-got" hidden><ul class="revs"><li class="rev"><a class="uchip" href="user-leon.html"><span class="host-av" aria-hidden="true">L</span><span>Leon</span></a><div class="rev-m"><span class="stars" aria-label="5 星，满分 5 星">★★★★★<span class="off"></span></span><span class="small">2026-09 · 作为租客</span></div><p>沟通清楚，用途和说的一致。</p></li><li class="rev"><a class="uchip" href="user-aaron.html"><span class="host-av" aria-hidden="true">A</span><span>Aaron</span></a><div class="rev-m"><span class="stars" aria-label="5 星，满分 5 星">★★★★★<span class="off"></span></span><span class="small">2026-08 · 作为租客</span></div><p>很爽快的租客。</p></li></ul></div>
+        <dialog class="od" id="review-dialog" aria-labelledby="rv-title">
+          <form class="inq od-in" id="rv-form" novalidate>
+            <div class="od-h"><h2 id="rv-title">写评价</h2><button type="button" class="od-x" data-close aria-label="关闭">×</button></div>
+            <div class="od-sum"><div><b data-fill="target"></b><span data-fill="about"></span></div></div>
+            <fieldset class="star-in-wrap"><legend>评分</legend><div class="star-in"><input type="radio" name="stars" id="star-5" value="5" /><label for="star-5" aria-label="5 星" title="5 星">★</label><input type="radio" name="stars" id="star-4" value="4" /><label for="star-4" aria-label="4 星" title="4 星">★</label><input type="radio" name="stars" id="star-3" value="3" /><label for="star-3" aria-label="3 星" title="3 星">★</label><input type="radio" name="stars" id="star-2" value="2" /><label for="star-2" aria-label="2 星" title="2 星">★</label><input type="radio" name="stars" id="star-1" value="1" /><label for="star-1" aria-label="1 星" title="1 星">★</label></div></fieldset>
+            <label class="inq-f">评价内容<textarea name="text" maxlength="300" placeholder="设备和描述是否一致、连接稳不稳、房东回复快不快（至少 10 个字）"></textarea></label>
+            <p class="small">评价会公开显示在对方的主页和设备页；提交后 7 天内可以修改<span class="tbc-tag">待确认</span>。</p>
+            <button class="btn btn-green" type="submit">提交评价</button>
+            <p class="ok" role="status" aria-live="polite"></p>
+          </form>
+        </dialog></div>
+    <div class="panel ct-panel" role="tabpanel" id="c-reports" aria-labelledby="t-c-reports" hidden><div id="report-list"></div><p class="small">举报只有你和平台能看到。原型里举报只保存在这台浏览器。</p></div>
+    <div class="panel ct-panel" role="tabpanel" id="c-account" aria-labelledby="t-c-account" hidden><form class="settings" id="acct-form" novalidate>
+          <div class="set-row"><div class="set-l"><b>昵称</b><span>显示在你的公开主页和评价里</span></div>
+            <div class="set-c"><input type="text" name="name" maxlength="20" required aria-label="昵称" /></div></div>
+          <div class="set-row"><div class="set-l"><b>个人描述</b><span>介绍一下你自己、你用远程电脑做什么，房东和租客都能看到</span></div>
+            <div class="set-c"><textarea name="bio" maxlength="200" rows="3" aria-label="个人描述" placeholder="例如：独立开发者，在远程电脑上跑 Claude Code 和 nanoMuse。"></textarea><small class="set-count" id="bio-count">0 / 200</small></div></div>
+          <div class="set-row"><div class="set-l"><b>所在城市</b><span>选填，显示在公开主页</span></div>
+            <div class="set-c"><input type="text" name="city" maxlength="20" aria-label="所在城市" placeholder="例如 深圳" /></div></div>
+          <div class="set-row"><div class="set-l"><b>登录邮箱</b><span>用来登录和接收订单通知，暂不支持修改</span></div>
+            <div class="set-c"><input type="email" name="email" disabled aria-label="登录邮箱" /></div></div>
+          <div class="set-row"><div class="set-l"><b>联系方式</b><span>平台通知和房东回复会发到这里</span></div>
+            <div class="set-c"><fieldset class="ct" data-contact><legend>联系方式</legend><div class="ct-methods"><label><input type="radio" name="ct" value="tg" checked /><span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg>Telegram</span></label><label><input type="radio" name="ct" value="wx" /><span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg>微信</span></label><label><input type="radio" name="ct" value="wa" /><span><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg>WhatsApp</span></label></div><input type="text" name="contact" required autocomplete="off" spellcheck="false" maxlength="40" placeholder="@你的 Telegram 用户名" aria-label="联系账号" /><p class="ct-hint">默认 Telegram，也可以选微信或 WhatsApp。</p></fieldset></div></div>
+          <div class="set-row"><div class="set-l"><b>隐私</b><span>订单和金额始终只有你自己能看到</span></div>
+            <div class="set-c"><label class="set-check"><input type="checkbox" name="public" checked /><span>在公开主页显示我的租用记录（只显示设备和时间）</span></label></div></div>
+          <div class="set-actions"><button class="btn btn-green" type="submit">保存修改</button><p class="ok" role="status" aria-live="polite"></p></div>
+          <div class="set-row danger"><div class="set-l"><b>退出登录</b><span>只会退出这台浏览器</span></div>
+            <div class="set-c"><button class="btn btn-ghost" type="button" id="logout">退出登录</button></div></div>
+        </form></div>
+    <p class="small" id="demo-msg" role="status" aria-live="polite" style="margin-top:14px"></p>
+    <p class="note">原型演示：控制台里的订单、设备和评价都是示例数据。</p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span>© 2026 AgentDesk · 真实远程电脑租赁</span><p class="tm">nanoMuse 是独立的开源社区项目，Codex 是 OpenAI 的产品，Claude Code 是 Anthropic 的产品。相关名称和标志归各自所有者，本平台与它们没有隶属关系。</p><p class="foot-ct">联系我们：<a href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg>Telegram</a><a href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg>WhatsApp</a><button type="button" data-wechat><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg>微信</button></p></div>
+    <nav aria-label="页脚"><a href="market.html">设备市场</a><a href="wanted.html">求租广场</a><a href="request.html">发布求租</a><a href="host.html">托管出租</a><a href="lend.html">个人直租</a><a href="network.html">网络与连接</a><a href="index.html#vps">与 VPS 的区别</a><a href="faq.html">常见问题</a></nav>
+  </div>
+</footer>
+
+
+<div class="cw" id="cw">
+  <div class="cw-menu" id="cw-menu" hidden>
+    <a class="cw-item" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><span class="cw-ic tg"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg></span><span><b>Telegram</b><small>@example_yuanzhuo · 回复最快</small></span></a>
+    <a class="cw-item" href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><span class="cw-ic wa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg></span><span><b>WhatsApp</b><small>+60 00-000 0000</small></span></a>
+    <button class="cw-item" type="button" data-wechat><span class="cw-ic wx"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg></span><span><b>微信</b><small>扫码添加客服</small></span></button>
+    <p class="cw-note">联系方式为示例<span class="tbc-tag">待替换</span></p>
+  </div>
+  <div class="cw-bar">
+    <a class="cw-main" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener" aria-label="Telegram 咨询"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg><span>Telegram 咨询</span></a>
+    <button class="cw-more" type="button" aria-expanded="false" aria-controls="cw-menu" aria-label="更多联系方式：微信、WhatsApp"><span aria-hidden="true">···</span></button>
+  </div>
+</div>
+<dialog class="wx-dlg" id="wx-dialog" aria-labelledby="wx-title">
+  <div class="wx-in">
+    <h2 id="wx-title">微信扫码，添加客服</h2>
+    <img src="assets/wechat-qr.svg" width="200" height="200" alt="AgentDesk 客服微信二维码（示例）" />
+    <p>微信号 <b>yuanzhuo_example</b> <button type="button" class="link" data-copy="yuanzhuo_example">复制</button></p>
+    <p class="small">添加时请备注「AgentDesk」。这是示例二维码<span class="tbc-tag">待替换</span></p>
+    <button type="button" class="btn btn-ghost" data-close>关闭</button>
+  </div>
+</dialog>
+
+<script src="assets/site.js?v=1793440198"></script>
+</body>
+</html>

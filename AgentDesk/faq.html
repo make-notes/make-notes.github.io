@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>常见问题 · AgentDesk</title>
+<meta name="description" content="关于设备、网络、AI 工具、付款租期和出租合作的常见问题。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css?v=1793440198" />
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="AgentDesk 首页">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="5" width="24" height="15" rx="4" fill="none" stroke="#1b1a16" stroke-width="1.6"/><rect x="8" y="21.5" width="10" height="1.6" rx=".8" fill="#1b1a16"/><circle cx="19.5" cy="12.5" r="2.2" fill="#2fae69"/></svg>
+      AgentDesk
+    </a>
+    <nav class="nav-links" id="navlinks" aria-label="主导航">
+      <a href="nanomuse.html">个人 Agent</a>
+      <a href="coding.html">工作 Agent</a>
+      <a href="use-cases/index.html">适合谁</a>
+      <a href="market.html">设备市场</a>
+      <a href="host.html">托管出租</a>
+      <a href="network.html">网络与连接</a>
+      <a href="faq.html" aria-current="page">常见问题</a>
+    </nav>
+    <div class="nav-r">
+      <a class="link" href="login.html" data-auth-out>登录</a>
+      <a class="nav-msg" href="messages.html" data-auth-in hidden aria-label="消息"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="badge" data-unread data-default="2" hidden></span></a>
+      <a class="nav-user" href="console.html" data-auth-in hidden><span class="host-av" aria-hidden="true" data-user-initial></span><span data-user-name></span></a>
+      <a class="btn btn-green" href="market.html">租一台</a>
+      <button class="menu" aria-label="打开菜单" aria-expanded="false" aria-controls="navlinks"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="pghead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="当前位置"><a href="index.html">首页</a> <span aria-hidden="true">/</span> <span aria-current="page">常见问题</span></nav>
+    <h1>租之前，<br>先把<em>问题</em>问清楚。</h1>
+    <p class="lede">关于设备、网络、AI 工具、付款和出租的常见疑问。没找到答案，可以直接发布求租或联系我们。</p>
+    <p class="tbc-note"><span class="tbc-tag">待确认</span>标出的内容是原型里的业务假设，上线前需要确认或修改，确认后删掉标记即可。</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="faq rv">
+      <div class="faq-nav" role="tablist" aria-label="问题分类"><button role="tab" aria-selected="true" data-cat="dev">设备与网络<span>8</span></button><button role="tab" aria-selected="false" data-cat="ai" tabindex="-1">Agent 与 AI 工具<span>5</span></button><button role="tab" aria-selected="false" data-cat="use" tabindex="-1">使用与数据<span>8</span></button><button role="tab" aria-selected="false" data-cat="pay" tabindex="-1">付款与租期<span>6</span></button><button role="tab" aria-selected="false" data-cat="host" tabindex="-1">托管与个人出租<span>7</span></button></div>
+      <div class="faq-list">
+        <div class="faq-group" data-cat="dev" role="tabpanel" aria-label="设备与网络"><details><summary>租到的是虚拟机吗？会和别人共用吗？<i aria-hidden="true"></i></summary><p>不是虚拟机。官方直营的每个方案都对应一台实体电脑，租期内整机只给你一个人用，不超售。个人直租的设备由机主提供，独享方式写在设备页上，租之前请再核对一次。</p></details><details><summary>机器放在哪里？<i aria-hidden="true"></i></summary><p>官方直营设备在马来西亚吉隆坡，个人直租的设备分布在槟城、新加坡等城市。每台设备的国家和城市都写在设备页和交付信息里。</p></details><details><summary><span>住宅 IP 是固定的吗？是我一个人用吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>官方直营设备的<mark class="tbc" title="待业务确认">住宅 IP 在租期内保持不变，运营商如有调整会提前通知你</mark>。家庭宽带不等于每台电脑都有独立的出口 IP：是独享还是和同一条线路上的机器共用，设备页会单独写明。</p></details><details><summary>从中国连过去，延迟大概多少？<i aria-hidden="true"></i></summary><p>以吉隆坡为例，深圳、广州约 40–50 ms，上海、杭州约 65–70 ms，北京约 85 ms，实际取决于你的运营商和时段。远程桌面能感觉到一点；在终端里配合 tmux 或 mosh，几乎感觉不到。每台设备页有最近 7 天的实测值，付款前也可以申请连接测试。</p></details><details><summary>机器会一直开着吗？停电怎么办？<i aria-hidden="true"></i></summary><p>会。我们关闭了自动睡眠，配了 UPS，并设置为来电后自动开机。计划内的系统更新会提前通知你；硬件故障由当地运维到现场处理。</p></details><details><summary>为什么选吉隆坡？<i aria-hidden="true"></i></summary><p>吉隆坡和北京同为 UTC+8，不用换算时间；到华南约 40 ms、到华北约 85 ms（示例数据）；当地家庭光纤普及，可选的运营商也多。缺点是离华北比华南远，对延迟特别敏感的远程桌面操作，建议先申请一次连接测试。</p></details><details><summary><span>带宽有限制吗？能一直跑满吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>每台设备的下行和上行写在设备页上。<mark class="tbc" title="待业务确认">正常使用不限流量，但不能长时间跑满上行</mark>，例如做下载站或对外提供服务，这会影响同一条线路上的其他使用。</p></details><details><summary><span>机器坏了，多久能修好？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>远程能处理的（重启、网络恢复）随时可以申请。需要到现场的，<mark class="tbc" title="待业务确认">当地运维通常 24 小时内修复或换机；超过 48 小时仍无法使用，可以提前终止并按天退还剩余租金</mark>。你自己那边的网络问题不在此列。</p></details></div>
+        <div class="faq-group" data-cat="ai" role="tabpanel" aria-label="Agent 与 AI 工具" hidden><details><summary>nanoMuse 是你们的产品吗？<i aria-hidden="true"></i></summary><p>不是。nanoMuse 是独立的开源社区项目，我们提供的是能让它长期运行的电脑，也可以帮你预装。它的功能和更新以 nanomuse.cn 官方文档为准。</p></details><details><summary>可以跑 Codex、Claude Code 这类 AI 编程工具吗？<i aria-hidden="true"></i></summary><p>可以，它们和在你自己的电脑上一样运行。AI 服务的账号由你自己注册、付费和管理，请遵守各服务的条款和使用地区规定；设备在哪里，不代表你因此获得某项服务的使用资格。</p></details><details><summary>你们提供 Claude、ChatGPT 等账号吗？<i aria-hidden="true"></i></summary><p>不提供，也不代开、不代管任何第三方账号或订阅，更不提供共享账号。租金只包含设备和网络。</p></details><details><summary>能保证某个 AI 服务一直能用吗？<i aria-hidden="true"></i></summary><p>不能。我们负责让机器和网络稳定在线；第三方服务是否可用、如何管理账号，由服务方自己决定，我们无法对此做任何承诺。</p></details><details><summary>用住宅 IP 就不会被封号了吗？<i aria-hidden="true"></i></summary><p>不能这么保证。住宅 IP 更接近普通用户，但每个平台怎么判断风险，由平台自己决定。请用自己的账号、遵守平台条款，不要在同一台机器上频繁切换大量账号。</p></details></div>
+        <div class="faq-group" data-cat="use" role="tabpanel" aria-label="使用与数据" hidden><details><summary><span>租到之后怎么连上？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>交付信息里会给出连接方式，默认推荐 UU 远程；也可以用 UU 终端、SSH / mosh、VS Code Web，或使用<mark class="tbc" title="待业务确认">每台机器的 Cloudflare 固定专属地址</mark>在浏览器里登录。Tailscale、ToDesk、RustDesk 可以在进入桌面后自己配置。</p></details><details><summary>有管理员权限吗？能自己装软件吗？<i aria-hidden="true"></i></summary><p>有完整的管理员权限，想装什么软件和开发环境都可以。Homebrew、Git、Node.js、Python、Docker 等常用工具可以预装；Xcode、Final Cut Pro 等需要你用自己的 Apple 账户下载或购买。</p></details><details><summary>你们会看我的数据吗？<i aria-hidden="true"></i></summary><p>不会录屏，不记录按键，日常运营也不浏览你的文件。需要进入你的环境维护时，会先征得你同意并保留操作记录；机器失去响应时，只检查供电、网络或重启，不借此读取文件。</p></details><details><summary><span>数据会备份吗？退租后怎么处理？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>机器上的数据请自己备份，重要代码及时推送到你自己的仓库。<mark class="tbc" title="待业务确认">退租后我们会抹除整块硬盘并重装系统</mark>，再交给下一位租客。</p></details><details><summary>可以几个人一起用一台吗？<i aria-hidden="true"></i></summary><p>一台机器对应一位客户。团队里多个人要用，建议每人一台；如有特殊需要，请在下单前说明。连接权限不能转租或转卖。</p></details><details><summary><span>能用来做代理、VPN 或转售网络吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>不能。出租的是电脑和它所在的网络，不能把线路转售成代理或 VPN，也不能用来群发、扫描、攻击或挖矿。<mark class="tbc" title="待业务确认">收到运营商投诉会先警告一次，再次发生会停用且不退款</mark>。</p></details><details><summary>需要用我的 Apple ID 吗？<i aria-hidden="true"></i></summary><p>我们不会要你的 Apple ID。建议用一个单独的 Apple ID 登录，不要开启「查找」，退租前记得退出登录，否则抹盘重装会受影响。</p></details><details><summary><span>硬盘有加密吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>为了停电恢复后能自动登录、远程工具能自动连上，<mark class="tbc" title="待业务确认">FileVault 默认关闭</mark>。如果你更在意磁盘加密，可以自己开启，但之后每次停电或重启，都需要运维到现场输入密码才能连上。</p></details></div>
+        <div class="faq-group" data-cat="pay" role="tabpanel" aria-label="付款与租期" hidden><details><summary><span>付款后多久能用上？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>官方直营的现货设备，<mark class="tbc" title="待业务确认">付款后 2 小时内</mark>把连接信息发到你的邮箱。个人直租的设备以设备页标注的交付时间为准。</p></details><details><summary>怎么付款？能开发票吗？<i aria-hidden="true"></i></summary><p>在线下单付款，支持按月、季、年付，可用的付款方式以付款页为准。需要发票或报销凭证的，请在下单前说明。</p></details><details><summary><span>怎么续租、停用？能退款吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>到期前可以一键续租；不续租的话到期自动停用，<mark class="tbc" title="待业务确认">没有押金</mark>。交付后如果因为我们的原因无法正常使用，<mark class="tbc" title="待业务确认">可以申请全额退款</mark>，其他情况以服务条款为准。</p></details><details><summary><span>租到一半想升级配置可以吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>可以。<mark class="tbc" title="待业务确认">差价按剩余天数计算，数据迁移由我们协助完成</mark>。</p></details><details><summary><span>设备归谁？能买断吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p>官方直营的设备归平台，托管出租和个人直租的设备归房东，<mark class="tbc" title="待业务确认">目前不提供买断</mark>。</p></details><details><summary><span>客服什么时候在线？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p><mark class="tbc" title="待业务确认">工作日 10:00–22:00（北京时间）在线</mark>；机器失联、连不上这类紧急问题全天处理。</p></details></div>
+        <div class="faq-group" data-cat="host" role="tabpanel" aria-label="托管与个人出租" hidden><details><summary>托管出租和个人直租有什么区别？<i aria-hidden="true"></i></summary><p>都是你的机器放在你家。托管出租由平台定价、收款和交付，你每月拿租金扣掉<mark class="tbc" title="待业务确认">固定的平台服务费</mark>；个人直租由你自己定价、收款、和租客沟通、自己交付。<a class="link" href="lend.html#compare">看对比</a></p></details><details><summary><span>托管的机器掉线了怎么办？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p><mark class="tbc" title="待业务确认">超过 15 分钟没有心跳，你会收到通知</mark>，请尽快到场处理；掉线期间租客的服务期顺延，<mark class="tbc" title="待业务确认">顺延的天数不计收入</mark>。</p></details><details><summary>我能看到租客的信息吗？<i aria-hidden="true"></i></summary><p>托管出租看不到：租客的姓名和联系方式只在平台这边，你也不接触租客机器里的数据。需要你进入租客环境处理问题时，我们会先征得租客同意。</p></details><details><summary>电费网费谁出？可以退出吗？<i aria-hidden="true"></i></summary><p>机器、电费和网费由你承担。不想继续了，在后台把空闲的机器设为维护，就不再接新租客；在租的租客照常服务到期，已经服务的天数照常结算。</p></details><details><summary>发布出租或求租要收费吗？<i aria-hidden="true"></i></summary><p>发布免费。出租帖和求租帖都要先审核，通过后才会公开展示，成交前请双方确认实际配置、网络和交付安排。</p></details><details><summary><span>个人直租的设备你们核验过吗？<span class="tbc-tag">待确认</span></span><i aria-hidden="true"></i></summary><p><mark class="tbc" title="待业务确认">上架前我们会审核设备信息，并做一次连接测试</mark>。但配置、所在地和网络以机主填写为主，审核不等于担保，付款前请再次和机主确认。</p></details><details><summary>登记之后能保证有租客、有收入吗？<i aria-hidden="true"></i></summary><p>不能保证。出租快慢取决于设备、地区、价格和需求；没有租客时不会产生租金收入。</p></details></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark band">
+  <div class="wrap band-in">
+    <div><h2>没找到答案？<br>直接<em>告诉我们</em>。</h2><p class="lede">写下你的需求，通常 24 小时内回复。</p></div>
+    <div class="hero-cta"><a class="btn btn-light" href="request.html">发布求租 <span class="arrow">→</span></a><a class="btn btn-ghost-light" href="market.html">去设备市场</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span>© 2026 AgentDesk · 真实远程电脑租赁</span><p class="tm">nanoMuse 是独立的开源社区项目，Codex 是 OpenAI 的产品，Claude Code 是 Anthropic 的产品。相关名称和标志归各自所有者，本平台与它们没有隶属关系。</p><p class="foot-ct">联系我们：<a href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg>Telegram</a><a href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg>WhatsApp</a><button type="button" data-wechat><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg>微信</button></p></div>
+    <nav aria-label="页脚"><a href="market.html">设备市场</a><a href="wanted.html">求租广场</a><a href="request.html">发布求租</a><a href="host.html">托管出租</a><a href="lend.html">个人直租</a><a href="network.html">网络与连接</a><a href="index.html#vps">与 VPS 的区别</a><a href="faq.html">常见问题</a></nav>
+  </div>
+</footer>
+
+
+<div class="cw" id="cw">
+  <div class="cw-menu" id="cw-menu" hidden>
+    <a class="cw-item" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><span class="cw-ic tg"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg></span><span><b>Telegram</b><small>@example_yuanzhuo · 回复最快</small></span></a>
+    <a class="cw-item" href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><span class="cw-ic wa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg></span><span><b>WhatsApp</b><small>+60 00-000 0000</small></span></a>
+    <button class="cw-item" type="button" data-wechat><span class="cw-ic wx"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg></span><span><b>微信</b><small>扫码添加客服</small></span></button>
+    <p class="cw-note">联系方式为示例<span class="tbc-tag">待替换</span></p>
+  </div>
+  <div class="cw-bar">
+    <a class="cw-main" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener" aria-label="Telegram 咨询"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg><span>Telegram 咨询</span></a>
+    <button class="cw-more" type="button" aria-expanded="false" aria-controls="cw-menu" aria-label="更多联系方式：微信、WhatsApp"><span aria-hidden="true">···</span></button>
+  </div>
+</div>
+<dialog class="wx-dlg" id="wx-dialog" aria-labelledby="wx-title">
+  <div class="wx-in">
+    <h2 id="wx-title">微信扫码，添加客服</h2>
+    <img src="assets/wechat-qr.svg" width="200" height="200" alt="AgentDesk 客服微信二维码（示例）" />
+    <p>微信号 <b>yuanzhuo_example</b> <button type="button" class="link" data-copy="yuanzhuo_example">复制</button></p>
+    <p class="small">添加时请备注「AgentDesk」。这是示例二维码<span class="tbc-tag">待替换</span></p>
+    <button type="button" class="btn btn-ghost" data-close>关闭</button>
+  </div>
+</dialog>
+
+<script src="assets/site.js?v=1793440198"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>出租方案 · 个人直租 · AgentDesk</title>
+<meta name="description" content="填写出租方案：分 6 步填写设备、网络、使用条件、费用和服务约定，提交审核后公开。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&family=Noto+Serif+SC:wght@500;600;700&family=Noto+Sans+SC:wght@400;500;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/site.css?v=1793440198" />
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-in">
+    <a class="logo" href="index.html" aria-label="AgentDesk 首页">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect x="1" y="5" width="24" height="15" rx="4" fill="none" stroke="#1b1a16" stroke-width="1.6"/><rect x="8" y="21.5" width="10" height="1.6" rx=".8" fill="#1b1a16"/><circle cx="19.5" cy="12.5" r="2.2" fill="#2fae69"/></svg>
+      AgentDesk
+    </a>
+    <nav class="nav-links" id="navlinks" aria-label="主导航">
+      <a href="nanomuse.html">个人 Agent</a>
+      <a href="coding.html">工作 Agent</a>
+      <a href="use-cases/index.html">适合谁</a>
+      <a href="market.html" aria-current="page">设备市场</a>
+      <a href="host.html">托管出租</a>
+      <a href="network.html">网络与连接</a>
+      <a href="faq.html">常见问题</a>
+    </nav>
+    <div class="nav-r">
+      <a class="link" href="login.html" data-auth-out>登录</a>
+      <a class="nav-msg" href="messages.html" data-auth-in hidden aria-label="消息"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M4 5h16a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1Z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg><span class="badge" data-unread data-default="2" hidden></span></a>
+      <a class="nav-user" href="console.html" data-auth-in hidden><span class="host-av" aria-hidden="true" data-user-initial></span><span data-user-name></span></a>
+      <a class="btn btn-green" href="market.html">租一台</a>
+      <button class="menu" aria-label="打开菜单" aria-expanded="false" aria-controls="navlinks"><i></i><i></i></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="pghead">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="当前位置"><a href="index.html">首页</a> <span aria-hidden="true">/</span> <a href="market.html">设备市场</a> <span aria-hidden="true">/</span> <a href="lend.html">个人直租</a> <span aria-hidden="true">/</span> <span aria-current="page">出租方案</span></nav>
+    <h1>填写你的<br><em>出租方案</em>。</h1>
+    <p class="lede">分 6 步：基础、地点与网络、使用条件、费用、服务约定、确认。提交后审核通过就会公开在设备市场。</p>
+    <p class="small" style="margin-top:18px">发布前请先看<a class="link" href="lend.html#rules">发布要求</a>和<a class="link" href="lend.html#safety">出租前的安全设置</a>。</p>
+    <p class="honest" data-auth-out style="margin-top:18px"><b>需要登录：</b>可以先填写，提交时再<a class="link" href="login.html?next=lend-form.html">登录</a>，填好的内容会保留。</p>
+  </div>
+</section>
+
+<section style="padding-top:0" id="lend-form">
+  <div class="wrap">
+    <div class="head rv">
+      <p class="kicker">开始发布</p>
+      <div>
+        <h2>填写你的<br><em>出租方案</em>。</h2>
+        <p class="lede">内容会自动保存在这台浏览器里，可以随时离开再回来。提交需要先登录。</p>
+      </div>
+    </div>
+    <form class="inq lend" id="lend" novalidate>
+      <ol class="stepper" aria-label="发布步骤"><li><button type="button" data-step="0" aria-current="step"><i>1</i>基础</button></li><li><button type="button" data-step="1"><i>2</i>地点与网络</button></li><li><button type="button" data-step="2"><i>3</i>使用条件</button></li><li><button type="button" data-step="3"><i>4</i>费用</button></li><li><button type="button" data-step="4"><i>5</i>服务约定</button></li><li><button type="button" data-step="5"><i>6</i>确认</button></li></ol><section class="lend-step" data-step-panel="0" aria-labelledby="ls-0"><h3 id="ls-0">1 · 基础</h3><label class="inq-f">标题<input type="text" name="title" maxlength="40" required placeholder="例如：Mac mini M4 · 16 GB · 家庭光纤，适合 iOS 构建" /><small class="f-hint">不要写手机号、微信、邮箱或住址，系统会检测。</small></label><div class="inq-2"><label class="inq-f">设备类型<select name="kind"><option>Mac mini</option><option>Mac Studio</option><option>MacBook</option><option>Windows 主机</option><option>Linux 主机</option><option>其他</option></select></label><label class="inq-f">系统<select name="os"><option>macOS</option><option>Windows</option><option>Linux</option></select></label></div><div class="inq-2"><label class="inq-f">芯片 / 处理器<input type="text" name="cpu" maxlength="30" required placeholder="例如 Apple M4 · 10 核" /></label><label class="inq-f">显卡（选填）<input type="text" name="gpu" maxlength="30" placeholder="例如 RTX 4070 · 12 GB" /></label></div><div class="inq-2"><label class="inq-f">内存<select name="ram"><option>8 GB</option><option selected>16 GB</option><option>24 GB</option><option>32 GB</option><option>48 GB</option><option>64 GB</option><option>128 GB 以上</option></select></label><label class="inq-f">硬盘<select name="disk"><option>256 GB</option><option selected>512 GB</option><option>1 TB</option><option>2 TB</option><option>4 TB 以上</option></select></label></div><label class="inq-f">介绍<textarea name="intro" maxlength="600" placeholder="机器放在哪里、适合做什么、已经装好的软件……（公开显示，不要写联系方式）"></textarea></label></section><section class="lend-step" data-step-panel="1" hidden aria-labelledby="ls-1"><h3 id="ls-1">2 · 地点与网络</h3><div class="inq-2"><label class="inq-f">国家 / 地区<select name="country"><option>马来西亚</option><option>新加坡</option><option>其他</option></select></label><label class="inq-f">城市<input type="text" name="city" maxlength="20" required placeholder="例如 槟城" /><small class="f-hint">只写到城市，不要写详细地址。</small></label></div><fieldset class="inq-when"><legend>网络类型</legend><label><input type="radio" name="net" value="家庭宽带" checked /><span>家庭宽带</span></label><label><input type="radio" name="net" value="办公网络" /><span>办公网络</span></label><label><input type="radio" name="net" value="机房 / 数据中心" /><span>机房 / 数据中心</span></label></fieldset><div class="inq-2"><label class="inq-f">下行（Mbps）<input type="number" name="down" min="1" max="10000" required inputmode="numeric" placeholder="例如 500" /></label><label class="inq-f">上行（Mbps）<input type="number" name="up" min="1" max="10000" required inputmode="numeric" placeholder="例如 100" /></label></div><p class="small">带宽、IP 这类平台无法核实的内容，会在设备页标注「房东自述」。</p><fieldset class="inq-when"><legend>出口 IP</legend><label><input type="radio" name="ip" value="住宅 IP" checked /><span>住宅 IP</span></label><label><input type="radio" name="ip" value="机房 IP" /><span>机房 IP</span></label><label><input type="radio" name="ip" value="不确定" /><span>不确定</span></label></fieldset></section><section class="lend-step" data-step-panel="2" hidden aria-labelledby="ls-2"><h3 id="ls-2">3 · 使用条件</h3><fieldset class="inq-when"><legend>租客的账户权限</legend><label><input type="radio" name="admin" value="管理员" checked /><span>管理员</span></label><label><input type="radio" name="admin" value="普通账户" /><span>普通账户</span></label><label><input type="radio" name="admin" value="可商议" /><span>可商议</span></label></fieldset><fieldset class="pick"><legend>连接方式（可多选）</legend><div><label><input type="checkbox" name="conn" value="UU 远程" checked /><span>UU 远程</span></label><label><input type="checkbox" name="conn" value="SSH" checked /><span>SSH</span></label><label><input type="checkbox" name="conn" value="屏幕共享 / VNC" /><span>屏幕共享 / VNC</span></label><label><input type="checkbox" name="conn" value="RustDesk" /><span>RustDesk</span></label><label><input type="checkbox" name="conn" value="ToDesk" /><span>ToDesk</span></label><label><input type="checkbox" name="conn" value="Tailscale" /><span>Tailscale</span></label></div></fieldset><label class="inq-f">使用限制（选填）<textarea name="limits" maxlength="300" placeholder="例如：不能长时间跑满上行；不接受挖矿"></textarea></label><label class="inq-ack"><input type="checkbox" name="exclusive" required /><span>出租期间整台机器只给一位租客使用。只出租虚拟机、按小时共享或多人共用的方案不在发布范围内。</span></label></section><section class="lend-step" data-step-panel="3" hidden aria-labelledby="ls-3"><h3 id="ls-3">4 · 费用</h3><div class="inq-2"><label class="inq-f">月租（¥）<input type="number" name="price" min="50" max="20000" required inputmode="numeric" placeholder="例如 599" /></label><label class="inq-f">最短租期<select name="minterm"><option>1 个月</option><option>3 个月</option><option>6 个月</option><option>12 个月</option></select><small class="f-hint">至少按月起租。</small></label></div><div class="inq-2"><label class="inq-f">押金（¥，没有填 0）<input type="number" name="deposit" min="0" max="20000" required inputmode="numeric" value="0" /></label><label class="inq-f">首次支付<select name="first"><option>1 个月租金</option><option>1 个月租金 + 押金</option><option>3 个月租金</option><option>3 个月租金 + 押金</option></select></label></div><label class="inq-f">其他费用（选填）<input type="text" name="fees" maxlength="60" placeholder="没有就留空" /></label><p class="small">租金通过平台支付，平台扣除服务费后按月结算给你<span class="tbc-tag">待确认</span>。</p></section><section class="lend-step" data-step-panel="4" hidden aria-labelledby="ls-4"><h3 id="ls-4">5 · 服务约定</h3><label class="inq-f">支持时段<input type="text" name="support" maxlength="40" required placeholder="例如 北京时间 10:00–24:00，可商议" /></label><label class="inq-f">交付说明<input type="text" name="delivery" maxlength="60" required placeholder="例如 付款后 3 天内交付，交付前可以远程试连 30 分钟" /></label><label class="inq-f">退款与取消<input type="text" name="refund" maxlength="60" required placeholder="例如 交付后 24 小时内无法正常连接，全额退款" /></label><label class="inq-f">数据清理<select name="wipe"><option>退租后抹盘重装系统</option><option>退租后删除租客账户并清理数据</option></select><small class="f-hint">出租了管理员权限的，每次退租都要抹掉整台电脑。</small></label><p class="small">这些会以「以下由房东提供，平台不保证」显示在设备页。</p></section><section class="lend-step" data-step-panel="5" hidden aria-labelledby="ls-5"><h3 id="ls-5">6 · 确认</h3><div class="lend-preview"><p class="kicker">预览：设备市场里会这样显示</p><div class="listing" id="lend-preview"></div></div><fieldset class="pick col"><legend>出租前的安全设置</legend><div><label><input type="checkbox" name="safe" value="已备份并移走个人数据，把电脑恢复出厂后重新设置" /><span>已备份并移走个人数据，把电脑恢复出厂后重新设置</span></label><label><input type="checkbox" name="safe" value="留了一个只给自己用的维护账户，不交给任何人" /><span>留了一个只给自己用的维护账户，不交给任何人</span></label><label><input type="checkbox" name="safe" value="出租机接在访客网络或单独的 VLAN，没有把远程端口直接映射到公网" /><span>出租机接在访客网络或单独的 VLAN，没有把远程端口直接映射到公网</span></label><label><input type="checkbox" name="safe" value="没有登录自己平时用的 Apple 账户 / 微软账户" /><span>没有登录自己平时用的 Apple 账户 / 微软账户</span></label></div></fieldset><label class="inq-ack"><input type="checkbox" name="role" required /><span>我了解：这是个人直租，设备由我自己管理和交付；平台审核信息、处理付款和协调纠纷<span class="tbc-tag">待确认</span>，但不担保设备情况。我会遵守当地法律和所用软件的许可条款。</span></label></section>
+      <div class="lend-nav">
+        <button class="btn btn-ghost" type="button" data-prev>上一步</button>
+        <span class="small" id="lend-saved" role="status" aria-live="polite"></span>
+        <button class="btn btn-ghost" type="button" data-draft>保存草稿</button>
+        <button class="btn btn-green" type="button" data-next>下一步 <span class="arrow">→</span></button>
+        <button class="btn btn-green" type="submit" hidden>提交审核 <span class="arrow">→</span></button>
+      </div>
+      <p class="ok" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div><span>© 2026 AgentDesk · 真实远程电脑租赁</span><p class="tm">nanoMuse 是独立的开源社区项目，Codex 是 OpenAI 的产品，Claude Code 是 Anthropic 的产品。相关名称和标志归各自所有者，本平台与它们没有隶属关系。</p><p class="foot-ct">联系我们：<a href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg>Telegram</a><a href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg>WhatsApp</a><button type="button" data-wechat><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg>微信</button></p></div>
+    <nav aria-label="页脚"><a href="market.html">设备市场</a><a href="wanted.html">求租广场</a><a href="request.html">发布求租</a><a href="host.html">托管出租</a><a href="lend.html">个人直租</a><a href="network.html">网络与连接</a><a href="index.html#vps">与 VPS 的区别</a><a href="faq.html">常见问题</a></nav>
+  </div>
+</footer>
+
+
+<div class="cw" id="cw">
+  <div class="cw-menu" id="cw-menu" hidden>
+    <a class="cw-item" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener"><span class="cw-ic tg"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg></span><span><b>Telegram</b><small>@example_yuanzhuo · 回复最快</small></span></a>
+    <a class="cw-item" href="https://wa.me/60000000000?text=%E4%BD%A0%E5%A5%BD%EF%BC%8C%E6%88%91%E6%83%B3%E5%92%A8%E8%AF%A2%20AgentDesk%20%E7%9A%84%E8%BF%9C%E7%A8%8B%E7%94%B5%E8%84%91%E7%A7%9F%E7%94%A8%E3%80%82" target="_blank" rel="noopener"><span class="cw-ic wa"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M12 3a9 9 0 0 0-7.8 13.5L3 21l4.6-1.2A9 9 0 1 0 12 3Zm4.6 12.6c-.2.6-1.2 1.1-1.7 1.1-.4 0-1 .1-3.3-.9-2.7-1.2-4.4-4-4.5-4.2-.1-.2-1.1-1.4-1.1-2.7s.7-1.9.9-2.2c.2-.3.5-.3.7-.3h.5c.2 0 .4 0 .6.4l.8 2c.1.2.1.4 0 .5l-.4.6-.4.4c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.4.2.5.3 0 .1 0 .7-.2 1.2Z" fill="currentColor"/></svg></span><span><b>WhatsApp</b><small>+60 00-000 0000</small></span></a>
+    <button class="cw-item" type="button" data-wechat><span class="cw-ic wx"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M9.5 4C5.4 4 2 6.8 2 10.2c0 1.9 1 3.6 2.7 4.7L4 17l2.5-1.3c.9.3 1.9.4 3 .4h.6a5.4 5.4 0 0 1-.2-1.4c0-3.4 3.2-6.1 7.1-6.1h.6C16.9 5.9 13.5 4 9.5 4Zm-2.6 3.2a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8Zm5.2 0a.9.9 0 1 1 0 1.8.9.9 0 0 1 0-1.8ZM17 9.9c-3.3 0-6 2.2-6 4.9s2.7 4.9 6 4.9c.7 0 1.4-.1 2-.3l2 1.1-.6-1.8c1.6-.9 2.6-2.3 2.6-3.9 0-2.7-2.7-4.9-6-4.9Zm-2 2.6a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Zm4 0a.8.8 0 1 1 0 1.6.8.8 0 0 1 0-1.6Z" fill="currentColor"/></svg></span><span><b>微信</b><small>扫码添加客服</small></span></button>
+    <p class="cw-note">联系方式为示例<span class="tbc-tag">待替换</span></p>
+  </div>
+  <div class="cw-bar">
+    <a class="cw-main" href="https://t.me/example_yuanzhuo" target="_blank" rel="noopener" aria-label="Telegram 咨询"><svg viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M3 11.5 20.5 4.5 17.5 19.5 12 15.5 9.5 18 9.5 14 17 7.5 8 13 3 11.5Z" fill="currentColor"/></svg><span>Telegram 咨询</span></a>
+    <button class="cw-more" type="button" aria-expanded="false" aria-controls="cw-menu" aria-label="更多联系方式：微信、WhatsApp"><span aria-hidden="true">···</span></button>
+  </div>
+</div>
+<dialog class="wx-dlg" id="wx-dialog" aria-labelledby="wx-title">
+  <div class="wx-in">
+    <h2 id="wx-title">微信扫码，添加客服</h2>
+    <img src="assets/wechat-qr.svg" width="200" height="200" alt="AgentDesk 客服微信二维码（示例）" />
+    <p>微信号 <b>yuanzhuo_example</b> <button type="button" class="link" data-copy="yuanzhuo_example">复制</button></p>
+    <p class="small">添加时请备注「AgentDesk」。这是示例二维码<span class="tbc-tag">待替换</span></p>
+    <button type="button" class="btn btn-ghost" data-close>关闭</button>
+  </div>
+</dialog>
+
+<script src="assets/site.js?v=1793440198"></script>
+</body>
+</html>
